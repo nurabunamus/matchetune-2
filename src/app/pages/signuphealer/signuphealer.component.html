@@ -1,0 +1,310 @@
+<p-toast></p-toast>
+<main>
+  <div class="cover">
+    <img *ngIf="tab === 1" src="/assets/img/7.jpg" alt="" />
+    <img *ngIf="tab === 2" src="/assets/img/5.jpg" alt="" />
+  </div>
+  <div class="form">
+    <div class="bowl_tabs">
+      <div *ngIf="tab === 1" class="bowl_form">
+        <div class="title">
+          <span class="tit">{{ "signup.title_sign_Healer" | translate }}</span>
+          <span class="sub">{{
+            "signup.sub_title_sign_Healer" | translate
+          }}</span>
+        </div>
+        <form #form="ngForm" (submit)="onSubmit(form)">
+          <div class="bowl_lines">
+            <span class="p-float-label">
+              <input
+                required
+                minlength="4"
+                id="Name"
+                type="text"
+                pInputText
+                ngModel
+                #nameInput="ngModel"
+                name="name"
+                [class.error]="isValid"
+              />
+              <label for="Name">Name</label>
+            </span>
+            <span class="bowl_input p-float-label">
+              <input
+                required
+                minlength="4"
+                id="email"
+                type="email"
+                pInputText
+                email
+                ngModel
+                #nameInput="ngModel"
+                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                name="email"
+                [class.error]="isValid"
+              />
+              <label for="email">Email</label>
+            </span>
+            <span class="bowl_input p-float-label p-input-icon-right">
+              <i
+                *ngIf="!showPass"
+                class="pi pi-eye-slash"
+                (click)="showPassFun()"
+              ></i>
+              <i *ngIf="showPass" class="pi pi-eye" (click)="showPassFun()"></i>
+              <input
+                required
+                minlength="8"
+                [type]="!showPass ? 'password' : 'text'"
+                pInputText
+                ngModel
+                #nameInput="ngModel"
+                name="password"
+                value="ladf"
+                id="password"
+                [class.error]="isValid"
+              />
+              <label for="password">Password</label>
+            </span>
+          </div>
+          <div class="msgsubmit" *ngIf="isValid">
+            <span> {{ "signup.valid_input" | translate }}</span>
+          </div>
+          <button type="submit" class="btn_form">
+            {{ "signup.next" | translate }}
+            <i class="pi pi-sign-in"></i>
+          </button>
+        </form>
+        <div class="sign_with">
+          <div class="title_With">
+            <span>{{ "signup.continue_With" | translate }}</span>
+          </div>
+
+          <div class="btns_social">
+            <div class="btn" (click)="withFacebook()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Ebene 1"
+                viewBox="0 0 1024 1024"
+              >
+                <path
+                  fill="#1877f2"
+                  d="M1024,512C1024,229.23016,794.76978,0,512,0S0,229.23016,0,512c0,255.554,187.231,467.37012,432,505.77777V660H302V512H432V399.2C432,270.87982,508.43854,200,625.38922,200,681.40765,200,740,210,740,210V336H675.43713C611.83508,336,592,375.46667,592,415.95728V512H734L711.3,660H592v357.77777C836.769,979.37012,1024,767.554,1024,512Z"
+                />
+                <path
+                  fill="#fff"
+                  d="M711.3,660,734,512H592V415.95728C592,375.46667,611.83508,336,675.43713,336H740V210s-58.59235-10-114.61078-10C508.43854,200,432,270.87982,432,399.2V512H302V660H432v357.77777a517.39619,517.39619,0,0,0,160,0V660Z"
+                />
+              </svg>
+              <span>Facebook</span>
+            </div>
+            <div class="btn" (click)="withGoogle()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="2443"
+                height="2500"
+                preserveAspectRatio="xMidYMid"
+                viewBox="0 0 256 262"
+              >
+                <path
+                  fill="#4285F4"
+                  d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+                />
+                <path
+                  fill="#34A853"
+                  d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+                />
+                <path
+                  fill="#EB4335"
+                  d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+                />
+              </svg>
+              <span>Google</span>
+            </div>
+          </div>
+        </div>
+        <div class="to_signup">
+          <span routerLink="/login"
+            >{{ "signup.ask_have_account" | translate
+            }}<strong>{{ "signup.login" | translate }}</strong></span
+          >
+        </div>
+      </div>
+      <div *ngIf="tab === 2" class="bowl_form">
+        <div class="title">
+          <span class="tit">{{
+            "signup.title_sign_Healer_2" | translate
+          }}</span>
+          <span class="sub">{{
+            "signup.sub_title_sign_Healer_2" | translate
+          }}</span>
+        </div>
+
+        <form #form2="ngForm" (submit)="onSubmit2(form2)">
+          <div class="bowl_head_tab2">
+            <div class="side_ledt_toince">
+              <span class="p-float-label p-input-icon-right">
+                <i class="pi pi-user"></i>
+                <input
+                  required
+                  minlength="4"
+                  type="number"
+                  pInputText
+                  ngModel
+                  #nameInput="ngModel"
+                  name="id_number"
+                  id="id_number"
+                  [class.error]="isValid"
+                />
+                <label for="id_number">ID number</label>
+              </span>
+              <span class="p-float-label p-input-icon-right">
+                <i class="pi pi-phone"></i>
+                <input
+                  required
+                  minlength="4"
+                  type="number"
+                  pInputText
+                  ngModel
+                  #nameInput="ngModel"
+                  name="phone_number"
+                  id="phone_number"
+                  [class.error]="isValid"
+                />
+                <label for="phone_number">Phone number</label>
+              </span>
+            </div>
+
+            <label
+              class="label_avatar"
+              [class.invalid]="isValid"
+              for="upload_avatar"
+            >
+              <div *ngIf="!coverReader" class="title_upload">
+                {{ "signup.pick_avatar" | translate }}
+              </div>
+              <div *ngIf="!coverReader" class="add_icon">
+                <svg
+                  width="15"
+                  height="14"
+                  viewBox="0 0 15 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.96863 1.37573H7.03113C6.94779 1.37573 6.90613 1.4174 6.90613 1.50073V6.40698H2.25024C2.16691 6.40698 2.12524 6.44865 2.12524 6.53198V7.46948C2.12524 7.55282 2.16691 7.59448 2.25024 7.59448H6.90613V12.5007C6.90613 12.5841 6.94779 12.6257 7.03113 12.6257H7.96863C8.05196 12.6257 8.09363 12.5841 8.09363 12.5007V7.59448H12.7502C12.8336 7.59448 12.8752 7.55282 12.8752 7.46948V6.53198C12.8752 6.44865 12.8336 6.40698 12.7502 6.40698H8.09363V1.50073C8.09363 1.4174 8.05196 1.37573 7.96863 1.37573Z"
+                    fill="black"
+                    fill-opacity="0.85"
+                  />
+                </svg>
+              </div>
+
+              <img *ngIf="coverReader" [src]="coverReader" alt="" />
+              <input
+                id="upload_avatar"
+                style="display: none"
+                type="file"
+                (change)="uploadCover($event)"
+              />
+            </label>
+          </div>
+          <span class="bowl_input p-float-label">
+            <input
+              required
+              minlength="4"
+              id="profession_name"
+              type="text"
+              pInputText
+              ngModel
+              #nameInput="ngModel"
+              name="profession_name"
+              [class.error]="isValid"
+            />
+            <label for="profession_name">Profession name</label>
+          </span>
+          <span class="bowl_input p-float-label p-input-icon-right">
+            <i class="pi pi-linkedin"></i>
+            <input
+              required
+              minlength="4"
+              type="text"
+              pInputText
+              ngModel
+              #nameInput="ngModel"
+              name="linkedin"
+              id="linkedin"
+              [class.error]="isValid"
+            />
+            <label for="linkedin">Linkedin account</label>
+          </span>
+          <span class="bowl_input p-float-label p-input-icon-right">
+            <i class="pi pi-facebook"></i>
+            <input
+              required
+              minlength="4"
+              type="text"
+              pInputText
+              ngModel
+              #nameInput="ngModel"
+              name="social_media"
+              id="social_media"
+              [class.error]="isValid"
+            />
+            <label for="social_media">Social media account</label>
+          </span>
+          <div class="line_resume">
+            <div class="title_line_resume">
+              <span>{{ "signup.upload_resume" | translate }}</span>
+            </div>
+            <label
+              class="upload_resume"
+              [className]="isValid ? 'upload_resume invalid' : 'upload_resume'"
+              for="upload_resume"
+            >
+              <div class="title_upload">
+                {{ "signup.upload" | translate }}
+              </div>
+              <div class="upload_icon">
+                <svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.9766 14.875H2.02344C1.45833 14.8477 0.979818 14.6289 0.587891 14.2188C0.195964 13.8177 0 13.3346 0 12.7695C0 12.7513 0 12.7331 0 12.7148C0 12.6966 0 12.6829 0 12.6738V10.2812C0 10.1081 0.0592448 9.9668 0.177734 9.85742C0.296224 9.73893 0.4375 9.67969 0.601562 9.67969C0.765625 9.67969 0.906901 9.73893 1.02539 9.85742C1.14388 9.9668 1.20312 10.1081 1.20312 10.2812V12.6738C1.20312 12.6829 1.20312 12.6966 1.20312 12.7148C1.20312 12.724 1.20312 12.7376 1.20312 12.7559C1.20312 12.9928 1.27604 13.1979 1.42188 13.3711C1.57682 13.5443 1.76823 13.6445 1.99609 13.6719H11.9766C12.2044 13.6445 12.3958 13.5443 12.5508 13.3711C12.7057 13.1979 12.7832 12.9928 12.7832 12.7559C12.7832 12.7376 12.7832 12.724 12.7832 12.7148C12.7832 12.6966 12.7786 12.6829 12.7695 12.6738V10.2812C12.7695 10.1081 12.8288 9.9668 12.9473 9.85742C13.0658 9.73893 13.207 9.67969 13.3711 9.67969C13.5443 9.67969 13.6855 9.73893 13.7949 9.85742C13.9134 9.9668 13.9727 10.1081 13.9727 10.2812V12.6738C13.9727 12.6921 13.9727 12.7103 13.9727 12.7285C13.9727 12.7376 13.9727 12.7513 13.9727 12.7695C13.9727 13.3346 13.7767 13.8177 13.3848 14.2188C13.002 14.6289 12.5326 14.8477 11.9766 14.875ZM10.1992 5.27734C10.1172 5.27734 10.0397 5.26367 9.9668 5.23633C9.89388 5.19987 9.83008 5.1543 9.77539 5.09961L7 2.32422L4.22461 5.09961C4.16992 5.14518 4.10612 5.1862 4.0332 5.22266C3.9694 5.25 3.89648 5.26367 3.81445 5.26367C3.65039 5.26367 3.50911 5.20443 3.39062 5.08594C3.27214 4.96745 3.21289 4.82617 3.21289 4.66211C3.21289 4.58008 3.22656 4.50716 3.25391 4.44336C3.28125 4.37044 3.32227 4.30664 3.37695 4.25195L6.57617 1.05273C6.63086 0.998047 6.69466 0.957031 6.76758 0.929688C6.84049 0.893229 6.91797 0.875 7 0.875C7.08203 0.875 7.15951 0.893229 7.23242 0.929688C7.30534 0.957031 7.36914 0.998047 7.42383 1.05273L10.623 4.25195C10.6777 4.30664 10.7188 4.37044 10.7461 4.44336C10.7826 4.51628 10.8008 4.59375 10.8008 4.67578C10.8008 4.75781 10.7826 4.83529 10.7461 4.9082C10.7188 4.98112 10.6777 5.04492 10.623 5.09961C10.5684 5.1543 10.5046 5.19987 10.4316 5.23633C10.3587 5.26367 10.2812 5.27734 10.1992 5.27734ZM7 10.8691C6.83594 10.8691 6.69466 10.8145 6.57617 10.7051C6.45768 10.5866 6.39844 10.4453 6.39844 10.2812V1.47656C6.39844 1.3125 6.45768 1.17122 6.57617 1.05273C6.69466 0.934245 6.83594 0.875 7 0.875C7.16406 0.875 7.30534 0.934245 7.42383 1.05273C7.54232 1.17122 7.60156 1.3125 7.60156 1.47656V10.2812C7.60156 10.4453 7.54232 10.5866 7.42383 10.7051C7.30534 10.8145 7.16406 10.8691 7 10.8691Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <input
+                id="upload_resume"
+                style="display: none"
+                type="file"
+                (change)="uploadResume($event)"
+              />
+            </label>
+          </div>
+          <span *ngIf="resumeEvent">file: {{ resumeEvent?.name }}</span>
+          <button type="submit" class="btn_form">
+            {{ "signup.submit" | translate }}
+            <div class="loader" *ngIf="isLoaderAdd">
+              <p-progressSpinner
+                [style]="{ width: '30px', height: '30px' }"
+              ></p-progressSpinner>
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="bowl_Tabs">
+      <button class="circle active"></button>
+      <button class="circle" [class.active]="tab === 2"></button>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,15 @@
+<main>
+  <div
+    *ngFor="let item of list"
+    class="card"
+    [routerLink]="['/healer', item.id]"
+  >
+    <div class="avatar">
+      <img [src]="item.avatar" alt="" />
+    </div>
+    <div class="details">
+      <span class="name">{{ item.name }}</span>
+      <span class="profession">{{ item.profession_name }}</span>
+    </div>
+  </div>
+</main>

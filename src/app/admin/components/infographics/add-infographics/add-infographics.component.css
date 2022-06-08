@@ -1,0 +1,164 @@
+form {
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.lines {
+    min-width: 550px;
+}
+
+
+
+.cover_book img {
+    height: 400px;
+}
+
+.btn_remove {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(19, 19, 19, 0.808);
+}
+
+.btn_remove:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+
+.btn_remove svg {
+    fill: #fff;
+}
+
+.upload_book {
+    width: 260px;
+    position: relative;
+    font-family: var(--cairo);
+    text-transform: capitalize;
+}
+
+.select_cover {
+    border: 2px dashed var(--LightBlue);
+    height: 400px;
+    background-color: rgba(235, 235, 235, 0.521);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+
+}
+
+
+.select_cover:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.select_cover svg {
+    width: 150px;
+    height: 150px;
+}
+
+
+.title_File {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 50px;
+    border: 2px dashed var(--LightBlue);
+    background-color: rgba(235, 235, 235, 0.521);
+    margin-top: 15px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.title_File .remove {
+    position: absolute;
+    right: 1px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(119, 119, 119);
+}
+
+.title_File .remove:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+.the_Book {
+    border: 2px dashed var(--LightBlue);
+    background-color: rgba(235, 235, 235, 0.521);
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.the_Book:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.the_Book svg {
+    width: 25px;
+    height: 25px;
+}
+
+.field {
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    overflow: auto;
+    resize: none;
+    margin-top: 20px;
+}
+
+.drops_1 {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.btn_submit {
+    background-color: var(--LightBlue);
+    height: 44px;
+    color: var(--White);
+    font-size: var(--fs-sub-title);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-evenly;
+}
+
+.btn_submit:hover {
+    opacity: .9;
+    box-shadow: var(--shad_3);
+}
+
+.msg_is_upload{
+    margin-top: 10px;
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "matchune": {
+      "hosting": {
+        "app": [
+          "matchune"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "matchune"
+  }
+}

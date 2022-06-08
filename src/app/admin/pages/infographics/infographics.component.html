@@ -1,0 +1,101 @@
+<p-toast></p-toast>
+
+<div *ngIf="!isHiddenTable" class="table_books" #table>
+  <div class="title_table">
+    <span>Matchetune Infographics</span>
+  </div>
+  <div *ngIf="isLoader" class="loader">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <table *ngIf="listBooks.length > 0" class="customers">
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Language</th>
+      <th>Approach</th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let item of listBooks; index as i; last as last">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.status.name }}</td>
+      <td>{{ item.language.name }}</td>
+      <td>{{ item.approach.name }}</td>
+      <td class="row_event">
+        <div (click)="editRow(item)" class="btn_row edit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18.2 24H3.8C1.7 24 0 22.3 0 20.2V5.8C0 3.7 1.7 2 3.8 2H11c.6 0 1 .4 1 1s-.4 1-1 1H3.8C2.8 4 2 4.8 2 5.8v14.3c0 1 .8 1.8 1.8 1.8h14.3c1 0 1.8-.8 1.8-1.8V13c0-.6.4-1 1-1s1 .4 1 1v7.2c.1 2.1-1.6 3.8-3.7 3.8z"
+            />
+            <path
+              d="M6 19c-.3 0-.5-.1-.7-.3-.2-.2-.3-.6-.3-.9l1-5c0-.2.1-.4.3-.5l12-12c.4-.4 1-.4 1.4 0l4 4c.4.4.4 1 0 1.4l-12 12c-.1.1-.3.2-.5.3l-5 1H6zm1.9-5.5l-.6 3.2 3.2-.6L21.6 5 19 2.4 7.9 13.5z"
+            />
+          </svg>
+        </div>
+        <div (click)="removeRow(item)" class="btn_row remove">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+          >
+            <path
+              d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4v-24h-24v24zm26-30h-7l-2-2h-10l-2 2h-7v4h28v-4z"
+            />
+            <path fill="none" d="M0 0h48v48h-48z" />
+          </svg>
+        </div>
+        <a
+          [routerLink]="['/infographics', item.id]"
+          target="_blank"
+          class="btn_row show"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g data-name="Layer 2">
+              <g data-name="link">
+                <rect width="24" height="24" opacity="0" />
+                <path
+                  d="M8 12a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2H9a1 1 0 0 0-1 1z"
+                />
+                <path
+                  d="M9 16H7.21A4.13 4.13 0 0 1 3 12.37 4 4 0 0 1 7 8h2a1 1 0 0 0 0-2H7.21a6.15 6.15 0 0 0-6.16 5.21A6 6 0 0 0 7 18h2a1 1 0 0 0 0-2zM23 11.24A6.16 6.16 0 0 0 16.76 6h-1.51C14.44 6 14 6.45 14 7a1 1 0 0 0 1 1h1.79A4.13 4.13 0 0 1 21 11.63 4 4 0 0 1 17 16h-2a1 1 0 0 0 0 2h2a6 6 0 0 0 6-6.76z"
+                />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </td>
+    </tr>
+  </table>
+  <div class="end_data" *ngIf="emptyData">
+    <span *ngIf="listBooks.length > 0">no data more</span>
+    <span *ngIf="listBooks.length === 0">No added infographics!</span>
+  </div>
+</div>
+
+<!-- for go to add infographics -->
+<div *ngIf="!isHiddenTable" (click)="toggleAdded()" class="bowl_add_book">
+  <i class="pi pi-plus" style="color: white"></i>
+</div>
+
+<!-- for back from add infographics -->
+<div *ngIf="isHiddenTable" (click)="toggleOut()" class="bowl_add_book">
+  <i class="pi pi-times" style="color: white"></i>
+</div>
+
+<app-add-infographics
+  *ngIf="isAddBook"
+  (addedSuccess)="addedSuccess()"
+></app-add-infographics>
+<app-edit-infogrphics
+  (editSuccess)="editSuccess()"
+  *ngIf="isEdit"
+  [infographics]="editInfograpics"
+></app-edit-infogrphics>

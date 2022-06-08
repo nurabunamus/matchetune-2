@@ -1,0 +1,10 @@
+<p>profile works!</p>
+<br />
+<br />
+
+hi i am a {{ (functions.isDataLogged$ | async).type }}
+<br />
+<br />
+{{ functions.isDataLogged$ | async | json }}
+
+<img [src]="(functions.isDataLogged$ | async).avatar" alt="" />

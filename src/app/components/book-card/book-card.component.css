@@ -1,0 +1,81 @@
+.book_container {
+  background: var(--White);
+  box-shadow: var(--shad_2);
+  border-radius: 10px;
+  height: 220px;
+  display: flex;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.book_container:hover {
+  box-shadow: var(--shad_4);
+}
+
+.book_information {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 4px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: var(--fs-sub-text);
+  font-family: var(--cairo);
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+
+}
+
+.description {
+  text-align: justify;
+  line-height: 20px;
+  font-family: var(--cairo);
+  font-size: var(--fs-text);
+  color: var(--DarkGry);
+  width: 200px;
+
+  margin-top: 25px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.book_img_container {
+  width: 160px;
+  height: 100%;
+  padding: 3px;
+}
+
+.title_label {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.title_book {
+  width: calc(100% - 70px);
+}
+
+.status {
+  border-radius: 30px;
+  text-align: center;
+  width: 60px;
+  height: 25px;
+  background-color: var(--LineDown);
+  color: var(--White);
+  font-family: var(--cairo);
+  font-size: 0.9rem;
+}
+
+.status.paid {
+  background-color: rgb(245, 129, 129);
+}

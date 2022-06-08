@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'Harmattan';
+    src: url('/assets/fonts/use/Harmattan-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Cairo-light';
+    src: url('/assets/fonts/use/Cairo-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('/assets/fonts/use/Cairo-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/use/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Cairo-regular';
+    src: url('/assets/fonts/use/Cairo-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --Green: #87BD24;
+    --DarkGreen: #0C2D04;
+    --LightBlue: #009280;
+    --LineDown: #689F38;
+    --Black: #000;
+    --White: #fff;
+    --LightWhite: #F8FAFA;
+    --TextLight: #546160;
+    --DarkBlack: #152F28;
+    --BorderGry: #9D9C9C;
+    --DarkGry: #344442;
+    --shad_1: 0 0px 5px rgba(0, 0, 0, 0.086);
+    --shad_2: 0 1px 5px rgba(0, 0, 0, 0.157);
+    --shad_3: 0 1px 8px rgba(0, 0, 0, 0.238);
+    --shad_4: 0 1px 11px rgba(0, 0, 0, 0.27);
+    --shad_5: 0 1px 16px rgba(0, 0, 0, 0.274);
+    --shad_6: 0 1px 23px rgba(0, 0, 0, 0.336);
+
+    --fs-big: 3.5rem;
+    --fs-title: 2.3rem;
+    --fs-sub-title-2: 2rem;
+    --fs-sub-title: 1.5rem;
+    --fs-sub-text: 1.1rem;
+    --fs-text: 1rem;
+
+
+    --fs-btn: 1.5rem;
+
+    /* Line height */
+    --lh-title: 50px;
+
+    --cairo: 'Cairo', sans-serif;
+    --cairo-light: 'Cairo-light';
+    --cairo-regular: 'Cairo-regular';
+    --harmat: 'Harmattan', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+
+    /* when hover */
+    --HGreen: #87bd240f;
+    --HLightBlue: #00928113;
+}
+
+@media screen and (max-width: 1100px) {}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --fs-big: 3rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --fs-title: 2.1rem;
+        --fs-sub-text: 1rem;
+        --fs-big: 2.3rem;
+        --fs-btn: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --fs-big: 2rem;
+        --fs-title: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --fs-title: 1.6rem;
+        --fs-sub-title: 1.5rem;
+        --fs-text: .9rem;
+        --fs-big: 1.7rem;
+        --lh-title: 45px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --fs-title: 1.4rem;
+        --fs-sub-title: 1.3rem;
+        --fs-text: .8rem;
+        --fs-big: 1.3rem;
+        --lh-title: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --fs-title: 1.3rem;
+    }
+}
+
+.captl {
+    text-transform: capitalize;
+}
+
+input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}

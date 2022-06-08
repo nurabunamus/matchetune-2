@@ -1,0 +1,54 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 80px;
+    justify-content: center;
+    place-content: center;
+    margin-top: 130px;
+}
+
+.card {
+    height: 300px;
+    cursor: pointer;
+}
+
+
+.avatar {
+    width: 100%;
+    box-shadow: var(--shad_2);
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .2s ease-in-out;
+}
+
+.avatar:hover {
+    box-shadow: var(--shad_3);
+}
+
+.avatar img {
+    transition: .2s ease-in-out;
+}
+
+.avatar:hover img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+
+
+
+.details {
+    margin-top: 10px;
+    font-family: var(--harmat);
+}
+
+.name {
+    display: block;
+    font-size: var(--fs-sub-title);
+}
+
+
+.profession {
+    font-size: var(--fs-sub-text);
+    display: block;
+}

@@ -1,0 +1,6 @@
+<main *ngIf="!isAdmin">
+  <app-nav [innerWidth]="innerWidth"></app-nav>
+  <router-outlet></router-outlet>
+</main>
+
+<router-outlet *ngIf="isAdmin"></router-outlet>

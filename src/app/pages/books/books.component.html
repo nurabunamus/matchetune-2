@@ -1,0 +1,69 @@
+<main>
+  <div class="filters">
+    <div class="line">
+      <p-dropdown
+        [options]="list.approach"
+        ngModel
+        [required]="true"
+        name="approach"
+        placeholder="approach"
+        optionLabel="name"
+        [style]="{ width: '100%' }"
+        (onChange)="onChangeApproach($event)"
+      ></p-dropdown>
+    </div>
+    <div class="line" *ngIf="approach !== 'all'">
+      <p-multiSelect
+        class="select_cats"
+        [options]="list.categories[approach.code]"
+        [ngModel]="list.categories[approach.code]"
+        name="categories"
+        defaultLabel="Categories"
+        optionLabel="name"
+        selectedItemsLabel="{0} items selected"
+        [style]="{ width: '100%' }"
+        (onChange)="onChangeCategories($event)"
+      ></p-multiSelect>
+    </div>
+    <div class="line">
+      <p-dropdown
+        [options]="list.languages"
+        ngModel
+        [required]="true"
+        name="languages"
+        placeholder="languages"
+        optionLabel="name"
+        [style]="{ width: '100%' }"
+        (onChange)="onChangeLanguage($event)"
+      ></p-dropdown>
+    </div>
+    <div class="line">
+      <p-dropdown
+        [options]="list.status"
+        ngModel
+        [required]="true"
+        name="status"
+        placeholder="status"
+        optionLabel="name"
+        [style]="{ width: '100%' }"
+        (onChange)="onChangeStatus($event)"
+      ></p-dropdown>
+    </div>
+  </div>
+  <div *ngIf="loader" class="loader">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <div class="data">
+    <div class="card" *ngFor="let item of Books">
+      <app-book-card [book]="item"></app-book-card>
+    </div>
+  </div>
+  <div *ngIf="loadMore" class="loadMore">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <div *ngIf="empty" class="empty">
+    <span>No books are available for this approach! </span>
+  </div>
+</main>

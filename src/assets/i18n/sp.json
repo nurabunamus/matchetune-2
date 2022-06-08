@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "sign_in": "Ingresar",
+    "quiz": "Test",
+    "alternatives": "Alternativas",
+    "healers": "Sanadores",
+    "about": "Nosotros",
+    "get_started": "Comenzar"
+  },
+
+  "books": "Libros",
+  "videos": "Videos",
+  "infographics": "Infografías",
+  "get_started": "Comenzar",
+
+  "home": {
+    "title_header_1": "Una guía cooperativa y",
+    "title_header_2": "amorosa para tu sanación",
+    "sub_title_header": "Infografías, videos y libros. Consultas online con sanadores y Talleres ",
+    "about_platform_title": "Acerca de la Plataforma ",
+    "about_platform_description_line1": "Somos una plataforma que considera diversos enfoques de sanación para que las personas puedan elegir libremente lo que a cada uno le hace sentido.",
+    "about_platform_description_line2": "Hemos incorporado medicinas ancestrales, como la del pueblo Mapuche, los Quero como también la acupuntura (medicina ancestral China), lectura de registros Akáshicos y carta astral. Y dado que creemos en un enfoque colaborativo y amoroso, también creemos que la medicina convencional Occidental tiene mucho que aportar por lo que trabajamos con médicos convencionales holísticos.",
+
+    "to_whom_directed_title_first": "A quién",
+    "to_whom_directed_title_end": "está dirigido?",
+
+    "healing_approaches": "Enfoques curativos",
+    "approach_1": "Medicina Integrativa",
+    "approach_2": "Medicina Ancestral",
+    "approach_3": "Medicina China",
+    "approach_4": "Medicina Occidental",
+
+    "approach_1_description": "La medicina integrativa considera el cuerpo, la mente y el espíritu desde diferentes perspectivas. También puede incorporar energías provenientes del universo (planetas y Energías Superiores).",
+    "approach_2_description": "Las medicinas ancestrales son aquellas realizadas por Pueblos Indígenas de diferentes partes del mundo y considera el espíritu, las emociones y el cuerpo. Muy influenciado por los tratamientos a base de hierbas.",
+    "approach_3_description": "La medicina tradicional china busca el equilibrio del cuerpo y la armonía entre las fuerzas naturales del ying y el yang, que podrían estar bloqueando el qi (energía) de la persona y causando las enfermedades.",
+    "approach_4_description": "Sistema por el cual los médicos y otros profesionales de la atención de la salud (por ejemplo, enfermeros, farmacéuticos y terapeutas) tratan los síntomas y las enfermedades por medio de medicamentos, radiación o cirugía.",
+
+    "to_whom_directed_line_1": "A aquellas personas que no encuentran las respuestas a sus dolencias en la medicina convencional.",
+    "to_whom_directed_line_2": "A aquellos que sienten con certeza que las enfermedades si están relacionadas con las emociones y el espíritu.",
+    "to_whom_directed_line_3": "A aquellos que creen somos cuerpo, mente y espíritu y no quieren ser tratados nunca más como Clientes.",
+
+    "what_Will_find_title": "Qué encontrarás en la plataforma?",
+    "what_Will_find_description": "Desde lo más fácil a lo más complejo para guiarte en tu sanación",
+    "see_all": " ver todo",
+
+    "who_we_are_title": "Quienes somos",
+    "who_we_are_description": "Somos un grupo de sanadores de diferentes culturas, de diferentes Pueblos Originarios de América contribuyendo a la sanación de las almas y nuestros cuerpos.Tuve un sueño en 2016 en el que visualicé el nombre de nuestra start up Matchetune, el cual es un juego de palabras en inglés y Mapuzungun (la lengua de los mapuches):En inglés se lee: Match, acertar entre nosotros, otras personas y nuestra madre naturaleza + “e” de tecnología + Tune, sintonizar con la medicina y cosmovisión ancestral. En español se lee: machitun, que es un ritual de sanación practicado en una Ruka (choza) donde un Machi (sanador mapuche) se conecta con los espíritus y puede sanar. "
+  }
+}

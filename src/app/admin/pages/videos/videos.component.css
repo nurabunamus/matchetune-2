@@ -1,0 +1,131 @@
+.loader {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table_books {
+    width: 100%;
+}
+
+.title_table {
+    width: 90%;
+    margin: 15px auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #333;
+    color: var(--White);
+    font-size: var(--fs-sub-title);
+    font-family: var(--cairo-regular);
+    box-shadow: var(--shad_2);
+}
+
+.end_data {
+    width: 90%;
+    margin: 15px auto;
+    height: 50px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.bowl_add_book {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--LineDown);
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: var(--shad_2);
+    display: flex;
+    user-select: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    transition: .3s;
+}
+
+.bowl_add_book:hover {
+    box-shadow: var(--shad_3);
+}
+
+.bowl_add_book svg {
+    width: 40px;
+    height: 40px;
+}
+
+.customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.customers td, .customers th {
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+.customers tr {
+    width: 100%;
+}
+
+.customers tr:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.customers thead {
+    width: 100%;
+}
+
+.customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    text-align: center;
+    background-color: #F8F9FA;
+    color: var(--Black);
+    font-size: var(--fs-text);
+    font-family: var(--cairo-regular);
+}
+
+.customers th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.customers th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.row_event {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn_row {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: grid;
+    cursor: pointer;
+    place-content: center;
+}
+
+.btn_row:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.btn_row svg {
+    width: 20px;
+    height: 20px;
+}

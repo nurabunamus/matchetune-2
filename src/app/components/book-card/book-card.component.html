@@ -1,0 +1,20 @@
+<div [routerLink]="['/book', book.id]" class="book_container">
+  <div class="book_img_container">
+    <img [src]="book.cover" alt="book" />
+  </div>
+  <div class="book_information">
+    <div class="title_label">
+      <div class="title_book">
+        <span> {{ book.title }} </span>
+      </div>
+      <div class="status" [class.paid]="book.status.code === 'paid'">
+        <span>
+          {{ book.status.name }}
+        </span>
+      </div>
+    </div>
+    <div class="description">
+      <span>{{ book.description }}</span>
+    </div>
+  </div>
+</div>

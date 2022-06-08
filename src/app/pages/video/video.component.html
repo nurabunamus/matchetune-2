@@ -1,0 +1,13 @@
+<div *ngIf="video">
+  <h1>{{ video.title }}</h1>
+  <div class="bowl">
+    <video
+      [poster]="video.cover"
+      loop
+      controls
+      autoplay
+      muted
+      [src]="video.file"
+    ></video>
+  </div>
+</div>

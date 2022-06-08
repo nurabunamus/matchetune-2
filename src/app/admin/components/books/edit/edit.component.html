@@ -1,0 +1,140 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div class="lines">
+    <span class="p-float-label field">
+      <input
+        name="title"
+        id="float-input"
+        type="text"
+        pInputText
+        required
+        [(ngModel)]="book.title"
+      />
+      <label for="float-input">Book title</label>
+    </span>
+    <textarea
+      [(ngModel)]="book.description"
+      name="description"
+      id="float-input"
+      required
+      pInputTextarea
+      placeholder="Description"
+    ></textarea>
+    <app-dropdown
+      (approachCaty)="getApproachCaty($event)"
+      [value]="book"
+    ></app-dropdown>
+
+    <div class="drops_1">
+      <p-dropdown
+        [options]="units.status"
+        [(ngModel)]="book.status"
+        placeholder="Status"
+        name="status"
+        optionLabel="name"
+      ></p-dropdown>
+
+      <p-dropdown
+        [options]="units.languages"
+        [(ngModel)]="book.language"
+        name="language"
+        placeholder="Language"
+        optionLabel="name"
+      ></p-dropdown>
+    </div>
+
+    <button class="btn_submit">
+      Submit
+      <div *ngIf="isLoadUpload">
+        <p-progressSpinner
+          [style]="{ width: '30px', height: '30px' }"
+        ></p-progressSpinner>
+      </div>
+    </button>
+
+    <div *ngIf="isLoadUpload" class="msg_is_upload">
+      Your book is uploading now!
+    </div>
+  </div>
+
+  <div class="upload_book">
+    <label *ngIf="!coverReader" for="cover" class="select_cover">
+      <svg
+        width="95"
+        height="68"
+        viewBox="0 0 95 68"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M76.2669 25.4173C73.5946 10.985 61.6876 0.150391 47.3833 0.150391C36.0264 0.150391 26.1628 7.01094 21.2506 17.0508C9.42213 18.3894 0.226562 29.0567 0.226562 41.983C0.226562 55.8296 10.7975 67.0826 23.8049 67.0826H74.8914C85.7375 67.0826 94.5401 57.7121 94.5401 46.1663C94.5401 35.1225 86.4842 26.1703 76.2669 25.4173ZM55.2428 37.7997V54.5328H39.5239V37.7997H27.7347L47.3833 16.8834L67.032 37.7997H55.2428Z"
+          fill="#86868A"
+        />
+      </svg>
+      <span>Upload book cover</span>
+      <input
+        (change)="readerCover($event)"
+        style="display: none"
+        type="file"
+        accept="image/*"
+        name="cover"
+        id="cover"
+      />
+    </label>
+
+    <div *ngIf="coverReader" class="select_cover">
+      <img [src]="coverReader" alt="" />
+    </div>
+
+    <button
+      *ngIf="coverReader"
+      type="button"
+      (click)="removeCover()"
+      class="btn_remove"
+    >
+      <svg
+        _ngcontent-gxv-c95=""
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+      >
+        <path
+          _ngcontent-gxv-c95=""
+          d="M10.05 23.95a1 1 0 0 0 1.414 0L17 18.414l5.536 5.536a1 1 0 0 0 1.414-1.414L18.414 17l5.536-5.536a1 1 0 0 0-1.414-1.414L17 15.586l-5.536-5.536a1 1 0 0 0-1.414 1.414L15.586 17l-5.536 5.536a1 1 0 0 0 0 1.414z"
+        ></path>
+      </svg>
+    </button>
+
+    <label *ngIf="!bookEvent" for="book" class="the_Book">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M8.71,7.71,11,5.41V15a1,1,0,0,0,2,0V5.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-4-4a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21l-4,4A1,1,0,1,0,8.71,7.71ZM21,12a1,1,0,0,0-1,1v6a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V13a1,1,0,0,0-2,0v6a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V13A1,1,0,0,0,21,12Z"
+        />
+      </svg>
+      <span>Upload book</span>
+      <input
+        (change)="pickBook($event)"
+        style="display: none"
+        type="file"
+        name="book"
+        id="book"
+      />
+    </label>
+
+    <div *ngIf="bookEvent" class="title_File">
+      <span>{{ bookEvent ? bookEvent : bookEvent.name }}</span>
+      <div class="remove" (click)="removeBook()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+        >
+          <path
+            d="M10.05 23.95a1 1 0 0 0 1.414 0L17 18.414l5.536 5.536a1 1 0 0 0 1.414-1.414L18.414 17l5.536-5.536a1 1 0 0 0-1.414-1.414L17 15.586l-5.536-5.536a1 1 0 0 0-1.414 1.414L15.586 17l-5.536 5.536a1 1 0 0 0 0 1.414z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</form>

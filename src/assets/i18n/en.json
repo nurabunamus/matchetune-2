@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "sign_in": "Sign in",
+    "quiz": "Quiz",
+    "alternatives": "Alternatives",
+    "healers": "Healers",
+    "books": "books",
+    "infographics": "infographics",
+    "videos": "videos",
+    "about": "About"
+  },
+
+  "get_started": "Get Started",
+  "books": "Books",
+  "videos": "Videos",
+  "infographics": "Infographics",
+  "back_To_Home": "Back To Home",
+
+  "home": {
+    "title_header_1": "A cooperative and amorous guide",
+    "title_header_2": "for your healing process",
+    "sub_title_header": "Infographics, videos, books, consults with healers and workshops",
+    "about_platform_title": "About the platform",
+    "about_platform_description_line1": "We are a healing platform that considers different healing approaches providing alternatives for people to freelly choose what makes sense for each one.",
+    "about_platform_description_line2": "We have incorporated ancestral approaches, such as Mapuche (Chile), Quero (Andes) and also acupuncture (Chinese ancestral medicine), reading Akashic Records and astrological chart. In addition, we beleive in a collaborative and amorous approach, we have also incorporated Western conventional medicine.",
+
+    "to_whom_directed_title_first": "To whom ",
+    "to_whom_directed_title_end": "it is directed",
+
+    "to_whom_directed_line_1": "To those people who do not find the answers to their ailments in conventional medicine.",
+    "to_whom_directed_line_2": "To those who feel with certainty that diseases are related to the emotions and the spirit.    ",
+    "to_whom_directed_line_3": "To those of us who believe that we are body, mind and spirit and do not want to be treated as Clients anymore.",
+
+    "healing_approaches": "Healing approaches",
+    "approach_1": "Integrative medicines",
+    "approach_2": "Ancestral medicine",
+    "approach_3": "Chinese medicine",
+    "approach_4": "Western Holistic medicine",
+
+    "approach_1_description": "Integrative medicines considers body, mind, and spirit from differentperspective. It also can incorporate energies coming from the universe(planets and Superior Energies).",
+    "approach_2_description": "Ancestral medicines are those performed by Native People from different parts of the world and considers spirit, emotions, and body. Highly influenced by herbs treatments.",
+    "approach_3_description": "Traditional Chinese medicine seeks balance in the body and harmony between the natural forces of yin and yang, which could be blocking the person's qi (energy) and causing illness.",
+    "approach_4_description": "A system by which doctors and other health care professionals (for example, nurses, pharmacists, and therapists) treat symptoms and illnesses using drugs, radiation, or surgery.",
+
+    "what_Will_find_title": "What you will find",
+    "what_Will_find_description": "From the easiest to the more complex to guide you in your healing process.",
+    "see_all": "See all",
+
+    "who_we_are_title": "Who we are? ",
+    "who_we_are_description": "We are a group of healers, from different cultures, from different American Native tribes contributing to the healing of our souls and body. I had a dream back in 2016 where I visualized the name of our start up Matchetune, which is a word game in English and Mapuzungun (mapuches language): In English you read: Match, between us, others and mother nature + “e” of technology + Tune, to make fine tunning with ancestral healing and worldview. In Spanish you read: machitun, which is a healing ritual performed inside a Ruka (tend) where the Machi (mapuche healer) connect with spirits and heal. Join our matchetune! ",
+
+    "tarvel_line1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ",
+    "tarvel_line2": "magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "tarvel_title_btn": "TAKE THE QUIZ",
+
+    "discover_title_first_sub": "Discover",
+    "discover_title_last_sub": " different alternatives",
+    "discover_Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim morbi augue proin elit purus diam.",
+    "testimonials": "Testimonials",
+
+    "frequently_first_title": "Frequently",
+    "frequently_last_title": " Asked Questions",
+
+    "last_sec_title": "Lorem ipsum dolor sit amet"
+  },
+
+  "footer": {
+    "title_receive_email": "Receive exclusive offers and updates from Matchetune",
+    "plcaeholder_input_receive_Email": "Enter your email",
+    "subscribe": "Subscribe",
+    "about_us": "About us",
+    "purchases": "Purchases",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy and Security Policy",
+    "copyright": "Copyright © 2022 Matchetune"
+  },
+
+  "signup": {
+    "title_sign_Healer": "Get started with matchetune",
+    "sub_title_sign_Healer": "Sign in to find answers to your questions",
+    "title_sign_Healer_2": "Lets continue setting up your profile",
+    "sub_title_sign_Healer_2": "Answer a few questions to see if Matchtune is the right fit and qualify for a special offer!",
+    "recovery_password": "Recovery password",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "next": "Next",
+    "rigister": "Register",
+    "continue_With": "or continue with ",
+    "ask_have_account": "Already have an account?",
+    "login": "Log in",
+    "valid_input": "* Plase enter all enteries ",
+    "pick_avatar": "Upload avatar",
+    "upload_resume": "Upload resume:",
+    "upload": "Upload",
+    "submit": "Submit"
+  },
+
+  "freemium": {
+    "title_1": "The Most Affordable ",
+    "title_2": "Telemedicine ",
+    "title_3": "Solution",
+
+    "free": "Free/Basic",
+    "advanced": "Advanced",
+    "start_free": "Get Started",
+    "start_advanced": "Register",
+    "all_videos": "All videos",
+    "all_books": "All books",
+    "all_infographics": "All infographics",
+    "basic_video": "Basic videos",
+    "basic_books": "Basic books",
+    "basic_infographics": "Basic infographics",
+    "advanced_videos": "Advanced videos ",
+    "advanced_books": "Advanced books",
+    "advanced_infograpgics": "Advanced infographics"
+  },
+
+  "login": {
+    "title": "Welcome to matchetune",
+    "subTitleForm": "Sign in to find answers to your questions",
+    "password": "Password",
+    "recovery_password": "Recovery password",
+    "email": "Email",
+    "msg": "* plase enter all enteries",
+    "sign_in": "Sign in"
+  },
+
+  "toast": {
+    "msg_invalid_signp_healer": "Please enter all entries with your photo and resume"
+  }
+}

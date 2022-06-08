@@ -1,0 +1,11 @@
+<div [routerLink]="['/video', video.id]" class="video_card">
+  <div class="thumbnail">
+    <img class="video_img" [src]="video.cover" alt="video thumbnail" />
+  </div>
+  <div class="title_status">
+    <span class="title">{{ video.title }}</span>
+    <div class="status" [class.paid]="video.status.code === 'paid'">
+      {{ video.status.name }}
+    </div>
+  </div>
+</div>

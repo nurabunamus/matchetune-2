@@ -1,0 +1,63 @@
+.list_analytics {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    margin-top: 40px;
+    justify-content: space-evenly;
+    gap: 40px;
+}
+
+
+.card {
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    padding: 0 15px;
+    border-radius: 5px;
+    box-shadow: var(--shad_2);
+    transition: .2s;
+    justify-content: space-between;
+}
+
+.card:hover {
+    box-shadow: var(--shad_3);
+}
+
+.content {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.title_card {
+    font-size: var(--fs-sub-text);
+}
+
+.coun_card {
+    font-size: var(--fs-sub-title);
+}
+
+
+.icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    box-shadow: var(--shad_2);
+    transition: .2s;
+    color: var(--White);
+}
+
+.card:hover .icon {
+    box-shadow: var(--shad_3);
+    width: 100px;
+    height: 100px;
+}
+
+.icon i {
+    font-size: var(--fs-title);
+}
