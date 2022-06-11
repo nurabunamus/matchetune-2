@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -10,7 +9,6 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-import { map } from 'rxjs';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
 
 @Component({
@@ -20,28 +18,26 @@ import { FunctionsService } from 'src/app/services/functions/functions.service';
 })
 export class BookComponent implements OnInit {
   book: any;
-
   view: any;
   isShowDownload: boolean = false;
   recommendedBooks: any[] = [];
+
+  viewBook: boolean = false;
+  loadedBook: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private fires: FunctionsService,
-    public functions: FunctionsService,
-    private http: HttpClient
+    public functions: FunctionsService
   ) {}
 
+  // when book loaded
+  isLoadedBook() {
+    this.loadedBook = true;
+  }
+
+  // for show pop book view
   viewPDF() {
-    // window.open(this.book.file, '_blank');
-    // let url = this.book.file;
-    console.log(this.book.file);
-    // let reader: any = new FileReader();
-    // reader.readAsDataURL(url);
-    // reader.onload = (_event: Event) => {
-    //   this.view = reader.result;
-    //   console.log(reader.result);
-    //   console.log(reader.result);
-    // };
+    this.viewBook = !this.viewBook;
   }
 
   async getBooks() {
@@ -51,19 +47,20 @@ export class BookComponent implements OnInit {
       query(
         refCollInfographics,
         where('approach.name', '==', this.book.approach.name),
-        limit(6)
+        limit(3)
       )
     );
-
-    getDataInfographics.forEach((book) => {
-      let doc = { id: book.id, ...book.data() };
-      this.recommendedBooks.push(doc);
+    getDataInfographics.forEach((docRel) => {
+      let doc = { id: docRel.id, ...docRel.data() };
+      if (this.book.id !== docRel.id) {
+        this.recommendedBooks.push(doc);
+      }
     });
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(({ id }: any) => {
-      this.getDocBook(id).then;
+      this.getDocBook(id);
       this.functions.isDataLogged$.subscribe((res) => {
         if (Object.keys(res).length) {
           this.isShowDownload = true;
@@ -76,11 +73,10 @@ export class BookComponent implements OnInit {
     try {
       const userDoc = doc(this.functions.store, 'books', id);
       await getDoc(userDoc).then((res) => {
-        this.book = res.data();
+        this.book = { ...res.data(), id: res.id };
         if (this.book?.status.code === 'free') {
           this.isShowDownload = true;
         }
-
         this.getBooks();
       });
     } catch {}

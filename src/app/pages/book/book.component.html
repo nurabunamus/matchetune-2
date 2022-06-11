@@ -13,13 +13,35 @@
       <div class="categry">
         <span>Approach: {{ book.approach.name }}</span>
       </div>
-      <div class="buttons_container" *ngIf="isShowDownload">
 
+      <div *ngIf="viewBook" class="view_book">
+        <div *ngIf="!loadedBook" class="loader_book">
+          <p-progressSpinner></p-progressSpinner>
+        </div>
+        <div class="close" (click)="viewPDF()">
+          <i class="pi pi-arrow-left"></i>
+        </div>
+        <div class="content_view">
+          <ngx-doc-viewer
+            [url]="book.file"
+            viewer="google"
+            (loaded)="isLoadedBook()"
+            class="viewer"
+          ></ngx-doc-viewer>
+        </div>
+      </div>
+
+      <div class="buttons_container" *ngIf="isShowDownload">
         <button (click)="viewPDF()" class="button_style" id="view_book">
           View book &nbsp;&nbsp; <i class="pi pi-eye"></i>
         </button>
-      
-        <a class="button_style" id="download" download [href]="book.file">
+        <a
+          class="button_style"
+          target="_blank"
+          id="download"
+          download
+          [href]="book.file"
+        >
           <button class="button_style">
             Download &nbsp;&nbsp;<i class="pi pi-download"></i>
           </button>

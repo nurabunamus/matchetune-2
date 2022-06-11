@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
+import { DropDown } from 'src/app/admin/interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -93,4 +94,5 @@ export class FunctionsService {
         return this.firebase.collection('healers').doc(user?.uid).set(data);
       });
   }
+
 }

@@ -74,6 +74,14 @@ body {
     /* when hover */
     --HGreen: #87bd240f;
     --HLightBlue: #00928113;
+
+    /* z-index */
+
+    --zi-1: 100;
+    --zi-2: 200;
+    --zi-3: 300;
+    --zi-4: 400;
+    --zi-5: 1000;
 }
 
 @media screen and (max-width: 1100px) {}

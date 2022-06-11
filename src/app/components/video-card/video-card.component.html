@@ -1,6 +1,6 @@
-<div [routerLink]="['/video', video.id]" class="video_card">
-  <div class="thumbnail">
-    <img class="video_img" [src]="video.cover" alt="video thumbnail" />
+<div class="video_card" (click)="toggleShow()">
+  <div class="cover">
+    <img [src]="video.cover" alt="video thumbnail" />
   </div>
   <div class="title_status">
     <span class="title">{{ video.title }}</span>
@@ -8,4 +8,11 @@
       {{ video.status.name }}
     </div>
   </div>
+</div>
+
+<div *ngIf="isSHow" class="player">
+  <div class="close" (click)="toggleShow()">
+    <i class="pi pi-times"></i>
+  </div>
+  <video [src]="video.file" [poster]="video.cover" controls autoplay></video>
 </div>

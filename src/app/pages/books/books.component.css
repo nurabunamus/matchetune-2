@@ -1,7 +1,7 @@
 main {
     min-height: 90vh;
     width: 90%;
-    margin: 100px auto;
+    margin: 10px auto;
 }
 
 .empty {
@@ -13,17 +13,18 @@ main {
 }
 
 .filters {
-    width: 200px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    height: 70px;
+    align-items: center;
 }
 
 .data {
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 410px);
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 25px;
 }
 

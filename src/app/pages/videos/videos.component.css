@@ -23,7 +23,7 @@ main {
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 410px);
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 25px;
 }
 

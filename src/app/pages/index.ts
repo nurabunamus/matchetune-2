@@ -11,7 +11,6 @@ import { SignuphealerComponent } from './signuphealer/signuphealer.component';
 import { SignuppatientComponent } from './signuppatient/signuppatient.component';
 import { ProfilehealerComponent } from './profilehealer/profilehealer.component';
 import { ProfileComponent } from './profile/profile.component';
-import { VideoComponent } from './video/video.component';
 import { InfographicsComponent } from './infographics/infographics.component';
 import { VideosComponent } from './videos/videos.component';
 import { BooksComponent } from './books/books.component';
@@ -32,7 +31,6 @@ export const pages = [
   ProfilepatientComponent,
   ProfilehealerComponent,
   ProfileComponent,
-  VideoComponent,
   VideosComponent,
   BooksComponent,
 ];
