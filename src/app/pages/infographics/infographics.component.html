@@ -1,69 +1,54 @@
 <main>
   <div class="filters">
-    <div class="line">
-      <p-dropdown
-        [options]="list.approach"
-        ngModel
-        [required]="true"
-        name="approach"
-        placeholder="approach"
-        optionLabel="name"
-        [style]="{ width: '100%' }"
-        (onChange)="onChangeApproach($event)"
-      ></p-dropdown>
-    </div>
-    <div class="line" *ngIf="approach !== 'all'">
-      <p-multiSelect
-        class="select_cats"
-        [options]="list.categories[approach.code]"
-        [ngModel]="list.categories[approach.code]"
-        name="categories"
-        defaultLabel="Categories"
-        optionLabel="name"
-        selectedItemsLabel="{0} items selected"
-        [style]="{ width: '100%' }"
-        (onChange)="onChangeCategories($event)"
-      ></p-multiSelect>
-    </div>
-    <div class="line">
-      <p-dropdown
-        [options]="list.languages"
-        ngModel
-        [required]="true"
-        name="languages"
-        placeholder="languages"
-        optionLabel="name"
-        [style]="{ width: '100%' }"
-        (onChange)="onChangeLanguage($event)"
-      ></p-dropdown>
-    </div>
-    <div class="line">
-      <p-dropdown
-        [options]="list.status"
-        ngModel
-        [required]="true"
-        name="status"
-        placeholder="status"
-        optionLabel="name"
-        [style]="{ width: '100%' }"
-        (onChange)="onChangeStatus($event)"
-      ></p-dropdown>
-    </div>
+    <p-dropdown
+      [options]="units.languages"
+      [(ngModel)]="language"
+      placeholder="Language"
+      name="language"
+      optionLabel="name"
+      (onChange)="clearLog()"
+    ></p-dropdown>
+
+    <p-dropdown
+      [options]="units.status"
+      [(ngModel)]="status"
+      placeholder="Status"
+      name="status"
+      optionLabel="name"
+      (onChange)="clearLog()"
+    ></p-dropdown>
+
+    <p-dropdown
+      [options]="approaches"
+      [(ngModel)]="approach"
+      placeholder="Approach"
+      name="approach"
+      optionLabel="name"
+      (onChange)="clearLog()"
+    ></p-dropdown>
+
+    <p-dropdown
+      *ngIf="approach"
+      [options]="approach.categories"
+      [(ngModel)]="category"
+      placeholder="category"
+      name="category"
+      optionLabel="name"
+      (onChange)="clearLog()"
+    ></p-dropdown>
   </div>
+
   <div *ngIf="loader" class="loader">
     <p-progressSpinner></p-progressSpinner>
   </div>
 
-  <div class="data">
-    <div class="card" *ngFor="let item of Infographics">
-      <p-image
-        [src]="item.cover"
-        [alt]="item.title"
-        width="250"
-        [preview]="true"
-      ></p-image>
+  <ngx-masonry class="data">
+    <div ngxMasonryItem class="masonry-item" *ngFor="let item of Infographics">
+      <div class="bowl">
+        <img [src]="item.cover" [alt]="item.title" />
+      </div>
     </div>
-  </div>
+  </ngx-masonry>
   <div *ngIf="loadMore" class="loadMore">
     <p-progressSpinner></p-progressSpinner>
   </div>

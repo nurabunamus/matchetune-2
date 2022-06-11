@@ -13,7 +13,6 @@ import { BookComponent } from './pages/book/book.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfilehealerComponent } from './pages/profilehealer/profilehealer.component';
 import { ProfilepatientComponent } from './pages/profilepatient/profilepatient.component';
-import { VideoComponent } from './pages/video/video.component';
 import { InfographicsComponent } from './pages/infographics/infographics.component';
 import { BooksComponent } from './pages/books/books.component';
 import { VideosComponent } from './pages/videos/videos.component';
@@ -61,10 +60,7 @@ const routes: Routes = [
     path: 'book/:id',
     component: BookComponent,
   },
-  {
-    path: 'video/:id',
-    component: VideoComponent,
-  },
+
   {
     path: 'profile',
     component: ProfileComponent,
