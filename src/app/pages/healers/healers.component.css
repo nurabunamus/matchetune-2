@@ -1,10 +1,17 @@
+.title{
+    font-family: var(--cairo);
+    font-size: var(--fs-sub-title);
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 main {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 80px;
     justify-content: center;
     place-content: center;
-    margin-top: 130px;
 }
 
 .card {
@@ -33,9 +40,6 @@ main {
 .avatar:hover img {
     transform: scale(1.2) rotate(5deg);
 }
-
-
-
 
 .details {
     margin-top: 10px;

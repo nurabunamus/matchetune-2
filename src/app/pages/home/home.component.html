@@ -309,21 +309,18 @@
     <div class="title_find_sub">
       <span>{{ "home.what_Will_find_description" | translate }}</span>
     </div>
-    <div class="see_all_find">
-      <span routerLink="/">{{ "home.see_all" | translate }}</span>
-    </div>
   </div>
 
   <div class="cards_finds">
-    <div routerLink="/" class="card_find">
-      <div class="cover_find">
+    <div class="card_find">
+      <div class="cover_find" routerLink="/infographics">
         <img src="/assets/covers/infographics.jpg" alt="" />
       </div>
       <div class="title_card_find">
         <span>{{ "infographics" | translate }}</span>
       </div>
     </div>
-    <div routerLink="/" class="card_find">
+    <div routerLink="/videos" class="card_find">
       <div class="cover_find">
         <img src="/assets/covers/videos.jpg" alt="" />
       </div>
@@ -331,7 +328,7 @@
         <span>{{ "videos" | translate }}</span>
       </div>
     </div>
-    <div routerLink="/" class="card_find">
+    <div routerLink="/books" class="card_find">
       <div class="cover_find">
         <img src="/assets/covers/books.jpg" alt="" />
       </div>
@@ -412,7 +409,12 @@
     >
       <img [src]="item" alt="" />
     </div>
+    
+    <div class="card" *ngFor="let item of Books">
+      <app-book-card [book]="item"></app-book-card>
+    </div>
   </div>
+
 </section>
 
 <div class="questions">

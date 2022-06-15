@@ -1,4 +1,4 @@
-<div class="video_card" (click)="toggleShow()">
+<div class="video_card" (click)="toggleShow()" (click)="showDialog()">
   <div class="cover">
     <img [src]="video.cover" alt="video thumbnail" />
   </div>
@@ -10,9 +10,29 @@
   </div>
 </div>
 
-<div *ngIf="isSHow" class="player">
+<div *ngIf="isSHow && video.status.name == 'Free'" class="player">
   <div class="close" (click)="toggleShow()">
     <i class="pi pi-times"></i>
   </div>
   <video [src]="video.file" [poster]="video.cover" controls autoplay></video>
 </div>
+
+<p-dialog
+  header="You do not currently have access to this video"
+  *ngIf="video.status.name == 'Paid'"
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw' }"
+  [blockScroll]="true"
+  [draggable]="false"
+  [modal]="true"
+>
+  <button
+    class="get-access"
+    routerLink="/signup/patient"
+    class="get_access_button"
+    pButton
+  >
+    Get Access &nbsp;&nbsp; <i class="pi pi-angle-right"></i>
+  </button>
+</p-dialog>

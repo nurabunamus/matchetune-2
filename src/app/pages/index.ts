@@ -14,11 +14,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { InfographicsComponent } from './infographics/infographics.component';
 import { VideosComponent } from './videos/videos.component';
 import { BooksComponent } from './books/books.component';
+import {PatientregisterComponent } from './patientregister/patientregister.component';
 
 export const pages = [
   HomeComponent,
   SignuphealerComponent,
   SignuppatientComponent,
+  PatientregisterComponent,
   InfographicsComponent,
   LoginComponent,
   AlternativesComponent,

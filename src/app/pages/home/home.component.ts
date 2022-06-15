@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   display2: boolean = false;
   display3: boolean = false;
   display4: boolean = false;
+  Books: any[] = [];
+
   showDialog1() {
     this.display1 = true;
   }

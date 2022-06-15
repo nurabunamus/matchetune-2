@@ -80,3 +80,7 @@ video {
   cursor: pointer;
   background-color: rgb(255, 255, 255);
 }
+
+.get-access{
+  width: 20%;
+}
