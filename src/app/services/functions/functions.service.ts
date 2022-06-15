@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -24,6 +25,7 @@ export class FunctionsService {
   constructor(
     private firebase: AngularFirestore,
     private auth: AngularFireAuth,
+    private http: HttpClient,
     private router: Router
   ) {}
 
@@ -95,4 +97,14 @@ export class FunctionsService {
       });
   }
 
+  getFilters(type: string, data: any) {
+    this.http
+      .post('http://localhost:5001/matchune/us-central1/app/filters', {
+        type,
+        options: data,
+      })
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
 }

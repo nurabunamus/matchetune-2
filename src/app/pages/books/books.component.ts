@@ -76,9 +76,11 @@ export class BooksComponent implements OnInit {
       status: this.status?.code,
       language: this.language?.code,
       approach: this.approach?.code,
-      category: this.category?.code,
+      category: this.category?.map((e: any) => e.code),
     };
+    this.fires.getFilters('books', { status, language, approach, category });
 
+    return;
     let cond1 = status && !language && !approach && !category;
     let cond2 = !status && language && !approach && !category;
     let cond3 = !status && !language && approach && !category;
