@@ -36,6 +36,16 @@
       optionLabel="name"
       (onChange)="clearLog()"
     ></p-dropdown>
+
+    <p-multiSelect
+      *ngIf="approach"
+      [options]="approach.categories"
+      [(ngModel)]="category"
+      defaultLabel="category"
+      optionLabel="name"
+      selectedItemsLabel="{0} items selected"
+      (onChange)="clearLog()"
+    ></p-multiSelect>
   </div>
 
   <div *ngIf="loader" class="loader">
