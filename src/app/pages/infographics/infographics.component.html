@@ -42,13 +42,12 @@
     <p-progressSpinner></p-progressSpinner>
   </div>
 
-  <ngx-masonry class="data">
-    <div ngxMasonryItem class="masonry-item" *ngFor="let item of Infographics">
-      <div class="bowl">
-        <img [src]="item.cover" [alt]="item.title" />
-      </div>
+  <div class="container_imgs">
+    <div class="bowl" *ngFor="let item of Infographics">
+      <img [src]="item.cover" [alt]="item.title" />
     </div>
-  </ngx-masonry>
+  </div>
+
   <div *ngIf="loadMore" class="loadMore">
     <p-progressSpinner></p-progressSpinner>
   </div>

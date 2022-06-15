@@ -36,8 +36,6 @@ import { AdminModule } from './admin/admin.module';
 import { MessageService } from 'primeng/api';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
-import { NgxMasonryModule } from 'ngx-masonry';
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -55,9 +53,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     MaterialModule,
     PdfViewerModule,
     NgxDocViewerModule,
-    NgxMasonryModule,
-
-    // videos
 
     // for languges ------------
     TranslateModule.forRoot({
