@@ -8,6 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VideoCardComponent implements OnInit {
   @Input() video: any;
   isSHow: boolean = false;
+  display: boolean = false;
+
+  showDialog() {
+      this.display = true;
+  }
 
   constructor() {}
   toggleShow() {

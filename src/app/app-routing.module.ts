@@ -16,6 +16,7 @@ import { ProfilepatientComponent } from './pages/profilepatient/profilepatient.c
 import { InfographicsComponent } from './pages/infographics/infographics.component';
 import { BooksComponent } from './pages/books/books.component';
 import { VideosComponent } from './pages/videos/videos.component';
+import { PatientregisterComponent } from './pages/patientregister/patientregister.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'signup/patient',
     component: SignuppatientComponent,
+  },
+  {
+    path: 'signup/patient/advanced',
+    component: PatientregisterComponent,
   },
   {
     path: 'signup/healer',

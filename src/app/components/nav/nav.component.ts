@@ -13,12 +13,10 @@ export class NavComponent {
   openPopUser: boolean = false;
   listMenu = [
     { title: 'nav.sign_in', path: 'login' },
-    // {  title: 'nav.alternatives', path: 'alternatives' },
     { title: 'nav.infographics', path: 'infographics' },
     { title: 'nav.books', path: 'books' },
     { title: 'nav.videos', path: 'videos' },
     { title: 'nav.healers', path: 'healers' },
-    { title: 'nav.about', path: 'about' },
   ];
 
   isOpen: boolean = false;
