@@ -18,9 +18,10 @@ const stripePaid = async (req, res) => {
       source: source.id,
       customer: customer.id,
     });
-
     if (charge.paid) {
-      return res.json({ msg: "done success paid" });
+      return res.json({ type: "success", msg: "done success paid" });
+    } else {
+      return res.json({ type: "error", msg: "cant paid" });
     }
   } catch (err) {
     console.log("Error is: ", err);

@@ -27,15 +27,15 @@
       (onChange)="clearLog()"
     ></p-dropdown>
 
-    <p-dropdown
+    <p-multiSelect
       *ngIf="approach"
       [options]="approach.categories"
       [(ngModel)]="category"
-      placeholder="category"
-      name="category"
+      defaultLabel="category"
       optionLabel="name"
+      selectedItemsLabel="{0} items selected"
       (onChange)="clearLog()"
-    ></p-dropdown>
+    ></p-multiSelect>
   </div>
 
   <div *ngIf="loader" class="loader">
@@ -47,11 +47,8 @@
       <app-video-card [video]="item"></app-video-card>
     </div>
   </div>
-  <div *ngIf="loadMore" class="loadMore">
-    <p-progressSpinner></p-progressSpinner>
-  </div>
 
-  <div *ngIf="empty" class="empty">
+  <div *ngIf="isEmpty" class="empty">
     <span>No Videos are available for this approach! </span>
   </div>
 </main>

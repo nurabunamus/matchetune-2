@@ -97,14 +97,54 @@ export class FunctionsService {
       });
   }
 
+  async addPatient(data: any) {
+    let { email, password, name } = data;
+    return this.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        return this.firebase.collection('patients').doc(user?.uid).set({
+          email,
+          name,
+          id: user?.uid,
+          state: 'register',
+        });
+      });
+  }
+
+  async updatePatient(data: any) {
+    return this.firebase
+      .collection('patients')
+      .doc(this.dataLogged.getValue().id)
+      .set(data);
+  }
+
+  async getStatePatient() {
+    console.log(this.dataLogged.getValue().id);
+
+    const userDoc = doc(this.store, 'patients', this.dataLogged.getValue().id);
+    const docSnap = await getDoc(userDoc);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      return false;
+    }
+  }
+
   getFilters(type: string, data: any) {
-    this.http
-      .post('http://localhost:5001/matchune/us-central1/app/filters', {
+    return this.http.post(
+      'http://localhost:5001/matchune/us-central1/app/filters',
+      {
         type,
         options: data,
-      })
-      .subscribe((res) => {
-        console.log(res);
-      });
+      }
+    );
+  }
+
+  checkPaid(data: any) {
+    return this.http.post(
+      'http://localhost:5001/matchune/us-central1/app/stripe',
+      data
+    );
   }
 }

@@ -27,16 +27,6 @@
       (onChange)="clearLog()"
     ></p-dropdown>
 
-    <p-dropdown
-      *ngIf="approach"
-      [options]="approach.categories"
-      [(ngModel)]="category"
-      placeholder="category"
-      name="category"
-      optionLabel="name"
-      (onChange)="clearLog()"
-    ></p-dropdown>
-
     <p-multiSelect
       *ngIf="approach"
       [options]="approach.categories"
@@ -58,11 +48,7 @@
     </div>
   </div>
 
-  <div *ngIf="loadMore" class="loadMore">
-    <p-progressSpinner></p-progressSpinner>
-  </div>
-
-  <div *ngIf="empty" class="empty">
-    <span>No books are available for this approach! </span>
+  <div *ngIf="isEmpty" class="empty">
+    <span>No books are available for this Filters</span>
   </div>
 </main>

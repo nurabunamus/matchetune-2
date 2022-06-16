@@ -9,8 +9,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
-import {CheckboxModule} from 'primeng/checkbox';
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   exports: [
@@ -24,7 +25,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     ProgressSpinnerModule,
     ToastModule,
     DialogModule,
-    CheckboxModule
+    CheckboxModule,
+    CalendarModule,
+    InputNumberModule,
   ],
 })
 export class MaterialModule {}

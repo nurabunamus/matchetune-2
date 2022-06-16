@@ -1,5 +1,243 @@
-<div class="payment-box">
-  <div id="card"></div>
-  <div id="card-errors"></div>
-  <button id="button-paid">paid</button>
-</div>
+<p-toast></p-toast>
+
+<main>
+  <div *ngIf="tab === 1" class="tab_1">
+    <div class="cover">
+      <img src="/assets/img/3.jpg" alt="" />
+    </div>
+    <div class="form">
+      <div class="title">
+        <span class="tit">Get started with matchetune</span>
+        <span class="sub">Sign in to find answers to your questions </span>
+      </div>
+      <form #form="ngForm" (submit)="firstRegister(form)">
+        <div class="bowl_lines">
+          <span class="p-float-label">
+            <input
+              required
+              minlength="4"
+              id="Name"
+              type="text"
+              pInputText
+              ngModel
+              #nameInput="ngModel"
+              name="name"
+              [class.error]="isValid"
+            />
+            <label for="Name">Name</label>
+          </span>
+          <span class="bowl_input p-float-label">
+            <input
+              required
+              minlength="4"
+              id="email"
+              type="email"
+              pInputText
+              email
+              ngModel
+              #nameInput="ngModel"
+              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+              name="email"
+              [class.error]="isValid"
+            />
+            <label for="email">Email</label>
+          </span>
+          <span class="bowl_input p-float-label p-input-icon-right">
+            <i
+              *ngIf="!showPass"
+              class="pi pi-eye-slash"
+              (click)="showPassFun()"
+            ></i>
+            <i *ngIf="showPass" class="pi pi-eye" (click)="showPassFun()"></i>
+            <input
+              required
+              minlength="8"
+              [type]="!showPass ? 'password' : 'text'"
+              pInputText
+              ngModel
+              #nameInput="ngModel"
+              name="password"
+              value="ladf"
+              id="password"
+              [class.error]="isValid"
+            />
+            <label for="password">Password</label>
+          </span>
+        </div>
+        <div class="msgsubmit" *ngIf="isValid">
+          <span> {{ "signup.valid_input" | translate }}</span>
+        </div>
+        <button type="submit" class="btn_form">
+          {{ "signup.next" | translate }}
+          <i class="pi pi-sign-in"></i>
+        </button>
+      </form>
+      <div class="sign_with">
+        <div class="title_With">
+          <span>{{ "signup.continue_With" | translate }}</span>
+        </div>
+
+        <div class="btns_social">
+          <div class="btn" (click)="(null)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              data-name="Ebene 1"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="#1877f2"
+                d="M1024,512C1024,229.23016,794.76978,0,512,0S0,229.23016,0,512c0,255.554,187.231,467.37012,432,505.77777V660H302V512H432V399.2C432,270.87982,508.43854,200,625.38922,200,681.40765,200,740,210,740,210V336H675.43713C611.83508,336,592,375.46667,592,415.95728V512H734L711.3,660H592v357.77777C836.769,979.37012,1024,767.554,1024,512Z"
+              />
+              <path
+                fill="#fff"
+                d="M711.3,660,734,512H592V415.95728C592,375.46667,611.83508,336,675.43713,336H740V210s-58.59235-10-114.61078-10C508.43854,200,432,270.87982,432,399.2V512H302V660H432v357.77777a517.39619,517.39619,0,0,0,160,0V660Z"
+              />
+            </svg>
+            <span>Facebook</span>
+          </div>
+          <div class="btn" (click)="(null)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="2443"
+              height="2500"
+              preserveAspectRatio="xMidYMid"
+              viewBox="0 0 256 262"
+            >
+              <path
+                fill="#4285F4"
+                d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+              />
+              <path
+                fill="#34A853"
+                d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+              />
+              <path
+                fill="#FBBC05"
+                d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+              />
+              <path
+                fill="#EB4335"
+                d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+              />
+            </svg>
+            <span>Google</span>
+          </div>
+        </div>
+      </div>
+      <div class="to_signup">
+        <span routerLink="/login"
+          >{{ "signup.ask_have_account" | translate
+          }}<strong>{{ "signup.login" | translate }}</strong></span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tab === 2" class="tab_2">
+    <div class="title_tab2">
+      <span>Account Profile</span>
+      <br />
+      <span class="two">STEP 1 OF 2: PROFILE BASICS</span>
+    </div>
+    <form #form2="ngForm" (submit)="saveSecondStep(form2)">
+      <div class="bowl_head_tab2">
+        <div class="side_ledt_toince">
+          <span>Age</span>
+          <p-calendar
+            name="age"
+            [style]="{ minWidth: '100%' }"
+            inputId="basic"
+            [(ngModel)]="age"
+          ></p-calendar>
+
+          <p-dropdown
+            [options]="sexArr"
+            [(ngModel)]="sex"
+            placeholder="Sex"
+            name="sex"
+            [style]="{ minWidth: '100%', marginTop: '25px' }"
+            optionLabel="name"
+          ></p-dropdown>
+        </div>
+        <label
+          class="label_avatar"
+          [class.invalid]="isValid"
+          for="upload_avatar"
+        >
+          <div *ngIf="!coverReader" class="title_upload">
+            {{ "signup.pick_avatar" | translate }}
+          </div>
+          <div *ngIf="!coverReader" class="add_icon">
+            <svg
+              width="15"
+              height="14"
+              viewBox="0 0 15 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.96863 1.37573H7.03113C6.94779 1.37573 6.90613 1.4174 6.90613 1.50073V6.40698H2.25024C2.16691 6.40698 2.12524 6.44865 2.12524 6.53198V7.46948C2.12524 7.55282 2.16691 7.59448 2.25024 7.59448H6.90613V12.5007C6.90613 12.5841 6.94779 12.6257 7.03113 12.6257H7.96863C8.05196 12.6257 8.09363 12.5841 8.09363 12.5007V7.59448H12.7502C12.8336 7.59448 12.8752 7.55282 12.8752 7.46948V6.53198C12.8752 6.44865 12.8336 6.40698 12.7502 6.40698H8.09363V1.50073C8.09363 1.4174 8.05196 1.37573 7.96863 1.37573Z"
+                fill="black"
+                fill-opacity="0.85"
+              />
+            </svg>
+          </div>
+          <img *ngIf="coverReader" [src]="coverReader" alt="" />
+          <input
+            id="upload_avatar"
+            style="display: none"
+            type="file"
+            (change)="uploadCover($event)"
+          />
+        </label>
+      </div>
+
+      <div class="line_sub">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            name="country"
+            pInputText
+            [(ngModel)]="country"
+          />
+          <label for="float-input">Country</label>
+        </span>
+      </div>
+
+      <div class="line_sub">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="number"
+            pInputText
+            name="phone"
+            [(ngModel)]="phone"
+          />
+          <label for="float-input">Phone</label>
+        </span>
+      </div>
+      <button type="submit" class="btn_form">
+        {{ "continue" | translate }}
+      </button>
+    </form>
+  </div>
+  <div class="tab_3" [class.show]="tab === 3">
+    <div class="title_tab2">
+      <span>Account Profile</span>
+      <br />
+      <span class="two">STEP 2 OF 2: PAYMENT</span>
+    </div>
+    <form #form2="ngForm" (submit)="saveSecondStep(form2)">
+      <div class="payment-box">
+        <div id="card"></div>
+        <br />
+        <br />
+        <div id="card-errors"></div>
+      </div>
+      <button id="button-paid" type="button" class="btn_form">
+        {{ "pay" | translate }}
+      </button>
+    </form>
+  </div>
+</main>
