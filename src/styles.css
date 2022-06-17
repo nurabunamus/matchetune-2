@@ -120,17 +120,11 @@ body {
 
 @media screen and (max-width: 400px) {
     :root {
-        --fs-title: 1.4rem;
-        --fs-sub-title: 1.3rem;
+        --fs-title: 1.3rem;
+        --fs-sub-title: 1.2rem;
         --fs-text: .8rem;
         --fs-big: 1.3rem;
         --lh-title: 40px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    :root {
-        --fs-title: 1.3rem;
     }
 }
 

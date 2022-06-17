@@ -1,6 +1,6 @@
 <p-toast></p-toast>
 
-<main>
+<div class="bowl_noo_sign">
   <div *ngIf="tab === 1" class="tab_1">
     <div class="cover">
       <img src="/assets/img/3.jpg" alt="" />
@@ -70,6 +70,11 @@
         <button type="submit" class="btn_form">
           {{ "signup.next" | translate }}
           <i class="pi pi-sign-in"></i>
+          <div *ngIf="isLoadSign" class="loader">
+            <p-progressSpinner
+              [style]="{ width: '30px', height: '30px' }"
+            ></p-progressSpinner>
+          </div>
         </button>
       </form>
       <div class="sign_with">
@@ -132,7 +137,6 @@
       </div>
     </div>
   </div>
-
   <div *ngIf="tab === 2" class="tab_2">
     <div class="title_tab2">
       <span>Account Profile</span>
@@ -219,25 +223,12 @@
       </div>
       <button type="submit" class="btn_form">
         {{ "continue" | translate }}
+        <div *ngIf="isLoadSign">
+          <p-progressSpinner
+            [style]="{ width: '30px', height: '30px' }"
+          ></p-progressSpinner>
+        </div>
       </button>
     </form>
   </div>
-  <div class="tab_3" [class.show]="tab === 3">
-    <div class="title_tab2">
-      <span>Account Profile</span>
-      <br />
-      <span class="two">STEP 2 OF 2: PAYMENT</span>
-    </div>
-    <form #form2="ngForm" (submit)="saveSecondStep(form2)">
-      <div class="payment-box">
-        <div id="card"></div>
-        <br />
-        <br />
-        <div id="card-errors"></div>
-      </div>
-      <button id="button-paid" type="button" class="btn_form">
-        {{ "pay" | translate }}
-      </button>
-    </form>
-  </div>
-</main>
+</div>

@@ -6,21 +6,23 @@ import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
-import { DropDown } from 'src/app/admin/interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FunctionsService {
+  //
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
-  store = getFirestore(initializeApp(environment.firebaseConfig));
-
+  //
   private dataLogged = new BehaviorSubject<any>({});
   public isDataLogged$ = this.dataLogged.asObservable();
+  //
   private isLogged = new BehaviorSubject<boolean>(false);
   public isLogged$ = this.isLogged.asObservable();
+
+  store = getFirestore(initializeApp(environment.firebaseConfig));
 
   constructor(
     private firebase: AngularFirestore,
@@ -62,22 +64,40 @@ export class FunctionsService {
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
         let { uid } = user;
-        console.log(uid);
-        const userDoc = doc(this.store, 'patients', uid);
-        const docSnap = await getDoc(userDoc);
-        if (docSnap.exists()) {
-          this.dataLogged.next({ ...docSnap.data(), id: uid });
-        } else {
-          const userDoc = doc(this.store, 'healers', uid);
-          const docSnap = await getDoc(userDoc);
-          this.dataLogged.next({ ...docSnap.data(), id: uid });
-        }
-        this.isLogged.next(true);
+        this.getTypeUser(uid);
       } else {
         console.log(' no authentication');
         this.isLogged.next(false);
       }
     });
+  }
+
+  async checkLogin(email: string, password: string) {
+    return this.auth
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }: any) => {
+        if (user.uid) {
+          return user.uid;
+        }
+      })
+      .catch(() => {
+        return false;
+      });
+  }
+
+  async getTypeUser(uid: string) {
+    const userDoc = doc(this.store, 'patients', uid);
+    const docSnap = await getDoc(userDoc);
+    if (docSnap.exists()) {
+      console.log(' i am a patients patients');
+      this.dataLogged.next({ ...docSnap.data(), id: uid });
+    } else {
+      console.log(' i am a healers healers');
+      const userDoc = doc(this.store, 'healers', uid);
+      const docSnap = await getDoc(userDoc);
+      this.dataLogged.next({ ...docSnap.data(), id: uid });
+    }
+    this.isLogged.next(true);
   }
 
   async getProfilePatient(id: string) {

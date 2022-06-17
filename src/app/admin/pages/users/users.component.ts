@@ -1,20 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { initializeApp } from 'firebase/app';
 import {
   collection,
-  deleteDoc,
-  doc,
   getDocs,
-  getFirestore,
   limit,
   query,
   startAfter,
 } from 'firebase/firestore';
-import { deleteObject, ref } from 'firebase/storage';
-import { Storage } from '@angular/fire/storage';
-import { MessageService } from 'primeng/api';
-import { fromEvent, Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { fromEvent } from 'rxjs';
 import { TabsadminService } from '../../services/Tabs/tabsadmin.service';
 import { FormsfireService } from '../../services/forms/formsfire.service';
 
@@ -68,6 +60,8 @@ export class UsersComponent implements OnInit {
       } else {
         getData.forEach((book) => {
           let doc = { id: book.id, ...book.data() };
+          console.log(doc);
+
           this.healers.push(doc);
         });
       }

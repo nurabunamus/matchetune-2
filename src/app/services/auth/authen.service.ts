@@ -17,13 +17,11 @@ export interface Logged {
 })
 export class AuthenService {
   constructor(private auth: AngularFireAuth) {}
-
   public isLogged = new BehaviorSubject<Logged>({
     state: false,
     type: 'user',
     id: 'id uid hgere',
   });
-
   public isLogged$ = this.isLogged.asObservable();
 
   async loginWithFacebook() {
@@ -46,7 +44,6 @@ export class AuthenService {
     this.auth.signInWithPopup(authGoogle).then((res) => {
       console.log(res);
       console.log(this.auth);
-      alert('login successfully :)');
     });
   }
 }

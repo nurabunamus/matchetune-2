@@ -4,7 +4,20 @@ section {
 }
 
 
-main{
+main {
     width: calc(100% - 250px);
     margin-left: 250px;
+}
+
+.no {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: rgba(0, 255, 115, 0.459);
+    width: 250px;
+    height: 50px;
 }

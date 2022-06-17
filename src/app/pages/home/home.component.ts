@@ -90,12 +90,9 @@ export class HomeComponent implements OnInit {
 
   constructor(public functions: FunctionsService) {
     functions.isLogged$.subscribe((res) => {
-      console.log(res);
-      if(res){
+      if (res) {
         this.isLogged = res;
       }
-      console.log(this.isLogged);
-      
     });
   }
 

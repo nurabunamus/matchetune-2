@@ -1,14 +1,22 @@
-.tab_1 {
-    display: flex;
-    margin-top: 10vh;
-    min-height: 90vh;
+.bowl_noo_sign {
+    width: 100%;
+    height: 90vh;
 }
 
-main {
+.tab_1 {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
+
+
+.cover {
+    width: 45%;
+    height: 100%;
+    background-color: #07a593;
+    overflow: hidden;
+}
+
 
 .title_tab2 {
     font-family: var(--cairo);
@@ -29,23 +37,11 @@ main {
 }
 
 
-.tab_3 {
-    width: 500px;
-    opacity: 0
-}
-
-
-.tab_3.show {
-    opacity: 1;
-}
-
-
 .line_sub {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
 }
-
 
 main {
     height: 90vh;
@@ -53,17 +49,7 @@ main {
     align-items: center;
 }
 
-.cover {
-    width: 45%;
-    display: flex;
-    height: 100%;
-    overflow: hidden;
-}
 
-.cover img {
-    width: 100%;
-    height: 100%;
-}
 
 .form {
     display: flex;
@@ -77,7 +63,6 @@ form {
     width: 400px;
     margin-top: 20px;
 }
-
 
 .bowl_form {
     display: flex;
@@ -101,12 +86,10 @@ form {
     font-size: var(--fs-text);
 }
 
-
 form span {
     width: 100%;
     height: 45px;
 }
-
 
 .forgot {
     text-align: right;
@@ -143,16 +126,13 @@ form span {
 }
 
 .btn_form .loader {
-
     margin-left: 10px;
     margin-top: 5px;
 }
 
-
 .btn_form:hover {
     background-color: #07a593;
 }
-
 
 .btn_form i {
     margin-left: 15px;
@@ -220,7 +200,6 @@ form span {
     height: 25px;
 }
 
-
 .to_signup {
     cursor: pointer;
     user-select: none;
@@ -245,18 +224,12 @@ input.ng-valid.ng-touched {
     border: 2px solid var(--Green);
 }
 
-
-
-
-
-
 .bowl_head_tab2 {
     display: flex;
     align-items: center;
     height: 120px;
     justify-content: space-between;
 }
-
 
 .label_avatar {
     width: 120px;
@@ -275,7 +248,6 @@ input.ng-valid.ng-touched {
     border: 2px dashed rgb(255, 0, 0);
 }
 
-
 .side_ledt_toince {
     width: calc(100% - 130px);
     display: flex;
@@ -288,12 +260,9 @@ input.ng-valid.ng-touched {
     margin-top: 0;
 }
 
-
-
 .bowl_input {
     margin-top: 27px;
 }
-
 
 .line_resume {
     margin-top: 20px;
@@ -315,12 +284,9 @@ input.ng-valid.ng-touched {
     border: 2px dashed rgb(255, 0, 0);
 }
 
-
 .upload_icon {
     margin-left: 5px;
 }
-
-
 
 .bowl_Tabs {
     height: 20px;
@@ -342,9 +308,7 @@ input.ng-valid.ng-touched {
     background-color: rgb(65, 65, 65);
 }
 
-
-
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 900px) {
     .title .sub {
         width: 80%;
         margin: 0 auto;
@@ -361,35 +325,23 @@ input.ng-valid.ng-touched {
     }
 
     .form {
-        width: 80%;
+        width: 100%;
     }
 
 }
 
-@media screen and (max-width: 700px) {
-    .form {
-        width: 90%;
-    }
-}
+@media screen and (max-width: 700px) {}
 
-@media screen and (max-width: 600px) {
-    .form {
-        width: 90%;
-    }
-}
+@media screen and (max-width: 600px) {}
 
 
 
 @media screen and (max-width: 450px) {
-    .form {
-        width: 90%;
-    }
 
     form {
         width: 330px;
         margin: 0 auto;
     }
-
 
     .sign_with,
     .to_signup {
