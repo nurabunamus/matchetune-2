@@ -1,6 +1,10 @@
-<section>
+<section *ngIf="units.isAdmin$ | async">
   <app-nav></app-nav>
   <main>
     <router-outlet></router-outlet>
   </main>
 </section>
+
+<div *ngIf="!(units.isAdmin$ | async)" class="no">
+  <button (click)="login()">Login</button>
+</div>

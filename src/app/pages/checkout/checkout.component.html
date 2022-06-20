@@ -1,0 +1,23 @@
+<section>
+  <div class="tab_3">
+    <div class="title_tab2">
+      <span>Account Profile</span>
+      <br />
+      <span class="two">STEP 2 OF 2: PAYMENT</span>
+    </div>
+    <form #form2="ngForm" (submit)="checkPaid(form2)">
+      <div class="payment-box">
+        <div id="card" class="card"></div>
+        <div id="card-errors"></div>
+      </div>
+      <button id="button-paid" type="button" class="btn_form">
+        {{ "pay" | translate }}
+        <div *ngIf="isLoadSign" class="loader">
+          <p-progressSpinner
+            [style]="{ width: '30px', height: '30px' }"
+          ></p-progressSpinner>
+        </div>
+      </button>
+    </form>
+  </div>
+</section>

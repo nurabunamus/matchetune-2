@@ -6,6 +6,8 @@ const stripe = require("stripe")(
 const stripePaid = async (req, res) => {
   let { source } = req.body;
 
+  console.log(source);
+
   console.log(source.owner.email, source?.amount);
   try {
     const customer = await stripe.customers.create({

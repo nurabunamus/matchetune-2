@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TabsadminService } from '../../services/Tabs/tabsadmin.service';
+import { UnitsService } from '../../services/units/units.service';
 
 @Component({
   selector: 'app-nav',
@@ -42,6 +43,6 @@ export class NavComponent implements OnInit {
     },
   ];
 
-  constructor(public tab: TabsadminService) {}
+  constructor(public tab: TabsadminService, public units: UnitsService) {}
   ngOnInit(): void {}
 }

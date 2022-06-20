@@ -18,11 +18,16 @@ import { BooksComponent } from './pages/books/books.component';
 import { VideosComponent } from './pages/videos/videos.component';
 import { PatientregisterComponent } from './pages/patientregister/patientregister.component';
 import { AuthGuard } from './services/auth/auth.guard';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
   {
     path: 'admin',

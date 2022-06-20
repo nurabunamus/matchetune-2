@@ -60,6 +60,7 @@ export class DropdownComponent implements OnInit {
 
   onChangeApproach(i: number) {
     this.indexSel = i;
+    this.selectedCategory = { name: 'category', code: 'category' };
     this.isDropdown = !this.isDropdown;
     this.showCategories = true;
   }

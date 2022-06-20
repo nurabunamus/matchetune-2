@@ -1,45 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthenService } from 'src/app/services/auth/authen.service';
+import { FunctionsService } from 'src/app/services/functions/functions.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   showPass: boolean = false;
   constructor(
-    private authen: AuthenService,
-    private auth: AngularFireAuth,
     private route: Router,
+    private functions: FunctionsService,
     private messageService: MessageService
   ) {}
-
-  isValid: boolean = false;
-  ngOnInit(): void {}
 
   async onSubmit(form: any) {
     if (form.valid) {
       let { email, password } = form.value;
-      this.auth
-        .signInWithEmailAndPassword(email, password)
-        .then(({ user }: any) => {
-          const { uid } = user;
-          console.log(user.uid);
+      this.functions.checkLogin(email, password).then((res) => {
+        if (res) {
           this.route.navigate(['/']).then(() => {
             window.location.reload();
           });
-        })
-        .catch(() => {
+        } else {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
             detail: 'email or password error',
           });
-        });
+        }
+      });
     } else {
       this.messageService.add({
         severity: 'warn',
@@ -52,11 +46,9 @@ export class LoginComponent implements OnInit {
     this.showPass = !this.showPass;
   }
   withFacebook() {
-    console.log('withFacebook');
-    this.authen.loginWithFacebook();
+    // this.authen.loginWithFacebook();
   }
   withGoogle() {
-    console.log('withGoogle');
-    this.authen.loginWithGoogle();
+    // this.authen.loginWithGoogle();
   }
 }
