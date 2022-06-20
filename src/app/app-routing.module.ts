@@ -19,6 +19,7 @@ import { VideosComponent } from './pages/videos/videos.component';
 import { PatientregisterComponent } from './pages/patientregister/patientregister.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { DetailspatientComponent } from './pages/detailspatient/detailspatient.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'details',
+    component: DetailspatientComponent,
   },
   {
     path: 'admin',
@@ -77,10 +82,15 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard],
   },
-
   {
     path: 'healer/:id',
     component: ProfilehealerComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'patient/:id',
+    component: ProfilepatientComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'infographics',
@@ -95,10 +105,6 @@ const routes: Routes = [
     component: VideosComponent,
   },
 
-  {
-    path: 'patient/:id',
-    component: ProfilepatientComponent,
-  },
   {
     path: '**',
     component: Page404Component,

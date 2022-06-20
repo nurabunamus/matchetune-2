@@ -4,8 +4,9 @@ const stripe = require("stripe")(
 );
 
 const stripePaid = async (req, res) => {
+  console.log("source ======");
+  console.log("source ======");
   let { source } = req.body;
-
   console.log(source);
 
   console.log(source.owner.email, source?.amount);

@@ -1,7 +1,7 @@
 <p-toast></p-toast>
 
 <div class="bowl_noo_sign">
-  <div *ngIf="tab === 1" class="tab_1">
+  <div class="tab_1">
     <div class="cover">
       <img src="/assets/img/3.jpg" alt="" />
     </div>
@@ -64,9 +64,11 @@
             <label for="password">Password</label>
           </span>
         </div>
+
         <div class="msgsubmit" *ngIf="isValid">
           <span> {{ "signup.valid_input" | translate }}</span>
         </div>
+
         <button type="submit" class="btn_form">
           {{ "signup.next" | translate }}
           <i class="pi pi-sign-in"></i>
@@ -136,99 +138,5 @@
         >
       </div>
     </div>
-  </div>
-  <div *ngIf="tab === 2" class="tab_2">
-    <div class="title_tab2">
-      <span>Account Profile</span>
-      <br />
-      <span class="two">STEP 1 OF 2: PROFILE BASICS</span>
-    </div>
-    <form #form2="ngForm" (submit)="saveSecondStep(form2)">
-      <div class="bowl_head_tab2">
-        <div class="side_ledt_toince">
-          <span>Age</span>
-          <p-calendar
-            name="age"
-            [style]="{ minWidth: '100%' }"
-            inputId="basic"
-            [(ngModel)]="age"
-          ></p-calendar>
-
-          <p-dropdown
-            [options]="sexArr"
-            [(ngModel)]="sex"
-            placeholder="Sex"
-            name="sex"
-            [style]="{ minWidth: '100%', marginTop: '25px' }"
-            optionLabel="name"
-          ></p-dropdown>
-        </div>
-        <label
-          class="label_avatar"
-          [class.invalid]="isValid"
-          for="upload_avatar"
-        >
-          <div *ngIf="!coverReader" class="title_upload">
-            {{ "signup.pick_avatar" | translate }}
-          </div>
-          <div *ngIf="!coverReader" class="add_icon">
-            <svg
-              width="15"
-              height="14"
-              viewBox="0 0 15 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.96863 1.37573H7.03113C6.94779 1.37573 6.90613 1.4174 6.90613 1.50073V6.40698H2.25024C2.16691 6.40698 2.12524 6.44865 2.12524 6.53198V7.46948C2.12524 7.55282 2.16691 7.59448 2.25024 7.59448H6.90613V12.5007C6.90613 12.5841 6.94779 12.6257 7.03113 12.6257H7.96863C8.05196 12.6257 8.09363 12.5841 8.09363 12.5007V7.59448H12.7502C12.8336 7.59448 12.8752 7.55282 12.8752 7.46948V6.53198C12.8752 6.44865 12.8336 6.40698 12.7502 6.40698H8.09363V1.50073C8.09363 1.4174 8.05196 1.37573 7.96863 1.37573Z"
-                fill="black"
-                fill-opacity="0.85"
-              />
-            </svg>
-          </div>
-          <img *ngIf="coverReader" [src]="coverReader" alt="" />
-          <input
-            id="upload_avatar"
-            style="display: none"
-            type="file"
-            (change)="uploadCover($event)"
-          />
-        </label>
-      </div>
-
-      <div class="line_sub">
-        <span class="p-float-label">
-          <input
-            id="float-input"
-            type="text"
-            name="country"
-            pInputText
-            [(ngModel)]="country"
-          />
-          <label for="float-input">Country</label>
-        </span>
-      </div>
-
-      <div class="line_sub">
-        <span class="p-float-label">
-          <input
-            id="float-input"
-            type="number"
-            pInputText
-            name="phone"
-            [(ngModel)]="phone"
-          />
-          <label for="float-input">Phone</label>
-        </span>
-      </div>
-      <button type="submit" class="btn_form">
-        {{ "continue" | translate }}
-        <div *ngIf="isLoadSign">
-          <p-progressSpinner
-            [style]="{ width: '30px', height: '30px' }"
-          ></p-progressSpinner>
-        </div>
-      </button>
-    </form>
   </div>
 </div>

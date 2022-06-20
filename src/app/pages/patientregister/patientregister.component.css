@@ -3,6 +3,7 @@
     height: 90vh;
 }
 
+
 .tab_1 {
     display: flex;
     width: 100%;
@@ -126,8 +127,8 @@ form span {
 }
 
 .btn_form .loader {
-    margin-left: 10px;
-    margin-top: 5px;
+    margin-left: 30px;
+    margin-top: 8px;
 }
 
 .btn_form:hover {

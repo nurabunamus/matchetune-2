@@ -10,17 +10,12 @@ import { FunctionsService } from 'src/app/services/functions/functions.service';
 export class CheckoutComponent implements OnInit {
   private stripe: Stripe | null;
   isLoadSign: boolean = false;
-
   user: any;
   constructor(private functions: FunctionsService) {
     functions.isDataLogged$.subscribe((res) => {
       this.user = res;
       console.log(res);
     });
-  }
-
-  checkPaid(form: any) {
-    this.isLoadSign = true;
   }
 
   async ngOnInit() {
@@ -32,22 +27,25 @@ export class CheckoutComponent implements OnInit {
     card?.mount('#card');
     card?.on('change', (event) => {
       const displayError = document.getElementById('card-errors');
-      event.error
-        ? (displayError!.textContent = event.error.message)
-        : (displayError!.textContent = '');
+      if (event.error) {
+        displayError!.textContent = event.error.message;
+        this.isLoadSign = false;
+      } else {
+        displayError!.textContent = '';
+      }
     });
     const button = document.getElementById('button-paid');
     button?.addEventListener('click', async (event) => {
+      this.isLoadSign = true;
       const ownerInfo = {
         owner: {
           name: this.user.name,
           email: this.user.email,
           phone: this.user.phone,
         },
-        amount: 35 * 100,
+        amount: 9 * 100,
         currency: 'usd',
       };
-      console.log(ownerInfo);
 
       try {
         const result = await this.stripe?.createSource(card!, ownerInfo);
@@ -55,6 +53,7 @@ export class CheckoutComponent implements OnInit {
           console.log(res);
           if (res.type === 'success') {
             alert('done to paid');
+            // set values to firebase
           }
         });
       } catch (err) {

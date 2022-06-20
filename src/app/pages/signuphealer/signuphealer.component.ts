@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signuphealer.component.css'],
 })
 export class SignuphealerComponent implements OnInit {
+
   tab: number = 1;
   isValid: boolean = false;
   showPass: boolean = false;
@@ -19,6 +20,8 @@ export class SignuphealerComponent implements OnInit {
   coverReader: string = '';
   resumeEvent: any;
   isLoaderAdd: boolean = false;
+
+
   constructor(
     private authen: AuthenService,
     private storage: Storage,

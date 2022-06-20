@@ -1,0 +1,139 @@
+.cover {
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.title_tab2 {
+    font-family: var(--cairo);
+    font-size: var(--fs-title);
+    width: 400px;
+}
+
+.title_tab2 .two {
+    font-size: var(--fs-sub-text);
+}
+
+.tab_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    min-height: 90vh;
+}
+
+
+.line_sub {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    width: 400px;
+    margin-top: 20px;
+}
+
+.btn_form .loader {
+    margin-left: 30px;
+    margin-top: 8px;
+}
+
+form span {
+    width: 100%;
+    height: 45px;
+}
+
+.forgot {
+    text-align: right;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.btn_form {
+    height: 48px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: var(--fs-btn);
+    background-color: var(--LightBlue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-family: var(--cairo);
+}
+
+.btn_form .loader {
+    margin-left: 30px;
+    margin-top: 8px;
+}
+
+.btn_form:hover {
+    background-color: #07a593;
+}
+
+.btn_form i {
+    margin-left: 15px;
+}
+
+
+input.error,
+input.ng-invalid.ng-touched {
+    border: 2px solid rgb(255, 0, 0);
+}
+
+input.ng-valid.ng-touched {
+    border: 2px solid var(--Green);
+}
+
+.bowl_head_tab2 {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    justify-content: space-between;
+}
+
+.label_avatar {
+    width: 120px;
+    height: 100%;
+    background-color: #FAFAFA;
+    border-left: 1px dashed #D9D9D9;
+    border-right: 1px dashed #D9D9D9;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.label_avatar.invalid {
+    border: 2px dashed rgb(255, 0, 0);
+}
+
+.side_ledt_toince {
+    width: calc(100% - 130px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.side_ledt_toince span {
+    margin-top: 0;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .title_tab2 {
+        width: 90%;
+    }
+
+    form {
+        width: 90%;
+    }
+
+}

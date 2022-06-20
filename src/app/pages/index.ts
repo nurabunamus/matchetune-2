@@ -16,6 +16,7 @@ import { VideosComponent } from './videos/videos.component';
 import { BooksComponent } from './books/books.component';
 import { PatientregisterComponent } from './patientregister/patientregister.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { DetailspatientComponent } from './detailspatient/detailspatient.component';
 
 export const pages = [
   HomeComponent,
@@ -37,4 +38,5 @@ export const pages = [
   VideosComponent,
   BooksComponent,
   CheckoutComponent,
+  DetailspatientComponent,
 ];

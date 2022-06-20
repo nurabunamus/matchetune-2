@@ -17,8 +17,6 @@ export class FunctionsService {
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
-  URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
-
   //
   private dataLogged = new BehaviorSubject<any>({});
   public isDataLogged$ = this.dataLogged.asObservable();
@@ -43,7 +41,6 @@ export class FunctionsService {
 
   testEventAnalytics() {
     console.log('add event');
-
     // this.firebase.
   }
 
@@ -93,6 +90,14 @@ export class FunctionsService {
     if (docSnap.exists()) {
       console.log(' i am a patients patients');
       this.dataLogged.next({ ...docSnap.data(), id: uid });
+      let { state } = docSnap.data();
+      if (state === 'second_info') {
+        this.router.navigate(['details']);
+      } else if (state === 'checkout') {
+        this.router.navigate(['checkout']);
+      } else if (state === 'repaid') {
+        this.router.navigate(['repaid']);
+      }
     } else {
       console.log(' i am a healers healers');
       const userDoc = doc(this.store, 'healers', uid);
@@ -125,42 +130,39 @@ export class FunctionsService {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        return this.firebase.collection('patients').doc(user?.uid).set({
+        this.firebase.collection('patients').doc(user?.uid).set({
+          id: user?.uid,
+          DOJ: Date.now(),
           email,
           name,
-          id: user?.uid,
-          state: 'register',
+          state: 'second_info',
+          type: 'patient',
         });
+        return true;
+      })
+      .catch(() => {
+        return false;
       });
   }
 
-  async updatePatient(data: any) {
+  async updateDetailsPatient(data: any) {
     return this.firebase
       .collection('patients')
       .doc(this.dataLogged.getValue().id)
       .set(data);
   }
 
-  async getStatePatient() {
-    console.log(this.dataLogged.getValue().id);
-
-    const userDoc = doc(this.store, 'patients', this.dataLogged.getValue().id);
-    const docSnap = await getDoc(userDoc);
-    if (docSnap.exists()) {
-      return docSnap.data();
-    } else {
-      return false;
-    }
-  }
+  // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
+  URL: string = 'http://localhost:5001/matchune/us-central1/app';
 
   getFilters(type: string, data: any) {
-    return this.http.post(`${URL}/filters`, {
+    return this.http.post(`${this.URL}/filters`, {
       type,
       options: data,
     });
   }
 
   checkPaid(data: any) {
-    return this.http.post(`${URL}/stripe`, data);
+    return this.http.post(`${this.URL}/stripe`, data);
   }
 }

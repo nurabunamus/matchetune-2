@@ -180,9 +180,15 @@
     </div>
   </div>
 
-    <div class="user_logged" *ngIf="data">
+  <div class="user_logged" *ngIf="data">
     <div (click)="togglePop()" class="avatar_user">
-      <img [src]="data.avatar" alt="" />
+      <img
+        [src]="
+          data.avatar ||
+          'http://evo-ml.com/wp-content/uploads/2019/03/Avatar.png'
+        "
+        alt=""
+      />
     </div>
 
     <div *ngIf="openPopUser" (click)="togglePop()" class="layout_pop"></div>

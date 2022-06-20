@@ -5,14 +5,19 @@ section {
     min-height: 90vh;
 }
 
-form{
+form {
     margin-top: 15px;
 }
 
-.card{
+.card {
     border: 1px solid #07a593;
     border-radius: 5px;
     padding: 10px;
+}
+
+.btn_form .loader {
+    margin-left: 30px;
+    margin-top: 8px;
 }
 
 .tab_3 {
