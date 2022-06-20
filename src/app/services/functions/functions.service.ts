@@ -17,6 +17,8 @@ export class FunctionsService {
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
+  URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
+
   private dataLogged = new BehaviorSubject<any>({});
   public isDataLogged$ = this.dataLogged.asObservable();
   private isLogged = new BehaviorSubject<boolean>(false);
@@ -132,19 +134,13 @@ export class FunctionsService {
   }
 
   getFilters(type: string, data: any) {
-    return this.http.post(
-      'http://localhost:5001/matchune/us-central1/app/filters',
-      {
-        type,
-        options: data,
-      }
-    );
+    return this.http.post(`${URL}/filters`, {
+      type,
+      options: data,
+    });
   }
 
   checkPaid(data: any) {
-    return this.http.post(
-      'http://localhost:5001/matchune/us-central1/app/stripe',
-      data
-    );
+    return this.http.post(`${URL}/stripe`, data);
   }
 }

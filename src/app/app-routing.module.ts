@@ -17,6 +17,7 @@ import { InfographicsComponent } from './pages/infographics/infographics.compone
 import { BooksComponent } from './pages/books/books.component';
 import { VideosComponent } from './pages/videos/videos.component';
 import { PatientregisterComponent } from './pages/patientregister/patientregister.component';
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -69,6 +70,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
 
   {
@@ -101,5 +103,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {}
