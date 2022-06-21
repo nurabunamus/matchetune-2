@@ -138,14 +138,6 @@ export class SignuphealerComponent implements OnInit {
   showPassFun() {
     this.showPass = !this.showPass;
   }
-  withFacebook() {
-    console.log('withFacebook');
-    this.authen.loginWithFacebook();
-  }
-  withGoogle() {
-    console.log('withGoogle');
-    this.authen.loginWithGoogle();
-  }
-
+ 
   ngOnInit(): void {}
 }

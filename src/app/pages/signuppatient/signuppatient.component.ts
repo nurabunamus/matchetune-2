@@ -10,6 +10,7 @@ export class SignuppatientComponent implements OnInit {
     'freemium.all_videos',
     'freemium.all_infographics',
     'freemium.all_books',
+    'freemium.consult',
   ];
 
   listFree: any[] = [
