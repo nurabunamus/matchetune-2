@@ -18,6 +18,9 @@ export class FunctionsService {
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
   //
+  private checkRoute = new BehaviorSubject<any>({ state: 'check' });
+  public checkRoute$ = this.checkRoute.asObservable();
+  //
   private dataLogged = new BehaviorSubject<any>({});
   public isDataLogged$ = this.dataLogged.asObservable();
   //
@@ -37,11 +40,6 @@ export class FunctionsService {
 
   private set isOpenSign(val: boolean) {
     this.isOpenPopSignup.next(val);
-  }
-
-  testEventAnalytics() {
-    console.log('add event');
-    // this.firebase.
   }
 
   addEmailSubscribe(email: string) {
@@ -67,6 +65,7 @@ export class FunctionsService {
       } else {
         console.log(' no authentication');
         this.isLogged.next(false);
+        this.checkRoute.next({ state: false });
       }
     });
   }
@@ -98,11 +97,13 @@ export class FunctionsService {
       } else if (state === 'repaid') {
         this.router.navigate(['repaid']);
       }
+      this.checkRoute.next({ state: true });
     } else {
       console.log(' i am a healers healers');
       const userDoc = doc(this.store, 'healers', uid);
       const docSnap = await getDoc(userDoc);
       this.dataLogged.next({ ...docSnap.data(), id: uid });
+      this.checkRoute.next({ state: true });
     }
     this.isLogged.next(true);
   }
@@ -149,7 +150,7 @@ export class FunctionsService {
     return this.firebase
       .collection('patients')
       .doc(this.dataLogged.getValue().id)
-      .set(data);
+      .update(data);
   }
 
   // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
@@ -164,5 +165,12 @@ export class FunctionsService {
 
   checkPaid(data: any) {
     return this.http.post(`${this.URL}/stripe`, data);
+  }
+
+  async updateIsPaid(data: any) {
+    return this.firebase
+      .collection('patients')
+      .doc(this.dataLogged.getValue().id)
+      .update(data);
   }
 }

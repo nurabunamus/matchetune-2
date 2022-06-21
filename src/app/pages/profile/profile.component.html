@@ -1,10 +1,44 @@
-<p>profile works!</p>
-<br />
-<br />
+<div class="bowl_Chat">
+  <div class="details_user">
+    <p>profile works!</p>
+    hi i am a {{ (functions.isDataLogged$ | async).type }}
+    <br />
+    <br />
+    {{ functions.isDataLogged$ | async | json }}
+    <!-- <img [src]="(functions.isDataLogged$ | async).avatar" alt="" /> -->
+  </div>
 
-hi i am a {{ (functions.isDataLogged$ | async).type }}
-<br />
-<br />
-{{ functions.isDataLogged$ | async | json }}
-
-<img [src]="(functions.isDataLogged$ | async).avatar" alt="" />
+  <div class="chat">
+    <div class="users_Chat">
+      <div
+        *ngFor="let item of usersChat"
+        class="card_user"
+        (click)="selectUser(item.id)"
+        [class.active]="selectedUserID === item.id"
+      >
+        <div class="avatar_contact">
+          <img [src]="item.avatar" [alt]="item.name" />
+        </div>
+        {{ item.name }}
+        {{ "nav.about" | translate }}
+      </div>
+    </div>
+    <div class="content_chat">
+      <div class="lines_chat">
+        <div
+          class="line"
+          *ngFor="let item of lines"
+          [class.other]="item.sereceivernder.id !== selectedUserID"
+        >
+          <span>{{ item.msg.value }}</span>
+        </div>
+      </div>
+      <div class="sender_msg">
+        <textarea [(ngModel)]="msg" placeholder="Aa..."></textarea>
+        <button class="btn_sender" (click)="sendMsg()">
+          <p class="pi pi-send"></p>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./signuphealer.component.css'],
 })
 export class SignuphealerComponent implements OnInit {
-
   tab: number = 1;
   isValid: boolean = false;
   showPass: boolean = false;
@@ -20,7 +19,6 @@ export class SignuphealerComponent implements OnInit {
   coverReader: string = '';
   resumeEvent: any;
   isLoaderAdd: boolean = false;
-
 
   constructor(
     private authen: AuthenService,
@@ -117,6 +115,7 @@ export class SignuphealerComponent implements OnInit {
       social_media,
     } = this.data;
     let data = {
+      DOJ: Date.now(),
       avatar: urlAVatar,
       resume: urlResume,
       name,
@@ -131,7 +130,6 @@ export class SignuphealerComponent implements OnInit {
     };
 
     this.functions.addHealer(data).then(() => {
-      console.log('added healer done');
       this.isLoaderAdd = false;
       this.route.navigate(['/profile']);
     });

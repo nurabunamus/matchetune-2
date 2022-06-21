@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
 
@@ -11,7 +12,7 @@ export class CheckoutComponent implements OnInit {
   private stripe: Stripe | null;
   isLoadSign: boolean = false;
   user: any;
-  constructor(private functions: FunctionsService) {
+  constructor(private functions: FunctionsService, private router: Router) {
     functions.isDataLogged$.subscribe((res) => {
       this.user = res;
       console.log(res);
@@ -50,10 +51,15 @@ export class CheckoutComponent implements OnInit {
       try {
         const result = await this.stripe?.createSource(card!, ownerInfo);
         this.functions.checkPaid(result).subscribe((res: any) => {
-          console.log(res);
           if (res.type === 'success') {
-            alert('done to paid');
             // set values to firebase
+            let data = {
+              state: 'success',
+              paidAt: Date.now(),
+            };
+            this.functions.updateIsPaid(data).then(() => {
+              this.router.navigate(['/']);
+            });
           }
         });
       } catch (err) {

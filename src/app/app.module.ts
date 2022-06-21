@@ -8,7 +8,6 @@ import { pages } from './pages';
 import { components } from './components';
 import { MaterialModule } from './ui.module';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
 import { provideMessaging, getMessaging } from '@angular/fire/messaging';
@@ -36,6 +35,8 @@ import { AdminModule } from './admin/admin.module';
 import { MessageService } from 'primeng/api';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
+    AngularFireDatabaseModule,
   ],
   providers: [ScreenTrackingService, UserTrackingService, MessageService],
   bootstrap: [AppComponent],

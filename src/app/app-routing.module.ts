@@ -83,13 +83,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'healer/:id',
-    component: ProfilehealerComponent,
+    path: 'profile/:id',
+    // component: ProfilehealerComponent, // to delete
+    component: ProfileComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'patient/:id',
-    component: ProfilepatientComponent,
+    path: 'profile/:id',
+    // component: ProfilepatientComponent,  to remove
+    component: ProfileComponent,
     canActivate: [AuthGuard],
   },
   {
