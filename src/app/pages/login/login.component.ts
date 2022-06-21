@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { AuthenService } from 'src/app/services/auth/authen.service';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
 
 @Component({
@@ -44,11 +42,5 @@ export class LoginComponent {
   }
   showPassFun() {
     this.showPass = !this.showPass;
-  }
-  withFacebook() {
-    // this.authen.loginWithFacebook();
-  }
-  withGoogle() {
-    // this.authen.loginWithGoogle();
   }
 }

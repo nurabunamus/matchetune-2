@@ -5,10 +5,10 @@
     "sign_in": "Sign in",
     "quiz": "Quiz",
     "alternatives": "Alternatives",
-    "healers": "Healers",
-    "books": "books",
-    "infographics": "infographics",
-    "videos": "videos",
+    "healers": "Consult with healers",
+    "books": "Books",
+    "infographics": "Infographics",
+    "videos": "Videos",
     "about": "About"
   },
 
@@ -71,9 +71,6 @@
     "plcaeholder_input_receive_Email": "Enter your email",
     "subscribe": "Subscribe",
     "about_us": "About us",
-    "purchases": "Purchases",
-    "terms": "Terms and conditions",
-    "privacy": "Privacy and Security Policy",
     "copyright": "Copyright © 2022 Matchetune"
   },
 
@@ -90,12 +87,14 @@
     "rigister": "Register",
     "continue_With": "or continue with ",
     "ask_have_account": "Already have an account?",
+    "do_not_have_account":"Do not have an account?",
     "login": "Log in",
     "valid_input": "* Plase enter all enteries ",
     "pick_avatar": "Upload avatar",
     "upload_resume": "Upload resume:",
     "upload": "Upload",
-    "submit": "Submit"
+    "submit": "Submit",
+    "register": "Register"
   },
 
   "freemium": {
@@ -115,7 +114,8 @@
     "basic_infographics": "Basic infographics",
     "advanced_videos": "Advanced videos ",
     "advanced_books": "Advanced books",
-    "advanced_infograpgics": "Advanced infographics"
+    "advanced_infograpgics": "Advanced infographics",
+    "consult":"Consult with healers"
   },
 
   "login": {

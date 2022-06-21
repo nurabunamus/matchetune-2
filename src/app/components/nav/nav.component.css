@@ -379,12 +379,13 @@ nav.mode {
 .line_mode {
     user-select: none;
     cursor: pointer;
-    background-color: rgba(233, 233, 233, 0.568);
     border-radius: 5px;
     padding: 10px;
     text-align: center;
     width: 200px;
     margin-top: 10px;
+    font-size: 1.2rem;
+    font-family: var(--cairo);
 }
 
 .line_mode:hover {

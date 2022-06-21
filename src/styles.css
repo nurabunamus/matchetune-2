@@ -104,7 +104,7 @@ body {
 @media screen and (max-width: 600px) {
     :root {
         --fs-big: 2rem;
-        --fs-title: 1.8rem;
+        --fs-title: 1.5rem;
     }
 }
 

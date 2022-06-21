@@ -24,10 +24,12 @@
     </div>
 
     <div class="lang_social">
-      <select #select (change)="changeLang(select.value)" name="" id="">
-        <option value="en">English</option>
-        <option value="sp">Spanish</option>
-      </select>
+      <div class="select">
+        <select #select (change)="changeLang(select.value)" name="" id="">
+          <option value="en">English</option>
+          <option value="sp">Spanish</option>
+        </select>
+      </div>
 
       <div class="links_media">
         <div routerLink="" class="link_social">
@@ -97,21 +99,6 @@
   </div>
 
   <div class="menu">
-    <div class="list">
-      <div routerLink="" class="line">
-        <span>{{ "footer.about_us" | translate }}</span>
-      </div>
-      <div routerLink="" class="line">
-        <span>{{ "footer.purchases" | translate }}</span>
-      </div>
-      <div routerLink="" class="line">
-        <span>{{ "footer.terms" | translate }}</span>
-      </div>
-      <div routerLink="" class="line">
-        <span>{{ "footer.privacy" | translate }}</span>
-      </div>
-    </div>
-
     <div class="copyright">
       <span>{{ "footer.copyright" | translate }}</span>
     </div>

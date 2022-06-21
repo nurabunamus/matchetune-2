@@ -275,11 +275,10 @@ header {
   margin-top: 30px;
 }
 
-.bowl_pop_pro{
+.bowl_pop_pro {
   background-color: red;
   width: 50vw !important;
 }
-
 
 .integrative {
   background-color: var(--LightBlue);
@@ -292,7 +291,7 @@ header {
   align-items: center;
   font-size: 1.2rem;
   box-shadow: var(--shad_1);
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .integrative:hover {
@@ -742,10 +741,6 @@ header {
     line-height: 30px;
   }
 
-  .title_about_backlogo {
-    /* transform: scale(.8) translate(-60%, -70%); */
-  }
-
   .bowl_we_are {
     flex-direction: column-reverse;
   }
@@ -766,12 +761,134 @@ header {
 }
 
 @media screen and (max-width: 600px) {
-  .last_section {
-    flex-direction: column-reverse;
+  /* About Section */
+  .title_about {
+    font-size: var(--fs-title);
   }
+
+  .bowl_about {
+    min-height: 70vh;
+  }
+
+  .about {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+  }
+
+  .title_about_backlogo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .flower_top_right {
+    width: 55px;
+    height: 55px;
+  }
+
+  .flower_bottom_left {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* To whom directed section */
+  .bowl_whom {
+    min-height: 65vh;
+  }
+
+  .description_about2 {
+    width: 85%;
+    margin-top: 15px;
+  }
+
+  /* Approaches section */
+  .healing_approaches_container {
+    grid-template-columns: repeat(auto-fill, 300px);
+  }
+
+  .integrative {
+    height: 80px;
+  }
+
+  /* What find section */
+  .head_find_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .title_find {
+    font-size: var(--fs-title);
+  }
+
+  .title_find_sub {
+    text-align: center;
+  }
+
+  .cards_finds {
+    width: 95%;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .card_find {
+    width: 185px;
+    box-shadow: var(--shad_2);
+  }
+
+  .cover_find {
+    width: 185px;
+    height: 180px;
+  }
+
+  /* Who we are */
+  .title_find {
+    font-size: var(--fs-title);
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .description_how_are {
+    width: 95%;
+    line-height: 30px;
+    margin-top: 20px;
+  }
+
+  /* Testimonials section */
+  .title_about_backlogo {
+    left: 130px;
+  }
+
+  .flower_test_right {
+    visibility: hidden;
+  }
+
+  .flower_test_left {
+    visibility: hidden;
+  }
+
+  /* Asked Questions Section */
+  .description_question {
+    text-align: justify;
+  }
+
+  .card_test {
+    width: 90%;
+    min-height: 100px;
+    margin-top: 10px;
+  }
+
+  /* Last section */
 
   .last_section {
     flex-direction: column-reverse;
+    min-height: 60vh;
   }
 
   .content_last {
@@ -782,7 +899,6 @@ header {
     width: 160px;
     height: 50px;
   }
-
 }
 
 @media screen and (max-width: 400px) {
@@ -790,6 +906,30 @@ header {
     margin-top: 30px;
     width: 90px;
     height: 90px;
+  }
+
+  /* About Section */
+  .title_about {
+    font-size: var(--fs-title);
+  }
+
+  .about {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 30px;
+  }
+
+  .title_about_backlogo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .integrative {
+    height: 70px;
   }
 
   .sub_title_header {
@@ -813,10 +953,6 @@ header {
   .description_about {
     width: 90%;
     line-height: 25px;
-  }
-
-  .title_about_backlogo {
-    /* transform: scale(.6) translate(-90%, -100%); */
   }
 
   .bowl_whom .description_about {
