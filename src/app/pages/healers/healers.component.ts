@@ -25,13 +25,14 @@ export class HealersComponent {
   isLogged: any;
   isAccess: boolean = false;
   display: boolean = false;
+  loader: boolean = true;
+
 
   constructor(private functions: FunctionsService, private router: Router) {
     this.getHealers();
     functions.isDataLogged$.subscribe((res) => {
       this.isLogged = res;
-      console.log('res');
-      console.log(res);
+      this.loader = false;
     });
   }
 
