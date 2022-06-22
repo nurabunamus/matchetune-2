@@ -46,10 +46,10 @@ export class HealersComponent {
   }
 
   moveROute() {
-    console.log(this.isLogged.state);
-
     if (this.isLogged.state === 'second_info') {
       this.router.navigate(['/details']);
+    } else if (this.isLogged.state === 'checkout') {
+      this.router.navigate([`/checkout`]);
     } else {
       this.router.navigate(['/signup/patient']);
     }

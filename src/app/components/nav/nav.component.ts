@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
 
@@ -18,7 +18,6 @@ export class NavComponent {
     { title: 'nav.videos', path: 'videos' },
     { title: 'nav.healers', path: 'healers' },
   ];
-
   logData: any;
   isOpen: boolean = false;
 
@@ -46,7 +45,11 @@ export class NavComponent {
   routerToggle(path: string) {
     if (path === 'profile' && this.logData.state !== 'success') {
       this.togglePop();
-      this.route.navigate([`/details`]);
+      if (this.logData.state === 'second_info') {
+        this.route.navigate([`/details`]);
+      } else if (this.logData.state === 'checkout') {
+        this.route.navigate([`/checkout`]);
+      }
     } else {
       this.togglePop();
       this.route.navigate([`/${path}`]);

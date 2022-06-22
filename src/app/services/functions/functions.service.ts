@@ -155,8 +155,8 @@ export class FunctionsService {
       .update(data);
   }
 
-  URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
-  // URL: string = 'http://localhost:5001/matchune/us-central1/app';
+  // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
+  URL: string = 'http://localhost:5001/matchune/us-central1/app';
 
   getFilters(type: string, data: any) {
     return this.http.post(`${this.URL}/filters`, {
