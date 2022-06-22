@@ -39,7 +39,10 @@
   </div>
 
   <div *ngIf="loader" class="loader">
-    <p-progressSpinner></p-progressSpinner>
+    <div class="bowl" *ngFor="let item of Infographics">
+      <p-skeleton width="100%"></p-skeleton>
+    </div>
+
   </div>
 
   <div class="container_imgs">
