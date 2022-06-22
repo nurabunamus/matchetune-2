@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignuppatientComponent } from './pages/signuppatient/signuppatient.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { AlternativesComponent } from './pages/alternatives/alternatives.component';
 import { SignuphealerComponent } from './pages/signuphealer/signuphealer.component';
 import { HealersComponent } from './pages/healers/healers.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -56,10 +55,7 @@ const routes: Routes = [
     path: 'signup/healer',
     component: SignuphealerComponent,
   },
-  {
-    path: 'alternatives',
-    component: AlternativesComponent,
-  },
+
   {
     path: 'healers',
     component: HealersComponent,

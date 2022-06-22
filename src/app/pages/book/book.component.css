@@ -18,14 +18,6 @@ main {
   align-items: center;
 }
 
-@media screen and (max-width: 700px) {
-  .book_details_container {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 .book_details {
   display: flex;
@@ -80,6 +72,13 @@ main {
   box-shadow: var(--shad_1);
   cursor: pointer;
   transition: .3s ease-in-out;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.button_style.a {
+  color: var(--Black);
 }
 
 #view_book {
@@ -206,4 +205,58 @@ main {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.emptydata {
+  text-align: center;
+}
+
+.link {
+  color: rgb(64, 103, 155);
+  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media screen and (max-width: 900px) {
+  .book_details_container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .book_details {
+    margin-top: 30px;
+  }
+
+  .buttons_container,
+  .paid_buttons_container {
+    margin-top: 25px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .button_style {
+    width: 45%;
+  }
+
+  .book_cover {
+    height: 300px;
+    min-width: auto;
+    width: 70%;
+    margin-right: 0;
+
+  }
+
+  .book_details {
+    text-align: center;
+  }
+
+  .description {
+    line-height: 32px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+
+
 }

@@ -84,10 +84,22 @@
     flex-direction: column;
   }
 
+  .book_container {
+  align-items: center;
+  margin-top: 20px;
+  }
+
 
   .title_book {
     width: 100%;
   }
+
+
+  .book_img_container {
+    width: 160px;
+    height: 90%;
+  }
+
 
   .status {
     margin-top: 20px;

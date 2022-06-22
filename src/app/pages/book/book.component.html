@@ -10,10 +10,6 @@
       <div class="description">
         <span>{{ book.description }}</span>
       </div>
-      <div class="categry">
-        <span>Approach: {{ book.approach.name }}</span>
-      </div>
-
       <div *ngIf="viewBook" class="view_book">
         <div *ngIf="!loadedBook" class="loader_book">
           <p-progressSpinner></p-progressSpinner>
@@ -30,21 +26,18 @@
           ></ngx-doc-viewer>
         </div>
       </div>
-
       <div class="buttons_container" *ngIf="isShowDownload">
         <button (click)="viewPDF()" class="button_style" id="view_book">
           View book &nbsp;&nbsp; <i class="pi pi-eye"></i>
         </button>
         <a
-          class="button_style"
+          class="button_style a"
           target="_blank"
           id="download"
           download
           [href]="book.file"
         >
-          <button class="button_style">
-            Download &nbsp;&nbsp;<i class="pi pi-download"></i>
-          </button>
+          Download &nbsp;&nbsp;<i class="pi pi-download"></i>
         </a>
       </div>
       <div class="paid_buttons_container" *ngIf="!isShowDownload">
@@ -86,6 +79,15 @@
         *ngFor="let item of recommendedBooks"
         [book]="item"
       ></app-book-card>
+    </div>
+
+    <div class="emptydata" *ngIf="!recommendedBooks.length">
+      <span>There is no related books to this book.</span>
+      <br />
+      <br />
+      <span class="link" routerLink="/books"
+        >Click here to view other books.</span
+      >
     </div>
   </section>
 </main>

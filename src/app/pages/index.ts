@@ -1,6 +1,5 @@
 import { BookCardComponent } from '../components/book-card/book-card.component';
 import { AboutComponent } from './about/about.component';
-import { AlternativesComponent } from './alternatives/alternatives.component';
 import { BookComponent } from './book/book.component';
 import { HealersComponent } from './healers/healers.component';
 import { HomeComponent } from './home/home.component';
@@ -25,11 +24,9 @@ export const pages = [
   PatientregisterComponent,
   InfographicsComponent,
   LoginComponent,
-  AlternativesComponent,
   HealersComponent,
   AboutComponent,
   Page404Component,
-  AlternativesComponent,
   BookComponent,
   BookCardComponent,
   ProfilepatientComponent,

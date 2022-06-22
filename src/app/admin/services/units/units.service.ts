@@ -18,10 +18,10 @@ export class UnitsService {
     { name: 'Free', code: 'free' },
     { name: 'Paid', code: 'paid' },
   ];
+  
   languages: DropDown[] = [
     { name: 'English', code: 'en' },
     { name: 'Spanish', code: 'sp' },
-    { name: 'France', code: 'fr' },
   ];
 
   private approach = new BehaviorSubject<DropDown[]>([]);

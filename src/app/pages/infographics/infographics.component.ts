@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitsService } from 'src/app/admin/services/units/units.service';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
-import { ListsService } from 'src/app/services/lists/lists.service';
 
 @Component({
   selector: 'app-infographics',
@@ -17,11 +16,7 @@ export class InfographicsComponent implements OnInit {
   approach: any;
   category: any;
   Infographics: any[] = [];
-  constructor(
-    public units: UnitsService,
-    public list: ListsService,
-    private fires: FunctionsService
-  ) {
+  constructor(public units: UnitsService, private fires: FunctionsService) {
     this.getFiltersResults();
     this.units.approach$.subscribe((change) => {
       this.approaches = change;

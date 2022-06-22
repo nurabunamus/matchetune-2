@@ -73,7 +73,7 @@ const filters = async (req, res) => {
     let getData = await getDocs(q);
     let list = [];
     getData.forEach((item) => {
-      list.push(item.data());
+      list.push({ ...item.data(), id: item.id });
     });
 
     if (category && category?.length) {
