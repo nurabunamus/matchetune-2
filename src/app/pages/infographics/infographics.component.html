@@ -47,10 +47,9 @@
   </div>
 
   <div *ngIf="loader" class="loader">
-    <div class="bowl" *ngFor="let item of Infographics">
-      <p-skeleton width="100%"></p-skeleton>
+    <div *ngFor="let item of Infographics">
+      <p-skeleton width="100%" height="350px"></p-skeleton>
     </div>
-
   </div>
 
   <div class="container_imgs">

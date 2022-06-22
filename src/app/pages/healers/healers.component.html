@@ -2,6 +2,12 @@
   <span>Meet our Healers</span>
 </div>
 <main>
+  <div *ngIf="loader" class="loader">
+    <div *ngFor="let item of list">
+      <p-skeleton width="100%" height="300px" borderRadius="10px"></p-skeleton>
+    </div>
+  </div>
+
   <div *ngFor="let item of list" class="card">
     <div class="avatar">
       <img [src]="item.avatar" alt="" />
