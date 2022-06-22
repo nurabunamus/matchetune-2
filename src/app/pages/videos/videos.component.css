@@ -12,12 +12,27 @@ main {
     margin-top: 20px;
 }
 
+
 .filters {
     width: 200px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
 }
+
+.bowlSleect {
+    width: 200px;
+}
+
+@media screen and (max-width: 600px) {
+    .bowlSleect {
+        width: 44%;
+    }
+}
+
+
 
 .data {
     margin-top: 30px;

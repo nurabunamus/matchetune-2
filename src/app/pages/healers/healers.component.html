@@ -1,18 +1,38 @@
 <div class="title">
   <span>Meet our Healers</span>
-  </div>
+</div>
 <main>
-  <div
-    *ngFor="let item of list"
-    class="card"
-    [routerLink]="['/healer', item.id]"
-  >
+  <div *ngFor="let item of list" class="card">
     <div class="avatar">
       <img [src]="item.avatar" alt="" />
     </div>
     <div class="details">
       <span class="name">{{ item.name }}</span>
       <span class="profession">{{ item.profession_name }}</span>
+      <button (click)="checkRoute(item.id)" class="btn_consult">
+        <span>Consult with healer</span>
+        <i class="pi pi-comment"></i>
+      </button>
     </div>
   </div>
 </main>
+
+<p-dialog
+  header="  You should register to have a consult with a healer"
+  *ngIf="isAccess"
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw' }"
+  [blockScroll]="true"
+  [draggable]="false"
+  [modal]="true"
+>
+  <button
+    class="get-access"
+    routerLink="/signup/patient"
+    class="get_access_button"
+    pButton
+  >
+    Get Access &nbsp;&nbsp; <i class="pi pi-angle-right"></i>
+  </button>
+</p-dialog>

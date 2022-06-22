@@ -23,7 +23,6 @@
   font-weight: 700;
   font-size: var(--fs-sub-text);
   font-family: var(--cairo);
-
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -39,7 +38,6 @@
   font-size: var(--fs-text);
   color: var(--DarkGry);
   width: 200px;
-
   margin-top: 25px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -78,4 +76,21 @@
 
 .status.paid {
   background-color: rgb(245, 129, 129);
+}
+
+@media screen and (max-width: 600px) {
+
+  .title_label {
+    flex-direction: column;
+  }
+
+
+  .title_book {
+    width: 100%;
+  }
+
+  .status {
+    margin-top: 20px;
+  }
+
 }

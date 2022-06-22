@@ -12,6 +12,7 @@ import { DialogModule } from 'primeng/dialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @NgModule({
   exports: [
@@ -28,6 +29,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     CheckboxModule,
     CalendarModule,
     InputNumberModule,
+    SkeletonModule,
   ],
 })
 export class MaterialModule {}

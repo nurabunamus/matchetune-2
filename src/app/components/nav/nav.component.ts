@@ -22,9 +22,19 @@ export class NavComponent {
   isOpen: boolean = false;
 
   constructor(public functions: FunctionsService, private route: Router) {
-    functions.isLogged$.subscribe((res) => {
-      if (res) {
-        this.listMenu = this.listMenu.filter((e) => e.path !== 'login');
+    functions.isDataLogged$.subscribe((res: any) => {
+      console.log('-----');
+      console.log(res);
+
+      if (res.type) {
+        if (res.type === 'healer') {
+          this.listMenu = this.listMenu.filter(
+            // (e) => e.path !== 'login' || e.path !== 'healers'
+            (e) => !['login', 'healers'].includes(e.path)
+          );
+        } else {
+          this.listMenu = this.listMenu.filter((e) => e.path !== 'login');
+        }
       }
     });
     functions.isDataLogged$.subscribe((res) => {

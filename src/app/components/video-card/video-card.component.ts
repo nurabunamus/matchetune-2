@@ -11,7 +11,7 @@ export class VideoCardComponent implements OnInit {
   display: boolean = false;
 
   showDialog() {
-      this.display = true;
+    this.display = true;
   }
 
   constructor() {}
