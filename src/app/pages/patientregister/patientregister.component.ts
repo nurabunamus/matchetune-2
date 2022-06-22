@@ -11,7 +11,14 @@ export class PatientregisterComponent {
   isLoadSign: boolean = false;
   isValid: boolean = false;
   showPass: boolean = false;
+  checkAccount: boolean = false;
+  display: boolean = false;
+
   constructor(private functions: FunctionsService, private router: Router) {}
+
+  showDialog() {
+    this.display = true;
+  }
 
   firstRegister(form: any) {
     if (form.valid) {
@@ -23,14 +30,14 @@ export class PatientregisterComponent {
 
   async saveFirstStep(data: any) {
     this.isLoadSign = true;
-    try {
-      let check = await this.functions.addPatient(data);
-      if (!check) {
-        return alert('your account is exists');
-      }
+    let check = await this.functions.addPatient(data);
+    if (!check) {
+      this.isLoadSign = false;
+      this.checkAccount = true;
+    } else {
+      this.isLoadSign = true;
+      this.checkAccount = false;
       this.router.navigate(['details']);
-    } catch {
-      return alert('cant create aaccount');
     }
   }
 

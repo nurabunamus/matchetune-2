@@ -28,7 +28,7 @@ export class LoginComponent {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
-            detail: 'email or password error',
+            detail: 'Uncorrect email or password!',
           });
         }
       });
@@ -36,7 +36,7 @@ export class LoginComponent {
       this.messageService.add({
         severity: 'warn',
         summary: 'Warn',
-        detail: 'enter inputs',
+        detail: 'Enter all required informations!',
       });
     }
   }

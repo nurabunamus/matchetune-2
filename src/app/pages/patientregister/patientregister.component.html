@@ -69,7 +69,7 @@
           <span> {{ "signup.valid_input" | translate }}</span>
         </div>
 
-        <button type="submit" class="btn_form">
+        <button type="submit" class="btn_form" (click)="showDialog()">
           {{ "signup.next" | translate }}
           <i class="pi pi-sign-in"></i>
           <div *ngIf="isLoadSign" class="loader">
@@ -88,3 +88,23 @@
     </div>
   </div>
 </div>
+
+<p-dialog
+  header="This user is already exist!"
+  *ngIf="checkAccount"
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '400px' }"
+  [blockScroll]="true"
+  [draggable]="false"
+  [modal]="true"
+>
+  <button
+    class="get-access"
+    routerLink="/login"
+    class="get_access_button"
+    pButton
+  >
+    Log in &nbsp;&nbsp; <i class="pi pi-angle-right"></i>
+  </button>
+</p-dialog>
