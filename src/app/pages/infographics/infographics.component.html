@@ -1,6 +1,8 @@
 <main>
   <div class="filters">
     <p-dropdown
+      class="bowlSleect"
+      [style]="{ width: '100%' }"
       [options]="units.languages"
       [(ngModel)]="language"
       placeholder="Language"
@@ -10,6 +12,8 @@
     ></p-dropdown>
 
     <p-dropdown
+      class="bowlSleect"
+      [style]="{ width: '100%' }"
       [options]="units.status"
       [(ngModel)]="status"
       placeholder="Status"
@@ -19,6 +23,8 @@
     ></p-dropdown>
 
     <p-dropdown
+      class="bowlSleect"
+      [style]="{ width: '100%' }"
       [options]="approaches"
       [(ngModel)]="approach"
       placeholder="Approach"
@@ -28,6 +34,8 @@
     ></p-dropdown>
 
     <p-multiSelect
+      class="bowlSleect"
+      [style]="{ width: '100%' }"
       *ngIf="approach"
       [options]="approach.categories"
       [(ngModel)]="category"

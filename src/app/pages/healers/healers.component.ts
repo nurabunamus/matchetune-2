@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   collection,
   getDocs,
@@ -14,16 +15,34 @@ import { FunctionsService } from 'src/app/services/functions/functions.service';
   templateUrl: './healers.component.html',
   styleUrls: ['./healers.component.css'],
 })
-export class HealersComponent implements OnInit {
+export class HealersComponent {
   list: any[] = [];
   isLoader: boolean = true;
   lastIndex: any;
   emptyData: boolean = false;
   isScrolling: boolean = false;
   loadMore: boolean = false;
+  isLogged: any;
+  isAccess: boolean = false;
+  display: boolean = false;
 
-  constructor(private functions: FunctionsService) {
+  constructor(private functions: FunctionsService, private router: Router) {
     this.getHealers();
+    functions.isDataLogged$.subscribe((res) => {
+      this.isLogged = res;
+      console.log('res');
+      console.log(res);
+    });
+  }
+
+  checkRoute(id: string) {
+    if (this.isLogged.type === 'patient') {
+      this.isAccess = false;
+      this.router.navigate(['/profile', id]);
+    } else {
+      this.isAccess = true;
+      this.display = true;
+    }
   }
 
   ngAfterViewInit() {
@@ -58,8 +77,6 @@ export class HealersComponent implements OnInit {
       } else {
         getData.forEach((book) => {
           let doc = { id: book.id, ...book.data() };
-          console.log(doc);
-          
           this.list.push(doc);
         });
       }
@@ -72,6 +89,4 @@ export class HealersComponent implements OnInit {
       this.isLoader = false;
     }
   }
-
-  ngOnInit(): void {}
 }
