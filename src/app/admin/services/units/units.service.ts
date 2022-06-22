@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { initializeApp } from 'firebase/app';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { DropDown } from '../../interfaces';
-import { Storage } from '@angular/fire/storage';
 import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -18,7 +16,7 @@ export class UnitsService {
     { name: 'Free', code: 'free' },
     { name: 'Paid', code: 'paid' },
   ];
-  
+
   languages: DropDown[] = [
     { name: 'English', code: 'en' },
     { name: 'Spanish', code: 'sp' },
@@ -30,11 +28,7 @@ export class UnitsService {
   public isAdmin$ = this.isAdmin.asObservable();
 
   store = getFirestore(initializeApp(environment.firebaseConfig));
-  constructor(
-    private storage: Storage,
-    private auth: AngularFireAuth,
-    private router: Router
-  ) {
+  constructor(private auth: AngularFireAuth, private router: Router) {
     this.getApproaches();
   }
 
@@ -72,9 +66,9 @@ export class UnitsService {
     const authGoogle = new firebase.auth.GoogleAuthProvider();
     this.auth.signInWithPopup(authGoogle).then((res) => {
       let email = res.user?.email || '';
-      let uid = res.user?.uid || '';
-      let check = ['div.jo2022@gmail.com'].includes(email);
-      let chec2 = ['gUw7bngGd8PlGw5XxACNfpYJ6zx2'].includes(uid);
+      let check = ['div.jo2022@gmail.com', 'noorin.sa.99@gmail.com'].includes(
+        email
+      );
       this.isAdmin.next(check);
     });
   }
