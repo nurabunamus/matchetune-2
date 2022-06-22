@@ -33,6 +33,9 @@ export class ProfileComponent implements OnInit {
     const { id } = this.route.snapshot.params;
     this.selectedUserID = id;
     functions.isDataLogged$.subscribe((res) => {
+      if (res.state !== 'success') {
+        location.assign('/');
+      }
       this.myInfo = res;
       if (res.id) {
         this.getContacts(res).then(() => {

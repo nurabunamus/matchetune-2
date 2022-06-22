@@ -1,4 +1,4 @@
-<div [routerLink]="['/book', book.id]" class="book_container">
+<div (click)="routeBook()" class="book_container">
   <div class="book_img_container">
     <img [src]="book.cover" alt="book" />
   </div>
@@ -18,3 +18,22 @@
     </div>
   </div>
 </div>
+<p-dialog
+  header="You do not currently have access to this video"
+  *ngIf="!isAccess && book.status.code === 'paid'"
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '400px' }"
+  [blockScroll]="true"
+  [draggable]="false"
+  [modal]="true"
+>
+  <button
+    class="get-access"
+    routerLink="/details"
+    class="get_access_button"
+    pButton
+  >
+    Get Access &nbsp;&nbsp; <i class="pi pi-angle-right"></i>
+  </button>
+</p-dialog>

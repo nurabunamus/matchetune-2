@@ -25,7 +25,9 @@ export class FunctionsService {
   public isDataLogged$ = this.dataLogged.asObservable();
   //
   private isLogged = new BehaviorSubject<boolean>(false);
-  public isLogged$ = this.isLogged.asObservable();
+  public isLogged$ = this.isLogged.asObservable(); //
+  private isAccess = new BehaviorSubject<boolean>(false);
+  public isAccess$ = this.isAccess.asObservable();
 
   constructor(
     private firebase: AngularFirestore,

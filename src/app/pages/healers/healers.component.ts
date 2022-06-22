@@ -27,7 +27,6 @@ export class HealersComponent {
   display: boolean = false;
   loader: boolean = true;
 
-
   constructor(private functions: FunctionsService, private router: Router) {
     this.getHealers();
     functions.isDataLogged$.subscribe((res) => {
@@ -37,12 +36,22 @@ export class HealersComponent {
   }
 
   checkRoute(id: string) {
-    if (this.isLogged.type === 'patient') {
+    if (this.isLogged.type === 'patient' && this.isLogged.state === 'success') {
       this.isAccess = false;
       this.router.navigate(['/profile', id]);
     } else {
       this.isAccess = true;
       this.display = true;
+    }
+  }
+
+  moveROute() {
+    console.log(this.isLogged.state);
+
+    if (this.isLogged.state === 'second_info') {
+      this.router.navigate(['/details']);
+    } else {
+      this.router.navigate(['/signup/patient']);
     }
   }
 

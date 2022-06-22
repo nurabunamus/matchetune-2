@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div *ngIf="isSHow && video.status.name == 'Free'" class="player">
+<div *ngIf="isSHow && isAccess" class="player">
   <div class="close" (click)="toggleShow()">
     <i class="pi pi-times"></i>
   </div>
@@ -19,7 +19,7 @@
 
 <p-dialog
   header="You do not currently have access to this video"
-  *ngIf="video.status.name == 'Paid'"
+  *ngIf="!isAccess && video.status.code === 'paid'"
   [(visible)]="display"
   [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
   [style]="{ width: '400px' }"
@@ -29,7 +29,7 @@
 >
   <button
     class="get-access"
-    routerLink="/signup/patient"
+    routerLink="/details"
     class="get_access_button"
     pButton
   >

@@ -25,7 +25,7 @@
 
     <div class="lang_social">
       <div class="select">
-        <select #select (change)="changeLang(select.value)" name="" id="">
+        <select #select [value]="valueLang" (change)="changeLang(select.value)" name="" id="">
           <option value="en">English</option>
           <option value="sp">Spanish</option>
         </select>

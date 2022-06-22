@@ -15,6 +15,9 @@ export class FooterComponent {
     private messageService: MessageService
   ) {}
 
+  valueLang: string =
+    localStorage.getItem('matchetune-language-2022-06-22') || 'en';
+
   changeLang(lang: string) {
     this.toggleTranslate.changeLanguage(lang);
   }

@@ -14,7 +14,17 @@ export class DetailspatientComponent {
     private functions: FunctionsService,
     private storage: Storage,
     private router: Router
-  ) {}
+  ) {
+    functions.isDataLogged$.subscribe((res: any) => {
+      if (res.state === 'success') {
+        this.router.navigate(['profile']);
+      } else if (res.state === 'checkout') {
+        this.router.navigate(['checkout']);
+      } else if (res.state === 'repaid') {
+        this.router.navigate(['repaid']);
+      }
+    });
+  }
   isLoadSign: boolean = false;
   isValid: boolean = false;
   coverReader: string = '';

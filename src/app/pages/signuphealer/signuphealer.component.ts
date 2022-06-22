@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { AuthenService } from 'src/app/services/auth/authen.service';
 import { Storage } from '@angular/fire/storage';
 import { FunctionsService } from 'src/app/services/functions/functions.service';
 import { Router } from '@angular/router';
@@ -21,7 +20,6 @@ export class SignuphealerComponent implements OnInit {
   isLoaderAdd: boolean = false;
 
   constructor(
-    private authen: AuthenService,
     private storage: Storage,
     private functions: FunctionsService,
     private route: Router
@@ -138,6 +136,6 @@ export class SignuphealerComponent implements OnInit {
   showPassFun() {
     this.showPass = !this.showPass;
   }
- 
+
   ngOnInit(): void {}
 }

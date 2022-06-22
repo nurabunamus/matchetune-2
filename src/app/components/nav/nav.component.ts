@@ -19,13 +19,12 @@ export class NavComponent {
     { title: 'nav.healers', path: 'healers' },
   ];
 
+  logData: any;
   isOpen: boolean = false;
 
   constructor(public functions: FunctionsService, private route: Router) {
     functions.isDataLogged$.subscribe((res: any) => {
-      console.log('-----');
-      console.log(res);
-
+      this.logData = res;
       if (res.type) {
         if (res.type === 'healer') {
           this.listMenu = this.listMenu.filter(
@@ -45,8 +44,13 @@ export class NavComponent {
   }
 
   routerToggle(path: string) {
-    this.togglePop();
-    this.route.navigate([`/${path}`]);
+    if (path === 'profile' && this.logData.state !== 'success') {
+      this.togglePop();
+      this.route.navigate([`/details`]);
+    } else {
+      this.togglePop();
+      this.route.navigate([`/${path}`]);
+    }
   }
 
   togglePop() {

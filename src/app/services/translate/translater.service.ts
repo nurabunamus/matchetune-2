@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class TranslaterService {
   constructor(private translater: TranslateService) {
     let userLang = navigator.language || navigator.userAgent;
-    let fromLangStore = localStorage.getItem('matchetune-language-no-gaza');
+    let fromLangStore = localStorage.getItem('matchetune-language-2022-06-22');
     let checkIs = fromLangStore || userLang;
     if (checkIs === 'sp') this.translater.use('sp');
     else this.translater.use('en');
@@ -15,6 +15,6 @@ export class TranslaterService {
 
   changeLanguage(lang: string) {
     this.translater.use(lang);
-    localStorage.setItem('matchetune-language-no-gaza', lang);
+    localStorage.setItem('matchetune-language-2022-06-22', lang);
   }
 }
