@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.message{
+    background-color: rgb(247, 247, 247);
+    height: 250px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: var(--shad_3);
+    font-family: var(--cairo);
+    font-size: 1.2rem;
+}

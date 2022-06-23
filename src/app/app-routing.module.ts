@@ -19,6 +19,8 @@ import { PatientregisterComponent } from './pages/patientregister/patientregiste
 import { AuthGuard } from './services/auth/auth.guard';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DetailspatientComponent } from './pages/detailspatient/detailspatient.component';
+import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
+import {VerifyEmailComponent} from './components/verify-email/verify-email.component';
 
 const routes: Routes = [
   {
@@ -102,7 +104,14 @@ const routes: Routes = [
     path: 'videos',
     component: VideosComponent,
   },
-
+  {
+    path: 'password',
+    component: ForgotPasswordComponent,
+  },
+  {
+    path: 'verify',
+    component: VerifyEmailComponent,
+  },
   {
     path: '**',
     component: Page404Component,
