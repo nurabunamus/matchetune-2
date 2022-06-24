@@ -43,7 +43,11 @@ export class NavComponent {
   }
 
   routerToggle(path: string) {
-    if (path === 'profile' && this.logData.state !== 'success') {
+    if (
+      path === 'profile' &&
+      this.logData.state !== 'success' &&
+      this.logData.type !== 'healer'
+    ) {
       this.togglePop();
       if (this.logData.state === 'second_info') {
         this.route.navigate([`/details`]);

@@ -8,11 +8,67 @@
     box-shadow: var(--shad_2);
 }
 
+.loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .details_user {
     width: 400px;
     overflow: hidden;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+
+.avatar_user {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.name_user_de {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.name_user_de span:first-child {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .chat {
     width: calc(100% - 400px);
@@ -71,15 +127,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 .content_chat {
     width: calc(100% - 280px);
 }
@@ -87,7 +134,23 @@
 .lines_chat {
     height: calc(100% - 60px);
     overflow: auto;
+    padding: 10px;
 }
+
+.lines_chat::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lines_chat::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.062);
+}
+
+.lines_chat::-webkit-scrollbar-thumb {
+    background: rgb(214, 214, 214);
+    border-radius: 10px;
+}
+
+
 
 .sender_msg {
     background-color: rgb(255, 255, 255);
@@ -108,7 +171,7 @@ textarea {
     resize: none;
 }
 
-.btn_sender{
+.btn_sender {
     background-color: #eee;
     width: 40px;
     height: 40px;
@@ -122,7 +185,7 @@ textarea {
 }
 
 
-.line span{
+.line span {
     background-color: rgb(230, 230, 230);
     padding: 6px 12px;
     border-radius: 20px;
@@ -134,6 +197,15 @@ textarea {
 }
 
 
-.line.other span{
+.line.other span {
     background-color: rgb(177, 241, 161);
+}
+
+
+
+.chat_not {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,19 +1,53 @@
 <div class="bowl_Chat">
-  <div class="details_user">
-    <p>profile works!</p>
-    hi i am a {{ (functions.isDataLogged$ | async).type }}
-    <br />
-    <br />
-    {{ functions.isDataLogged$ | async | json }}
-    <!-- <img [src]="(functions.isDataLogged$ | async).avatar" alt="" /> -->
+  <div class="details_user" *ngIf="!selectedUserID && myInfo">
+    <div class="avatar_user">
+      <img [src]="myInfo.avatar" alt="" />
+    </div>
+    <div class="name_user_de">
+      <span>Name: </span>
+      <span>{{ myInfo.name }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Country: </span>
+      <span>{{ myInfo.country }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Phone: </span>
+      <span>{{ myInfo.phone }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Email: </span>
+      <span>{{ myInfo.email }}</span>
+    </div>
+  </div>
+  <div class="details_user" *ngIf="selectedUserID && selectedInfo">
+    <div class="avatar_user">
+      <img [src]="selectedInfo.avatar" alt="" />
+    </div>
+    <div class="name_user_de">
+      <span>Profession Nmae: </span>
+      <span>{{ selectedInfo.profession_name }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Name: </span>
+      <span>{{ selectedInfo.name }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Phone: </span>
+      <span>{{ selectedInfo.phone_number }}</span>
+    </div>
+    <div class="name_user_de">
+      <span>Email: </span>
+      <span>{{ selectedInfo.email }}</span>
+    </div>
   </div>
 
-  <div class="chat">
+  <div class="chat" *ngIf="usersChat.length">
     <div class="users_Chat">
       <div
         *ngFor="let item of usersChat"
         class="card_user"
-        (click)="selectUser(item.id)"
+        (click)="selectUser(item.id, true)"
         [class.active]="selectedUserID === item.id"
       >
         <div class="avatar_contact">
@@ -24,7 +58,15 @@
       </div>
     </div>
     <div class="content_chat">
-      <div class="lines_chat">
+      <div #scrollMe class="lines_chat">
+        <div class="loader" *ngIf="!lines.length && !isEmptyContent">
+          <p-progressSpinner
+            [style]="{ width: '50px', height: '50px' }"
+          ></p-progressSpinner>
+        </div>
+        <div class="loader" *ngIf="isEmptyContent">
+          <span>noy yet sending any msgs</span>
+        </div>
         <div
           class="line"
           *ngFor="let item of lines"
@@ -40,5 +82,8 @@
         </button>
       </div>
     </div>
+  </div>
+  <div class="chat_not" *ngIf="!usersChat.length">
+    <span>you dont add any healer to contact</span>
   </div>
 </div>
