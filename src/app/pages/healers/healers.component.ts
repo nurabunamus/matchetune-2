@@ -27,18 +27,26 @@ export class HealersComponent {
   display: boolean = false;
   loader: boolean = true;
 
+  oldContacts: any[] = [];
+
   constructor(private functions: FunctionsService, private router: Router) {
     this.getHealers();
     functions.isDataLogged$.subscribe((res) => {
       this.isLogged = res;
       this.loader = false;
+      this.oldContacts = res.contacts || [];
     });
   }
 
   checkRoute(id: string) {
     if (this.isLogged.type === 'patient' && this.isLogged.state === 'success') {
       this.isAccess = false;
-      this.router.navigate(['/profile', id]);
+      let arr = [...this.oldContacts, id];
+      let uniqueChars = [...new Set(arr)];
+      let contacts = { contacts: uniqueChars };
+      this.functions.updateContactsPatient(contacts).then(() => {
+        this.functions.updateContactsHealer(id);
+      });
     } else {
       this.isAccess = true;
       this.display = true;

@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { doc, getDoc, getFirestore, Firestore } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -121,7 +121,10 @@ export class FunctionsService {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        return this.firebase.collection('healers').doc(user?.uid).set(data);
+        return this.firebase
+          .collection('healers')
+          .doc(user?.uid)
+          .set({ ...data, id: user?.uid });
       });
   }
 
@@ -174,6 +177,38 @@ export class FunctionsService {
       .update(data);
   }
 
+
+  async updateContactsPatient(data: any) {
+    return this.firebase
+      .collection('patients')
+      .doc(this.dataLogged.getValue().id)
+      .update(data);
+  }
+  async updateContactsHealer(id: any) {
+    console.log(id);
+
+    this.firebase
+      .collection('healers')
+      .doc(id)
+      .get()
+      .subscribe((res: any) => {
+        let contacts = res.data().contacts || [];
+        this.firebase
+          .collection('healers')
+          .doc(id)
+          .update({
+            contacts: [
+              ...new Set([...contacts, this.dataLogged.getValue().id]),
+            ],
+          })
+          .then(() => {
+            this.router.navigate(['/profile', id]).then(() => {
+              location.reload();
+            });
+          });
+      });
+  }
+
   // Recover Password
   forgotPassword(email : string) {
     this.auth.sendPasswordResetEmail(email).then(() => {
@@ -183,5 +218,6 @@ export class FunctionsService {
       alert('This email has no registered account! Please, create a new account.')
     })
   }
+
 
 }

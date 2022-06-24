@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { doc, getDoc, getFirestore, where } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +10,4 @@ export class ChatService {
   async createChat(data: any) {
     return this.firebase.collection('chats').add(data);
   }
-
-
-
-
-
-
-
-
 }
