@@ -20,11 +20,9 @@ export class ProfilepatientComponent implements OnInit {
   }
 
   async getDocFires(id: string) {
-    console.log(id);
     try {
       const userDoc = doc(this.functions.store, 'patients', id);
       const docSnap = await getDoc(userDoc).then((res) => {
-        console.log(res.data());
         this.data = res.data();
       });
     } catch {}

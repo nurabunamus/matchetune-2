@@ -25,9 +25,10 @@ export class FunctionsService {
   public isDataLogged$ = this.dataLogged.asObservable();
   //
   private isLogged = new BehaviorSubject<boolean>(false);
-  public isLogged$ = this.isLogged.asObservable(); //
+  public isLogged$ = this.isLogged.asObservable(); 
   private isAccess = new BehaviorSubject<boolean>(false);
   public isAccess$ = this.isAccess.asObservable();
+  fireauth: any;
 
   constructor(
     private firebase: AngularFirestore,
@@ -65,7 +66,6 @@ export class FunctionsService {
         let { uid } = user;
         this.getTypeUser(uid);
       } else {
-        console.log(' no authentication');
         this.isLogged.next(false);
         this.checkRoute.next({ state: false });
       }
@@ -101,7 +101,6 @@ export class FunctionsService {
       }
       this.checkRoute.next({ state: true });
     } else {
-      console.log(' i am a healers healers');
       const userDoc = doc(this.store, 'healers', uid);
       const docSnap = await getDoc(userDoc);
       this.dataLogged.next({ ...docSnap.data(), id: uid });
@@ -122,7 +121,6 @@ export class FunctionsService {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user?.uid);
         return this.firebase
           .collection('healers')
           .doc(user?.uid)
@@ -179,6 +177,7 @@ export class FunctionsService {
       .update(data);
   }
 
+
   async updateContactsPatient(data: any) {
     return this.firebase
       .collection('patients')
@@ -209,4 +208,16 @@ export class FunctionsService {
           });
       });
   }
+
+  // Recover Password
+  forgotPassword(email : string) {
+    this.auth.sendPasswordResetEmail(email).then(() => {
+     this.router.navigate(['verify'])
+    },
+    error => {
+      alert('This email has no registered account! Please, create a new account.')
+    })
+  }
+
+
 }
