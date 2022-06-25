@@ -11,6 +11,7 @@
     width: 400px;
 }
 
+
 .title_tab2 .two {
     font-size: var(--fs-sub-text);
 }
@@ -23,7 +24,6 @@
     margin-top: 10vh;
     min-height: 90vh;
 }
-
 
 .line_sub {
     margin-top: 25px;
@@ -77,6 +77,10 @@ form span {
 
 .btn_form i {
     margin-left: 15px;
+}
+
+.msg_Valid {
+    margin-top: 5px;
 }
 
 

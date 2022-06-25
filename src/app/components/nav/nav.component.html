@@ -190,16 +190,11 @@
         alt=""
       />
     </div>
-
     <div *ngIf="openPopUser" (click)="togglePop()" class="layout_pop"></div>
     <div *ngIf="openPopUser" class="pop_user">
-      <div class="logout" (click)="routerToggle('profile')">
+      <div class="logout" (click)="routerToggle()">
         <i class="pi pi-user"></i>
         <span>Profile</span>
-      </div>
-      <div class="logout" (click)="routerToggle('setting')">
-        <i class="pi pi-cog"></i>
-        <span>Setting</span>
       </div>
       <div class="logout" (click)="functions.logout()">
         <i class="pi pi-fw pi-power-off"></i>
@@ -559,9 +554,15 @@
       </svg>
     </div>
 
-    <div *ngIf="data" class="profile_mode" routerLink="/profile">
+    <div *ngIf="data" class="profile_mode" (click)="routerToggle()">
       <div class="avatar_user">
-        <img [src]="data.avatar" alt="avatar" />
+        <img
+          [src]="
+            data.avatar ||
+            'http://evo-ml.com/wp-content/uploads/2019/03/Avatar.png'
+          "
+          alt="avatar"
+        />
       </div>
       <span>Profile</span>
     </div>
@@ -571,16 +572,13 @@
         *ngFor="let item of listMenu"
         class="line_mode"
         [routerLink]="item.path"
+        (click)="toggleMenu()"
         routerLinkActive="true"
       >
         <span>{{ item.title | translate }}</span>
       </div>
     </div>
 
-    <div *ngIf="data" class="line_mode2" routerLink="/setting">
-      <i class="pi pi-cog"></i>
-      <span>Setting</span>
-    </div>
     <div *ngIf="data" class="line_mode2" (click)="functions.logout()">
       <i class="pi pi-fw pi-power-off"></i>
       <span>Quit</span>

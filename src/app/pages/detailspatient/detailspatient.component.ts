@@ -29,10 +29,6 @@ export class DetailspatientComponent {
   isValid: boolean = false;
   coverReader: string = '';
   avatarEvent: any;
-  age: any;
-  sex: any;
-  country: any;
-  phone: any;
   sexArr: any = [
     {
       name: 'Male',
@@ -46,8 +42,11 @@ export class DetailspatientComponent {
 
   saveSecondStep(form: any) {
     if (form.valid && !this.avatarEvent) {
-      return alert('enter all inputs');
+      this.isValid = true;
+      return;
     }
+
+    this.isValid = false;
     this.isLoadSign = true;
     const pathAvatar = `patients/avatar/${Date.now()}_${this.avatarEvent.name.replace(
       /([^a-z0-9.]+)/gi,
@@ -71,7 +70,9 @@ export class DetailspatientComponent {
             sex: sex?.code,
           };
           this.functions.updateDetailsPatient(data).then(() => {
-            this.router.navigate(['/checkout']);
+            this.router.navigate(['/checkout']).then(() => {
+              location.reload();
+            });
           });
         });
       }

@@ -17,22 +17,18 @@ export class BookCardComponent {
   }
 
   routeBook() {
-    if (this.isAccess && this.book.status.code === 'paid') {
+    if (this.book.status.code === 'free') {
       this.route.navigate(['/book', this.book.id]);
     } else if (!this.isAccess && this.book.status.code === 'paid') {
       this.showDialog();
-    } else if (this.book.status.code === 'free') {
+    } else if (this.isAccess && this.book.status.code === 'paid') {
       this.route.navigate(['/book', this.book.id]);
     }
   }
 
   constructor(public functions: FunctionsService, private route: Router) {
     functions.checkRoute$.subscribe((res: any) => {
-      if (res === true) {
-        this.isAccess = true;
-      } else {
-        this.isAccess = false;
-      }
+      this.isAccess = res;
     });
   }
 }

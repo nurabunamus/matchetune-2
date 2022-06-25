@@ -12,20 +12,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FunctionsService {
+  // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
+  URL: string = 'http://localhost:5001/matchune/us-central1/app';
+
   //
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
   //
-  private checkRoute = new BehaviorSubject<any>({ state: 'check' });
+  private checkRoute = new BehaviorSubject<any>(null);
   public checkRoute$ = this.checkRoute.asObservable();
   //
   private dataLogged = new BehaviorSubject<any>({});
   public isDataLogged$ = this.dataLogged.asObservable();
   //
   private isLogged = new BehaviorSubject<boolean>(false);
-  public isLogged$ = this.isLogged.asObservable(); 
+  public isLogged$ = this.isLogged.asObservable();
   private isAccess = new BehaviorSubject<boolean>(false);
   public isAccess$ = this.isAccess.asObservable();
   fireauth: any;
@@ -53,13 +56,16 @@ export class FunctionsService {
     this.isOpenSign = !this.isOpenSign;
   }
 
+  // logout accounts
   logout() {
-    this.auth.signOut();
-    this.router.navigate(['/login']).then(() => {
-      window.location.reload();
+    this.auth.signOut().then(() => {
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload();
+      });
     });
   }
 
+  // get authentication
   checkAuthentication() {
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
@@ -67,11 +73,12 @@ export class FunctionsService {
         this.getTypeUser(uid);
       } else {
         this.isLogged.next(false);
-        this.checkRoute.next({ state: false });
+        this.checkRoute.next(false);
       }
     });
   }
 
+  // login by email and password
   async checkLogin(email: string, password: string) {
     return this.auth
       .signInWithEmailAndPassword(email, password)
@@ -92,21 +99,41 @@ export class FunctionsService {
       console.log(' i am a patients patients');
       this.dataLogged.next({ ...docSnap.data(), id: uid });
       let { state } = docSnap.data();
+      console.log({ state });
       if (state === 'second_info') {
         this.router.navigate(['details']);
       } else if (state === 'checkout') {
         this.router.navigate(['checkout']);
       } else if (state === 'repaid') {
         this.router.navigate(['repaid']);
+      } else {
+        this.checkRoute.next(true);
       }
-      this.checkRoute.next({ state: true });
     } else {
       const userDoc = doc(this.store, 'healers', uid);
       const docSnap = await getDoc(userDoc);
-      this.dataLogged.next({ ...docSnap.data(), id: uid });
-      this.checkRoute.next({ state: true });
+      if (docSnap.exists()) {
+        this.dataLogged.next({ ...docSnap.data(), id: uid });
+      }
     }
     this.isLogged.next(true);
+  }
+
+  // check if user have access
+  checkAccess() {
+    console.log('checkAccess === == = = = == =');
+    let { state, type } = this.dataLogged.getValue();
+    if (!state && type === 'patient') {
+      this.router.navigate(['/signup/patient']);
+    }
+    console.log(state);
+    if (state === 'second_info') {
+      this.router.navigate(['details']);
+    } else if (state === 'checkout') {
+      this.router.navigate(['checkout']);
+    } else if (state === 'repaid') {
+      this.router.navigate(['repaid']);
+    }
   }
 
   async getProfilePatient(id: string) {
@@ -156,9 +183,6 @@ export class FunctionsService {
       .update(data);
   }
 
-  // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
-  URL: string = 'http://localhost:5001/matchune/us-central1/app';
-
   getFilters(type: string, data: any) {
     return this.http.post(`${this.URL}/filters`, {
       type,
@@ -177,16 +201,16 @@ export class FunctionsService {
       .update(data);
   }
 
-
+  // chat contacts patients
   async updateContactsPatient(data: any) {
     return this.firebase
       .collection('patients')
       .doc(this.dataLogged.getValue().id)
       .update(data);
   }
-  async updateContactsHealer(id: any) {
-    console.log(id);
 
+  // chat contacts healers
+  async updateContactsHealer(id: any) {
     this.firebase
       .collection('healers')
       .doc(id)
@@ -210,14 +234,16 @@ export class FunctionsService {
   }
 
   // Recover Password
-  forgotPassword(email : string) {
-    this.auth.sendPasswordResetEmail(email).then(() => {
-     this.router.navigate(['verify'])
-    },
-    error => {
-      alert('This email has no registered account! Please, create a new account.')
-    })
+  forgotPassword(email: string) {
+    this.auth.sendPasswordResetEmail(email).then(
+      () => {
+        this.router.navigate(['verify']);
+      },
+      (error) => {
+        alert(
+          'This email has no registered account! Please, create a new account.'
+        );
+      }
+    );
   }
-
-
 }

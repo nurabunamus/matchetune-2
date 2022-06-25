@@ -41,15 +41,12 @@ export class BooksComponent implements OnInit {
     this.fires
       .getFilters('books', { status, language, approach, category })
       .subscribe((res: any) => {
-        console.log(res);
         if (!res.length) {
           this.isEmpty = true;
         } else {
           this.isEmpty = false;
         }
         this.Books = res;
-        console.log(res);
-
         this.loader = false;
       });
   }

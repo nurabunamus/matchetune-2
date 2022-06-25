@@ -18,21 +18,25 @@ export class NavComponent {
     { title: 'nav.videos', path: 'videos' },
     { title: 'nav.healers', path: 'healers' },
   ];
-  logData: any;
   isOpen: boolean = false;
 
   constructor(public functions: FunctionsService, private route: Router) {
     functions.isDataLogged$.subscribe((res: any) => {
-      this.logData = res;
       if (res.type) {
+        console.log('res.type');
+        console.log(res.type);
         if (res.type === 'healer') {
-          this.listMenu = this.listMenu.filter(
-            // (e) => e.path !== 'login' || e.path !== 'healers'
-            (e) => !['login', 'healers'].includes(e.path)
-          );
+          this.listMenu = [];
         } else {
-          this.listMenu = this.listMenu.filter((e) => e.path !== 'login');
+          this.listMenu = [
+            { title: 'nav.infographics', path: 'infographics' },
+            { title: 'nav.books', path: 'books' },
+            { title: 'nav.videos', path: 'videos' },
+            { title: 'nav.healers', path: 'healers' },
+          ];
         }
+      } else {
+        this.listMenu = this.listMenu.filter((e) => e.path !== 'healers');
       }
     });
     functions.isDataLogged$.subscribe((res) => {
@@ -42,21 +46,15 @@ export class NavComponent {
     });
   }
 
-  routerToggle(path: string) {
-    if (
-      path === 'profile' &&
-      this.logData.state !== 'success' &&
-      this.logData.type !== 'healer'
-    ) {
-      this.togglePop();
-      if (this.logData.state === 'second_info') {
-        this.route.navigate([`/details`]);
-      } else if (this.logData.state === 'checkout') {
-        this.route.navigate([`/checkout`]);
-      }
+  routerToggle() {
+    this.togglePop();
+    this.isOpen = false;
+    if (this.data.type === 'healer') {
+      this.route.navigate([`/profile`]);
+    } else if (this.data.state === 'success' && this.data.type === 'patient') {
+      this.route.navigate([`/profile`]);
     } else {
-      this.togglePop();
-      this.route.navigate([`/${path}`]);
+      this.functions.checkAccess();
     }
   }
 

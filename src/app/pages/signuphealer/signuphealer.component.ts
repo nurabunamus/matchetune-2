@@ -18,6 +18,7 @@ export class SignuphealerComponent implements OnInit {
   coverReader: string = '';
   resumeEvent: any;
   isLoaderAdd: boolean = false;
+  countPercentUploading: number = 0;
 
   constructor(
     private storage: Storage,
@@ -72,7 +73,14 @@ export class SignuphealerComponent implements OnInit {
     const upload = uploadBytesResumable(storageFile, this.avatarEvent);
     upload.on(
       'state_changed',
-      () => console.log('upload avatar'),
+      async (sanpshot) => {
+        const progress =
+          (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
+        console.log('countPercentUploading');
+        console.log(this.countPercentUploading);
+        this.countPercentUploading =
+          this.countPercentUploading + Math.floor(progress) / 2;
+      },
       (err) => console.log(err),
       async () => {
         await getDownloadURL(upload.snapshot.ref).then((urlAVatar) => {
@@ -91,7 +99,12 @@ export class SignuphealerComponent implements OnInit {
     const upload = uploadBytesResumable(storageFile, this.resumeEvent);
     upload.on(
       'state_changed',
-      () => console.log('upload resume'),
+      async (sanpshot) => {
+        const progress =
+          (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
+        this.countPercentUploading =
+          this.countPercentUploading + Math.floor(progress) / 2;
+      },
       (err) => console.log(err),
       async () => {
         await getDownloadURL(upload.snapshot.ref).then((urlResume) => {
@@ -113,7 +126,7 @@ export class SignuphealerComponent implements OnInit {
       social_media,
     } = this.data;
     let data = {
-      DOJ: Date.now(),
+      createAt: Date.now(),
       avatar: urlAVatar,
       resume: urlResume,
       name,

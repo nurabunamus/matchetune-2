@@ -19,8 +19,8 @@ import { PatientregisterComponent } from './pages/patientregister/patientregiste
 import { AuthGuard } from './services/auth/auth.guard';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DetailspatientComponent } from './pages/detailspatient/detailspatient.component';
-import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
-import {VerifyEmailComponent} from './components/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 const routes: Routes = [
   {

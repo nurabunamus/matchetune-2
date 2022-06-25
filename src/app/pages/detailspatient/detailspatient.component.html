@@ -12,11 +12,11 @@
           name="age"
           [style]="{ minWidth: '100%' }"
           inputId="basic"
-          [(ngModel)]="age"
+          ngModel
         ></p-calendar>
         <p-dropdown
           [options]="sexArr"
-          [(ngModel)]="sex"
+          ngModel
           placeholder="Sex"
           name="sex"
           [style]="{ minWidth: '100%', marginTop: '25px' }"
@@ -55,27 +55,27 @@
     <div class="line_sub">
       <span class="p-float-label">
         <input
-          id="float-input"
-          type="text"
-          name="country"
+          required
+          minlength="2"
+          id="country"
+          type="country"
           pInputText
-          [(ngModel)]="country"
+          ngModel
+          name="country"
         />
-        <label for="float-input">Country</label>
+        <label for="country">Country</label>
       </span>
     </div>
 
     <div class="line_sub">
       <span class="p-float-label">
-        <input
-          id="float-input"
-          type="number"
-          pInputText
-          name="phone"
-          [(ngModel)]="phone"
-        />
+        <input   minlength="6" id="float-input" type="number" pInputText name="phone" ngModel />
         <label for="float-input">Phone</label>
       </span>
+    </div>
+
+    <div class="msg_Valid" *ngIf="isValid">
+      <span>* Plase enter all inputs</span>
     </div>
 
     <button type="submit" class="btn_form">

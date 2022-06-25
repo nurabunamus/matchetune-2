@@ -16,6 +16,7 @@ export class InfographicsComponent implements OnInit {
   approach: any;
   category: any;
   Infographics: any[] = [];
+  coverPop: string = '';
   constructor(public units: UnitsService, private fires: FunctionsService) {
     this.getFiltersResults();
     this.units.approach$.subscribe((change) => {
@@ -30,6 +31,13 @@ export class InfographicsComponent implements OnInit {
     this.getFiltersResults();
   }
 
+  clearPop() {
+    this.coverPop = '';
+  }
+
+  openImg(item: any) {
+    this.coverPop = item.cover;
+  }
   // auto call function when any event change
   async getFiltersResults() {
     let { status, language, approach, category } = {

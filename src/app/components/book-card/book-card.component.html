@@ -18,6 +18,7 @@
     </div>
   </div>
 </div>
+
 <p-dialog
   header="You do not currently have access to this video"
   *ngIf="!isAccess && book.status.code === 'paid'"
@@ -30,7 +31,7 @@
 >
   <button
     class="get-access"
-    routerLink="/details"
+    (click)="functions.checkAccess()"
     class="get_access_button"
     pButton
   >

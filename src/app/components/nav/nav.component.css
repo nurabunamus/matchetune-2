@@ -361,13 +361,16 @@ nav.mode {
 
 .profile_mode {
     display: flex;
-    background-color: rgba(233, 233, 233, 0.568);
     padding: 5px;
     border-radius: 5px;
     width: 200px;
     align-items: center;
     margin-top: 30px;
     cursor: pointer;
+}
+
+.profile_mode:hover {
+    background-color: rgba(233, 233, 233, 0.568);
 }
 
 .profile_mode span {
@@ -396,7 +399,6 @@ nav.mode {
 
 .line_mode2 {
     display: flex;
-    background-color: rgba(233, 233, 233, 0.568);
     padding: 5px;
     border-radius: 5px;
     width: 200px;
@@ -407,6 +409,10 @@ nav.mode {
     opacity: 0;
     transform: translateY(200px);
     animation: comeLines 0.7s ease-in-out forwards 1s;
+}
+
+.line_mode2:hover {
+    background-color: rgba(233, 233, 233, 0.568);
 }
 
 @keyframes comeLines {

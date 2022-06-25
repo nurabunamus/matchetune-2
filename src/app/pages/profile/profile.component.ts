@@ -103,7 +103,10 @@ export class ProfileComponent implements OnInit {
     let myID = this.myInfo.id,
       otherID = this.selectedUserID;
     let { type: T1 } = this.myInfo; // sender
+
     let idDoc = T1 === 'healer' ? `${myID}_${otherID}` : `${otherID}_${myID}`;
+    console.log('idDoc === ==== ==== ==== ===');
+    console.log(T1);
     console.log(idDoc);
     const q = query(
       collection(this.functions.store, 'chats'),

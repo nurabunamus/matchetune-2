@@ -53,7 +53,7 @@
   </div>
 
   <div class="container_imgs">
-    <div class="bowl" *ngFor="let item of Infographics">
+    <div class="bowl" *ngFor="let item of Infographics" (click)="openImg(item)">
       <img [src]="item.cover" [alt]="item.title" />
     </div>
   </div>
@@ -62,3 +62,8 @@
     <span>No Infographics are available for this approach! </span>
   </div>
 </main>
+
+<div *ngIf="coverPop" class="pop_cover_imgs">
+  <img [src]="coverPop" alt="" />
+  <div class="layout" (click)="clearPop()"></div>
+</div>
