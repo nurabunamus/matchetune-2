@@ -17,7 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["lodash"],
+            "allowedCommonJsDependencies": [
+              "pdfjs-dist/web/pdf_viewer",
+              "pdfjs-dist/build/pdf",
+              "lodash",
+              "rxjs-compat"
+            ],
             "outputPath": "dist/app",
             "index": "src/index.html",
             "main": "src/main.ts",
