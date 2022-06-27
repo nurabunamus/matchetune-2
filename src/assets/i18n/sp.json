@@ -5,6 +5,9 @@
     "alternatives": "Alternativas",
     "healers": "Sanadores",
     "about": "Nosotros",
+    "books": "Libros",
+    "videos": "Videos",
+    "infographics": "Infografías",
     "get_started": "Comenzar"
   },
 
@@ -44,6 +47,39 @@
     "see_all": " ver todo",
 
     "who_we_are_title": "Quienes somos",
-    "who_we_are_description": "Somos un grupo de sanadores de diferentes culturas, de diferentes Pueblos Originarios de América contribuyendo a la sanación de las almas y nuestros cuerpos.Tuve un sueño en 2016 en el que visualicé el nombre de nuestra start up Matchetune, el cual es un juego de palabras en inglés y Mapuzungun (la lengua de los mapuches):En inglés se lee: Match, acertar entre nosotros, otras personas y nuestra madre naturaleza + “e” de tecnología + Tune, sintonizar con la medicina y cosmovisión ancestral. En español se lee: machitun, que es un ritual de sanación practicado en una Ruka (choza) donde un Machi (sanador mapuche) se conecta con los espíritus y puede sanar. "
+    "who_we_are_description": "Somos un grupo de sanadores de diferentes culturas, de diferentes Pueblos Originarios de América contribuyendo a la sanación de las almas y nuestros cuerpos.Tuve un sueño en 2016 en el que visualicé el nombre de nuestra start up Matchetune, el cual es un juego de palabras en inglés y Mapuzungun (la lengua de los mapuches):En inglés se lee: Match, acertar entre nosotros, otras personas y nuestra madre naturaleza + “e” de tecnología + Tune, sintonizar con la medicina y cosmovisión ancestral. En español se lee: machitun, que es un ritual de sanación practicado en una Ruka (choza) donde un Machi (sanador mapuche) se conecta con los espíritus y puede sanar. ",
+    "testimonials": "Testimonios",
+
+    "frequently_first_title": "Preguntas ",
+    "frequently_last_title": " frecuentes",
+
+    "last_sec_title": "Welcome to Matchetune"
+  },
+
+  "footer": {
+    "title_receive_email": "Reciba ofertas y actualizaciones exclusivas de Matchetune",
+    "plcaeholder_input_receive_Email": "Introduce tu correo electrónico",
+    "subscribe": "Suscribir",
+    "copyright": "Copyright © 2022 Matchetune"
+  },
+
+  "testimonials": {
+    "t1":"Encontrar esta página fue un regalo. Estoy en la búsqueda de mi espiritualidad. Pude entender a qué se refiere cuando se habla de medicinas alternativas y encontrar mucha información valiosa.",
+    "name1":"María José Ramos",
+    "t2":"¡Gracias por mostrarme que hay mucho más contenido, más allá de la medicina alópata! Me fascinó ver que los Pueblos Originarios tienen sus propios sistemas de salud. Estamos en una era de entendimiento y me gustó que se compartieran varios enfoques y poder aprender de todas las visiones.",
+    "name2":"Antonia Walker",
+    "t3":"Luego de leer mucha de la información que ofrecen, ver algunos videos y abrir mi mente, pude entender muchas cosas respecto de mi salud. Luego elegí conversar y consultar con un profesional de una de las corrientes de sanación. Sentí que la plataforma me “llevó” hacia mi sanación y hoy siento que he avanzado mucho. Todo muy amoroso e intuitivo. ¡Gracias!",
+    "name3":"Beatriz Araya",
+    "t4":"Estoy viviendo un momento de muchos cambios importantes, a ratos con mucha confusión. Por este motivo acudí a Javier, para una alineación de chakras. La experiencia fué mucho más allá de mis expectativas.  Llegué a un espacio acogedor, armonioso y solemne. Y se dió una conversación muy sanadora.. preguntas claves, palabras precisas...  luego, una experiencia de alineación de chakras con visualizaciones de apertura y luz, de desbloqueos energéticos y físicos de mis chakras. ",
+    "name4":"Sonia Campos"
+  },
+
+  "questions": {
+    "q1": "¿Puedo seguir algún tratamiento alternativo si estoy en tratamiento con un doctor?",
+    "answer1": "Nuestro enfoque es inclusivo, respetuoso y amoroso. Creemos que cada corriente de pensamiento es válido en tanto contribuya a la sanación de la persona, no descartamos ningún enfoque mientras haya hecho bien a alguna persona. En este sentido, por supuesto que es posible estar siguiendo un tratamiento alópata para el dolor, por ejemplo, y realizarte una cesión de acupuntura.Siempre sugerimos informar a tu médico de los tratamientos alternativos que estás realizándote.  ",
+    "q2": "¿Las consultas son on-line o presenciales?",
+    "answer2":"Puedes agendar una cesión con nuestros terapeutas y profesionales, ya sea on-line o bien presencial, en alguno de nuestros centros de sanación.",
+    "q3":"¿Puedo consultar con más de un especialista?",
+    "answer3":"¡Por supuesto! Esta es la magia de nuestra plataforma: mostrar diversos enfoques que te hagan sentido A TI, que sientas que contribuyen a tu sanación. Es muy interesante las diferentes miradas de una dolencia que pueden tener las diferentes corrientes de sanación, y si te hace sentido explorar una u otra, solo tienes que hacerlo y nutrirte de cada experiencia. ¡Adelante!"
   }
 }

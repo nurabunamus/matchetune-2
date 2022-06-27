@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
   display2: boolean = false;
   display3: boolean = false;
   display4: boolean = false;
+  freqOpen: boolean = false;
+  freqOpen2: boolean = false;
+  freqOpen3: boolean = false;
+  
   Books: any[] = [];
 
   showDialog1() {
@@ -64,27 +68,7 @@ export class HomeComponent implements OnInit {
       position: 'Product designer at moq',
     },
   ];
-  freqOpen: number | undefined;
-  frequently: any[] = [
-    {
-      id: 0,
-      title: 'What is an alternative medicine?',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    },
-    {
-      id: 1,
-      title: 'What is an alternative medicine?',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    },
-    {
-      id: 2,
-      title: 'What is an alternative medicine?',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-    },
-  ];
+
   numbers: number[] = Array(70);
   isLogged: boolean = false;
 
@@ -96,8 +80,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  setFreqOpen(id: number) {
-    this.freqOpen = this.freqOpen === id ? undefined : id;
+  setFreqOpen1() {
+    this.freqOpen = !this.freqOpen;
+  }
+
+  setFreqOpen2() {
+    this.freqOpen2 = !this.freqOpen2;
+  }
+
+  setFreqOpen3() {
+    this.freqOpen3 = !this.freqOpen3;
   }
 
   ngOnInit(): void {}

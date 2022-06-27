@@ -63,14 +63,13 @@
     "frequently_first_title": "Frequently",
     "frequently_last_title": " Asked Questions",
 
-    "last_sec_title": "Lorem ipsum dolor sit amet"
+    "last_sec_title": "Welcome to Matchetune"
   },
 
   "footer": {
     "title_receive_email": "Receive exclusive offers and updates from Matchetune",
     "plcaeholder_input_receive_Email": "Enter your email",
     "subscribe": "Subscribe",
-    "about_us": "About us",
     "copyright": "Copyright © 2022 Matchetune"
   },
 
@@ -133,5 +132,25 @@
 
   "toast": {
     "msg_invalid_signp_healer": "Please enter all entries with your photo and resume"
+  },
+
+  "testimonials": {
+    "t1":"Finding this page was a gift. I am in search of my spirituality. I was able to understand what it means when talking about alternative medicines and find a lot of valuable information.",
+    "name1":"María José Ramos",
+    "t2":"Thank you for showing me that there is much more content, beyond allopathic medicine! I was fascinated to see that the Native Peoples have their own health systems. We are in an era of understanding, and I liked that various approaches were shared and to be able to learn from all the visions.",
+    "name2":"Antonia Walker",
+    "t3":"After reading a lot of the information they offer, watching some videos and opening my mind, I was able to understand a lot about my health. Then I chose to talk and consult with a professional from one of the healing currents. I felt that the platform led me towards my healing and today I feel that I have come a long way. All very loving and intuitive. Thank you!",
+    "name3":"Beatriz Araya",
+    "t4":"I am living a moment of many important changes, at times with a lot of confusion.For this reason, I appointed with Javier, for a chakra alignment.The experience was far beyond my expectations I arrived at a welcoming, harmonious and solemn space. And a very healing conversation took place... key questions, precise words... then, an experience of chakra alignment with visualizations of opening and light, of energetic and physical unlocking of my chakras.",
+    "name4":"Sonia Campos"
+  },
+
+  "questions": {
+    "q1": "Can I follow an alternative treatment if I am in treatment with a doctor?",
+    "answer1": "Our approach is inclusive, respectful, and amorous. We think that each healing approach is valid as long as it contributes to the healing of the person, we do not rule out any approach as long as it has heal a person. In this sense, of course it is possible to be following an allopathic treatment for pain, for example, and appoint an acupuncture session. We always suggest informing your doctor of the alternative treatments you are undergoing.",
+    "q2": "Are the consultations online or face-to-face?",
+    "answer2":"You can schedule a session with our therapists and professionals, either online or in person, at one of our healing centers.",
+    "q3":"Can I see more than one specialist?",
+    "answer3":"Of course! This is the magic of our platform: showing diverse approaches that make sense to YOU, that you feel contribute to your healing. It is very interesting the different views of an ailment that the different healing currents can have, and if it makes sense for you to explore one or the other, you just have to do it and nurture yourself from each experience. Go ahead!"
   }
 }

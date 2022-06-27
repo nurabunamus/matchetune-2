@@ -455,8 +455,8 @@ header {
 }
 
 .card_test {
-  width: 35%;
-  height: 170px;
+  width: 40%;
+  height: 240px;
   display: flex;
   align-items: center;
   box-shadow: var(--shad_5);
@@ -478,10 +478,11 @@ header {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: var(--shad_3);
+
 }
 
 .content_card_test {
-  width: 60%;
+  width: 95%;
 }
 
 .descriiption_card_Test {
