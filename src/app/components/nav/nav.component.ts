@@ -23,8 +23,6 @@ export class NavComponent {
   constructor(public functions: FunctionsService, private route: Router) {
     functions.isDataLogged$.subscribe((res: any) => {
       if (res.type) {
-        console.log('res.type');
-        console.log(res.type);
         if (res.type === 'healer') {
           this.listMenu = [];
         } else {

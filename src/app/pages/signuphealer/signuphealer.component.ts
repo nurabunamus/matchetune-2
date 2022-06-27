@@ -45,7 +45,6 @@ export class SignuphealerComponent implements OnInit {
 
   onSubmit(form: any) {
     if (form.valid) {
-      console.log(form.value);
       this.data = { ...this.data, ...form.value };
       this.tab = 2;
     } else {
@@ -76,10 +75,7 @@ export class SignuphealerComponent implements OnInit {
       async (sanpshot) => {
         const progress =
           (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
-        console.log('countPercentUploading');
-        console.log(this.countPercentUploading);
-        this.countPercentUploading =
-          this.countPercentUploading + Math.floor(progress) / 2;
+        this.countPercentUploading = Math.floor(progress) / 2;
       },
       (err) => console.log(err),
       async () => {
@@ -103,7 +99,7 @@ export class SignuphealerComponent implements OnInit {
         const progress =
           (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
         this.countPercentUploading =
-          this.countPercentUploading + Math.floor(progress) / 2;
+          Math.floor(progress) / 2 + this.countPercentUploading - 10;
       },
       (err) => console.log(err),
       async () => {

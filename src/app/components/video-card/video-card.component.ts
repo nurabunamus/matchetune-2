@@ -14,18 +14,15 @@ export class VideoCardComponent implements OnInit {
   isAccess: boolean = false;
 
   showDialog() {
-    console.log('showDialog');
     this.display = true;
   }
 
   constructor(public functions: FunctionsService, private route: Router) {}
   toggleShow() {
     this.isSHow = !this.isSHow;
-    console.log('toggleShow');
   }
 
   ngOnInit(): void {
-    // console.log(this.video);
     if (this.video) {
       this.functions.isDataLogged$.subscribe((res: any) => {
         if (res.state === 'success' || this.video?.status?.code === 'free') {

@@ -11,7 +11,6 @@ const { store } = require("../config");
 const filters = async (req, res) => {
   let { options, type } = req.body;
   let { status, approach, language, category } = options;
-
   let q;
   let cond1 = status && !language && !approach;
   let cond2 = !status && language && !approach;
@@ -80,12 +79,10 @@ const filters = async (req, res) => {
       list = list.filter((e) => {
         return category.includes(e.category.code) ? e : null;
       });
-      console.log(list);
     }
 
     return res.json(list);
-  } catch (err) {
-    console.log(err);
+  } catch {
     return res.json({ msg: "errors error!" });
   }
 };

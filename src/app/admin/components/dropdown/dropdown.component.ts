@@ -38,7 +38,6 @@ export class DropdownComponent implements OnInit {
     let { category, approach } = this.value;
     if (category) {
       this.selectedCategory = category;
-      console.log(category);
       this.showCategories = true;
       this.approaches.filter((e, i) => {
         if (e.code === approach.code) {

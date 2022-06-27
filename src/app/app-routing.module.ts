@@ -10,8 +10,6 @@ import { Page404Component } from './pages/page404/page404.component';
 import { MainComponent } from './admin/pages/main/main.component';
 import { BookComponent } from './pages/book/book.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfilehealerComponent } from './pages/profilehealer/profilehealer.component';
-import { ProfilepatientComponent } from './pages/profilepatient/profilepatient.component';
 import { InfographicsComponent } from './pages/infographics/infographics.component';
 import { BooksComponent } from './pages/books/books.component';
 import { VideosComponent } from './pages/videos/videos.component';
@@ -82,13 +80,11 @@ const routes: Routes = [
   },
   {
     path: 'profile/:id',
-    // component: ProfilehealerComponent, // to delete
     component: ProfileComponent,
     canActivate: [AuthGuard],
   },
   {
     path: 'profile/:id',
-    // component: ProfilepatientComponent,  to remove
     component: ProfileComponent,
     canActivate: [AuthGuard],
   },

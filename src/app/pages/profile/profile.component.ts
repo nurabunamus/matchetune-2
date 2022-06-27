@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
   selectedInfo: any;
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   isEmptyContent: boolean = false;
+  isLoader: boolean = true;
 
   constructor(
     public functions: FunctionsService,
@@ -71,7 +72,6 @@ export class ProfileComponent implements OnInit {
         limit(20)
       );
       let getData = await getDocs(q);
-      console.log(getData.docs.length);
       let arr: any = [];
       getData.forEach((book) => {
         let doc = { id: book.id, ...book.data() };
@@ -88,7 +88,6 @@ export class ProfileComponent implements OnInit {
         limit(20)
       );
       let getData = await getDocs(q);
-      console.log(getData.docs.length);
       let arr: any = [];
       getData.forEach((book) => {
         let doc = { id: book.id, ...book.data() };
@@ -100,14 +99,11 @@ export class ProfileComponent implements OnInit {
   }
 
   async getContentChat() {
+    this.isLoader = true;
     let myID = this.myInfo.id,
       otherID = this.selectedUserID;
     let { type: T1 } = this.myInfo; // sender
-
     let idDoc = T1 === 'healer' ? `${myID}_${otherID}` : `${otherID}_${myID}`;
-    console.log('idDoc === ==== ==== ==== ===');
-    console.log(T1);
-    console.log(idDoc);
     const q = query(
       collection(this.functions.store, 'chats'),
       where('id', '==', idDoc),
@@ -120,8 +116,11 @@ export class ProfileComponent implements OnInit {
         arrContetn.push(doc.data());
       });
       this.lines = arrContetn;
-      if (!arrContetn.length) {
+      this.isLoader = false;
+      if (!querySnapshot.docs.length) {
         this.isEmptyContent = true;
+      } else {
+        this.isEmptyContent = false;
       }
     });
   }
@@ -147,7 +146,6 @@ export class ProfileComponent implements OnInit {
     let { type: T1, id: ID1 } = this.myInfo; // sender
     let { type: T2, id: ID2 } = otherUser[0]; // resceiver
     let id = T1 === 'healer' ? `${myID}_${otherID}` : `${otherID}_${myID}`;
-
     let data = {
       id,
       sendAt: Date.now(),

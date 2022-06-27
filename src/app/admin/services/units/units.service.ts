@@ -45,11 +45,8 @@ export class UnitsService {
   checkIsAdmin() {
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
-        let { uid, email } = user;
-        console.log('uid, email');
-        console.log(uid, email);
+        let { email } = user;
         let check = ['div.jo2022@gmail.com'].includes(email);
-        let chec2 = ['gUw7bngGd8PlGw5XxACNfpYJ6zx2'].includes(uid);
         this.isAdmin.next(check);
       }
     });

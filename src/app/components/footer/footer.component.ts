@@ -25,7 +25,6 @@ export class FooterComponent {
   submitSub(form: any) {
     if (form.valid) {
       this.fires.addEmailSubscribe(form.value).then((res) => {
-        console.log('add done');
         this.messageService.add({
           key: 'bc',
           severity: 'success',

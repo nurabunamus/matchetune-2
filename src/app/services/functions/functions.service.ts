@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { doc, getDoc, getFirestore, Firestore } from 'firebase/firestore';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FunctionsService {
-  // URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
-  URL: string = 'http://localhost:5001/matchune/us-central1/app';
+  URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
+  // URL: string = 'http://localhost:5001/matchune/us-central1/app';
 
   //
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
@@ -96,10 +96,8 @@ export class FunctionsService {
     const userDoc = doc(this.store, 'patients', uid);
     const docSnap = await getDoc(userDoc);
     if (docSnap.exists()) {
-      console.log(' i am a patients patients');
       this.dataLogged.next({ ...docSnap.data(), id: uid });
       let { state } = docSnap.data();
-      console.log({ state });
       if (state === 'second_info') {
         this.router.navigate(['details']);
       } else if (state === 'checkout') {
@@ -121,12 +119,10 @@ export class FunctionsService {
 
   // check if user have access
   checkAccess() {
-    console.log('checkAccess === == = = = == =');
     let { state, type } = this.dataLogged.getValue();
     if (!state && type === 'patient') {
       this.router.navigate(['/signup/patient']);
     }
-    console.log(state);
     if (state === 'second_info') {
       this.router.navigate(['details']);
     } else if (state === 'checkout') {

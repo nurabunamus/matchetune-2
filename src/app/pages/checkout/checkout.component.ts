@@ -58,7 +58,9 @@ export class CheckoutComponent implements OnInit {
               paidAt: Date.now(),
             };
             this.functions.updateIsPaid(data).then(() => {
-              this.router.navigate(['/']);
+              this.router.navigate(['/']).then(() => {
+                location.reload();
+              });
             });
           }
         });
