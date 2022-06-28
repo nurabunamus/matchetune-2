@@ -7,16 +7,16 @@
   <form #form2="ngForm" (submit)="saveSecondStep(form2)">
     <div class="bowl_head_tab2">
       <div class="side_ledt_toince">
-        <span>Age</span>
+        <span>Date of birth</span>
         <p-calendar
           name="age"
           [style]="{ minWidth: '100%' }"
           inputId="basic"
-          ngModel
+          [(ngModel)]="age"
         ></p-calendar>
         <p-dropdown
           [options]="sexArr"
-          ngModel
+          [(ngModel)]="sex"
           placeholder="Sex"
           name="sex"
           [style]="{ minWidth: '100%', marginTop: '25px' }"
@@ -69,13 +69,13 @@
 
     <div class="line_sub">
       <span class="p-float-label">
-        <input   minlength="6" id="float-input" type="number" pInputText name="phone" ngModel />
-        <label for="float-input">Phone</label>
+        <input  minlength="6" id="float-input" type="number" pInputText name="phone" ngModel />
+        <label for="float-input">Phone number</label>
       </span>
     </div>
 
     <div class="msg_Valid" *ngIf="isValid">
-      <span>* Plase enter all inputs</span>
+      <span>* Please enter all informations</span>
     </div>
 
     <button type="submit" class="btn_form">

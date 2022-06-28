@@ -241,9 +241,7 @@
           </div>
           <span *ngIf="resumeEvent">file: {{ resumeEvent?.name }}</span>
           <br />
-          <div *ngIf="countPercentUploading" class="isUploading">
-            <span>upload data {{ countPercentUploading }} %</span>
-          </div>
+
           <button type="submit" class="btn_form">
             {{ "signup.submit" | translate }}
             <div class="loader" *ngIf="isLoaderAdd">
@@ -252,6 +250,11 @@
               ></p-progressSpinner>
             </div>
           </button>
+          <br />
+
+          <div *ngIf="countPercentUploading" class="isUploading">
+            <span>upload data {{ countPercentUploading }} %</span>
+          </div>
         </form>
       </div>
     </div>

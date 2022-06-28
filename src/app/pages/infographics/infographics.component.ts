@@ -16,6 +16,7 @@ export class InfographicsComponent implements OnInit {
   approach: any;
   category: any;
   Infographics: any[] = [];
+  skleton: any[] = [0, 1, 23, 4, 56, 7, 8];
   coverPop: string = '';
   constructor(public units: UnitsService, private fires: FunctionsService) {
     this.getFiltersResults();

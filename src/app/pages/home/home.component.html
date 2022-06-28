@@ -467,7 +467,6 @@
         "home.frequently_last_title" | translate
       }}</span>
     </div>
-
     <div class="cards_frequently">
       <div class="card_frequently" (click)="setFreqOpen1()">
         <div class="title_card_freq">
@@ -505,10 +504,8 @@
               />
             </svg>
           </div>
-
           <span>{{ "questions.q1" | translate }}</span>
         </div>
-
         <div *ngIf="freqOpen" class="description_question">
           <span>{{ "questions.answer1" | translate }}</span>
         </div>

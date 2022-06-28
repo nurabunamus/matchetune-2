@@ -120,7 +120,7 @@ export class FunctionsService {
   // check if user have access
   checkAccess() {
     let { state, type } = this.dataLogged.getValue();
-    if (!state && type === 'patient') {
+    if ((!state && type === 'patient') || (!state && !type)) {
       this.router.navigate(['/signup/patient']);
     }
     if (state === 'second_info') {

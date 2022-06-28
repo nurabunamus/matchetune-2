@@ -75,7 +75,7 @@ export class SignuphealerComponent implements OnInit {
       async (sanpshot) => {
         const progress =
           (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
-        this.countPercentUploading = Math.floor(progress) / 2;
+        this.countPercentUploading = Math.floor(progress) / 3;
       },
       (err) => console.log(err),
       async () => {
@@ -98,8 +98,9 @@ export class SignuphealerComponent implements OnInit {
       async (sanpshot) => {
         const progress =
           (sanpshot.bytesTransferred / sanpshot.totalBytes) * 100;
-        this.countPercentUploading =
-          Math.floor(progress) / 2 + this.countPercentUploading - 10;
+        this.countPercentUploading = Math.floor(
+          progress / 3 + (this.countPercentUploading - 10)
+        );
       },
       (err) => console.log(err),
       async () => {

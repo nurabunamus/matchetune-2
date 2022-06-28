@@ -91,12 +91,17 @@ nav.mode {
 }
 
 .avatar_user {
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
     box-shadow: var(--shad_2);
+}
+
+.avatar_user.mode {
+    min-width: 130px;
+    height: 130px;
 }
 
 .btn_reg {
@@ -361,12 +366,14 @@ nav.mode {
 
 .profile_mode {
     display: flex;
+    flex-direction: column;
     padding: 5px;
     border-radius: 5px;
     width: 200px;
     align-items: center;
     margin-top: 30px;
     cursor: pointer;
+
 }
 
 .profile_mode:hover {
@@ -375,7 +382,8 @@ nav.mode {
 
 .profile_mode span {
     margin-left: 15px;
-    font-size: var(--fs-sub-text);
+    font-size: 1.2rem;
+    font-family: var(--cairo);
 }
 
 
@@ -409,6 +417,7 @@ nav.mode {
     opacity: 0;
     transform: translateY(200px);
     animation: comeLines 0.7s ease-in-out forwards 1s;
+    justify-content: center;
 }
 
 .line_mode2:hover {
@@ -422,8 +431,11 @@ nav.mode {
     }
 }
 
+.line_mode2 i {
+    margin-right: 7px;
+}
 
-.line_mode2 i,
 .line_mode2 span {
-    margin-left: 15px;
+    font-size: 1.2rem;
+    font-family: var(--cairo);
 }

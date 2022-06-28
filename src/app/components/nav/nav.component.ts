@@ -33,9 +33,10 @@ export class NavComponent {
             { title: 'nav.healers', path: 'healers' },
           ];
         }
-      } else {
-        this.listMenu = this.listMenu.filter((e) => e.path !== 'healers');
       }
+      //  else {
+      // this.listMenu = this.listMenu.filter((e) => e.path !== 'healers');
+      // }
     });
     functions.isDataLogged$.subscribe((res) => {
       if (Object.keys(res).length) {
@@ -61,5 +62,11 @@ export class NavComponent {
   }
   toggleMenu() {
     this.isOpen = !this.isOpen;
+  }
+
+  routSIgnupMode() {
+    console.log('get');
+    this.toggleMenu();
+    this.functions.togglePopSignup();
   }
 }

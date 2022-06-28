@@ -16,6 +16,7 @@ export class VideosComponent implements OnInit {
   approach: any;
   category: any;
   Videos: any[] = [];
+  skleton: any[] = [0, 1, 23, 4, 56, 7, 8];
 
   constructor(public units: UnitsService, private fires: FunctionsService) {
     this.getFiltersResults();
@@ -25,7 +26,6 @@ export class VideosComponent implements OnInit {
   }
 
   // for infinty scrolling and get data
-
   // rest details when eny event change
   clearLog() {
     this.Videos = [];

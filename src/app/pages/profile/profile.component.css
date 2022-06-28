@@ -1,11 +1,10 @@
 .bowl_Chat {
     display: flex;
-    height: 85vh;
-    width: 90%;
+    height: 90vh;
+    width: 100%;
     margin: auto;
-    margin-top: 13vh;
     border-radius: 10px;
-    box-shadow: var(--shad_2);
+    background-color: #f8fafa;
 }
 
 .loader {
@@ -41,38 +40,19 @@
     width: 100%;
     margin-top: 5px;
     padding: 10px;
+    text-align: center;
 }
 
 .name_user_de span:first-child {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .chat {
     width: calc(100% - 400px);
     display: flex;
+    box-shadow: var(--shad_2);
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
 .users_Chat {
@@ -81,6 +61,7 @@
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
     overflow: auto;
+    background-color: #f8fafa;
 }
 
 .users_Chat::-webkit-scrollbar {
@@ -105,7 +86,9 @@
     user-select: none;
     cursor: pointer;
     border-radius: 7px;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(255, 255, 255);
+    box-shadow: var(--shad_2);
+    font-family: var(--cairo);
 }
 
 .card_user:hover {
@@ -113,7 +96,8 @@
 }
 
 .card_user.active {
-    background-color: var(--Green);
+    color: var(--LightBlue);
+    font-weight: 600;
 }
 
 .avatar_contact {
@@ -169,13 +153,20 @@ textarea {
     outline: none;
     padding: 3px;
     resize: none;
+    background-color: #f8fafa;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .btn_sender {
-    background-color: #eee;
+    background-color: var(--Green);
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.btn_sender p {
+    color: #fff;
 }
 
 
@@ -189,6 +180,8 @@ textarea {
     background-color: rgb(230, 230, 230);
     padding: 6px 12px;
     border-radius: 20px;
+    height: auto;
+    line-height: 35px;
 }
 
 
@@ -208,4 +201,16 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+
+.chat_not button {
+    background-color: var(--Green);
+    width: 170px;
+    height: 50px;
+    color: #fff;
+    margin-top: 20px;
+    font-size: var(--fs-text);
+    border-radius: 10px;
 }

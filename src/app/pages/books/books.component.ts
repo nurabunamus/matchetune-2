@@ -14,6 +14,7 @@ export class BooksComponent implements OnInit {
   language: any;
   status: any;
   approach: any;
+  skleton: any[] = [0, 1, 23, 4, 56, 7, 8];
   category: any;
   Books: any[] = [];
   constructor(public units: UnitsService, private fires: FunctionsService) {

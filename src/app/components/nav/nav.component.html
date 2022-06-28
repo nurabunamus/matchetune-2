@@ -555,7 +555,7 @@
     </div>
 
     <div *ngIf="data" class="profile_mode" (click)="routerToggle()">
-      <div class="avatar_user">
+      <div class="avatar_user mode">
         <img
           [src]="
             data.avatar ||
@@ -564,6 +564,7 @@
           alt="avatar"
         />
       </div>
+      <br />
       <span>Profile</span>
     </div>
 
@@ -579,6 +580,19 @@
       </div>
     </div>
 
+    <br />
+    <br />
+    <br />
+
+    <div *ngIf="!data" class="btns_registerition">
+      <div class="btn_reg signup">
+        <button (click)="routSIgnupMode()">
+          <span>{{ "get_started" | translate }}</span>
+          <i class="pi pi-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
     <div *ngIf="data" class="line_mode2" (click)="functions.logout()">
       <i class="pi pi-fw pi-power-off"></i>
       <span>Quit</span>
@@ -588,5 +602,5 @@
 
 <app-poptypesignup
   *ngIf="functions.isOpenPopSignup$ | async"
-  style="position: fixed; z-index: 100"
+  style="position: fixed; z-index: 1000"
 ></app-poptypesignup>

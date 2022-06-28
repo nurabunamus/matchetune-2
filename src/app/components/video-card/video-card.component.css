@@ -64,6 +64,7 @@
 video {
   width: 800px;
   height: 400px;
+  transition: .3s ease-in-out;
   object-fit: cover;
 }
 
@@ -81,6 +82,32 @@ video {
   background-color: rgb(255, 255, 255);
 }
 
-.get-access{
+.get-access {
   width: 20%;
+}
+
+
+@media screen and (max-width: 900px) {
+  video {
+    width: 550px;
+    height: 320px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  video {
+    width: 400px;
+    height: 280px;
+  }
+}
+
+
+
+@media screen and (max-width: 400px) {
+  video {
+    width: 320px;
+    height: 200px;
+  }
 }

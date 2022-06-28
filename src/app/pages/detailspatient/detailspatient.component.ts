@@ -28,6 +28,8 @@ export class DetailspatientComponent {
   isLoadSign: boolean = false;
   isValid: boolean = false;
   coverReader: string = '';
+  age: string = '';
+  sex: string = '';
   avatarEvent: any;
   sexArr: any = [
     {
@@ -40,43 +42,45 @@ export class DetailspatientComponent {
     },
   ];
 
-  saveSecondStep(form: any) {
-    if (form.valid && !this.avatarEvent) {
-      this.isValid = true;
-      return;
-    }
+  saveSecondStep(form: any): any {
+    console.log(form.valid);
+    console.log(this.age && this.sex);
 
-    this.isValid = false;
-    this.isLoadSign = true;
-    const pathAvatar = `patients/avatar/${Date.now()}_${this.avatarEvent.name.replace(
-      /([^a-z0-9.]+)/gi,
-      ''
-    )}`;
-    const storageFile = ref(this.storage, pathAvatar);
-    const upload = uploadBytesResumable(storageFile, this.avatarEvent);
-    upload.on(
-      'state_changed',
-      () => console.log('upload avatar'),
-      (err) => console.log(err),
-      async () => {
-        await getDownloadURL(upload.snapshot.ref).then((avatar) => {
-          let { country, phone, age, sex } = form.value;
-          let data = {
-            avatar,
-            state: 'checkout',
-            country,
-            phone,
-            age,
-            sex: sex?.code,
-          };
-          this.functions.updateDetailsPatient(data).then(() => {
-            this.router.navigate(['/checkout']).then(() => {
-              location.reload();
+    if (!form.valid || !this.avatarEvent || !this.age || !this.sex) {
+      return (this.isValid = true);
+    } else {
+      this.isValid = false;
+      this.isLoadSign = true;
+      const pathAvatar = `patients/avatar/${Date.now()}_${this.avatarEvent.name.replace(
+        /([^a-z0-9.]+)/gi,
+        ''
+      )}`;
+      const storageFile = ref(this.storage, pathAvatar);
+      const upload = uploadBytesResumable(storageFile, this.avatarEvent);
+      upload.on(
+        'state_changed',
+        () => console.log('upload avatar'),
+        (err) => console.log(err),
+        async () => {
+          await getDownloadURL(upload.snapshot.ref).then((avatar) => {
+            let { country, phone, age, sex } = form.value;
+            let data = {
+              avatar,
+              state: 'checkout',
+              country,
+              phone,
+              age,
+              sex: sex?.code,
+            };
+            this.functions.updateDetailsPatient(data).then(() => {
+              this.router.navigate(['/checkout']).then(() => {
+                location.reload();
+              });
             });
           });
-        });
-      }
-    );
+        }
+      );
+    }
   }
 
   uploadCover(event: Event) {
