@@ -1,5 +1,13 @@
-<div class="bowl_Chat">
-  <div class="details_user" *ngIf="false && !selectedUserID && myInfo">
+<h1>dfhdfhdfh</h1>
+<h1>dfhdfhdfh</h1>
+<h1>dfhdfhdfh</h1>
+<h1>dfhdfhdfh</h1>
+<h1>dfhdfhdfh</h1>
+<h1>dfhdfhdfh</h1>
+
+<!-- 
+
+      <div class="details_user" *ngIf="false && !selectedUserID && myInfo">
     <div class="avatar_user">
       <img [src]="myInfo.avatar" alt="" />
     </div>
@@ -16,49 +24,9 @@
     </div>
   </div>
 
-  <div class="chat" *ngIf="usersChat.length">
-    <div class="users_Chat">
-      <div
-        *ngFor="let item of usersChat"
-        class="card_user"
-        (click)="selectUser(item.id, true)"
-        [class.active]="selectedUserID === item.id"
-      >
-        <div class="avatar_contact">
-          <img [src]="item.avatar" [alt]="item.name" />
-        </div>
-        {{ item.name }}
-        {{ "nav.about" | translate }}
-      </div>
-    </div>
-    <div class="content_chat">
-      <div #scrollMe class="lines_chat">
-        <div class="loader" *ngIf="isLoader && !selectedUserID">
-          <p-progressSpinner
-            [style]="{ width: '50px', height: '50px' }"
-          ></p-progressSpinner>
-        </div>
-        <div class="loader" *ngIf="isEmptyContent">
-          <span>You are now connected. Start the consult!</span>
-        </div>
-        <div
-          class="line"
-          *ngFor="let item of lines"
-          [class.other]="item.sereceivernder.id !== selectedUserID"
-        >
-          <span>{{ item.msg.value }}</span>
-        </div>
-      </div>
-      <div class="sender_msg">
-        <textarea [(ngModel)]="msg" placeholder="Type a message"></textarea>
-        <button class="btn_sender" (click)="sendMsg()">
-          <p class="pi pi-send"></p>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="chat_not" *ngIf="!usersChat.length">
-    <span>You do not have any consult with a healer</span>
-    <button routerLink="/healers">Consult with healer</button>
-  </div>
-</div>
+
+
+
+
+  
+ -->

@@ -181,6 +181,7 @@
   </div>
 
   <div class="user_logged" *ngIf="data">
+    <p class="pi pi-comments" (click)="routerToggle()"></p>
     <div (click)="togglePop()" class="avatar_user">
       <img
         [src]="
@@ -192,7 +193,7 @@
     </div>
     <div *ngIf="openPopUser" (click)="togglePop()" class="layout_pop"></div>
     <div *ngIf="openPopUser" class="pop_user">
-      <div class="logout" (click)="routerToggle()">
+      <div class="logout" (click)="goProfile()">
         <i class="pi pi-user"></i>
         <span>Profile</span>
       </div>

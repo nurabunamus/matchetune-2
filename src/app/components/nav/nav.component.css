@@ -311,6 +311,26 @@ nav.mode {
 
 .user_logged {
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.user_logged>p {
+    color: rgb(97, 97, 97);
+    font-size: 1.7rem;
+    margin-right: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_logged>p:hover {
+    background-color: rgba(226, 226, 226, 0.74);
 }
 
 .layout_pop {

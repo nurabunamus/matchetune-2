@@ -19,6 +19,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DetailspatientComponent } from './pages/detailspatient/detailspatient.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -72,20 +73,23 @@ const routes: Routes = [
     path: 'book/:id',
     component: BookComponent,
   },
-
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'profile/:id',
-    component: ProfileComponent,
+    path: 'chat/:id',
+    component: ChatComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'profile/:id',
-    component: ProfileComponent,
+    path: 'chat/:id',
+    component: ChatComponent,
     canActivate: [AuthGuard],
   },
   {

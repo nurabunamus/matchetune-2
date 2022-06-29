@@ -46,15 +46,18 @@ export class NavComponent {
   }
 
   routerToggle() {
-    this.togglePop();
-    this.isOpen = false;
     if (this.data.type === 'healer') {
-      this.route.navigate([`/profile`]);
+      this.route.navigate([`/chat`]);
     } else if (this.data.state === 'success' && this.data.type === 'patient') {
-      this.route.navigate([`/profile`]);
+      this.route.navigate([`/chat`]);
     } else {
       this.functions.checkAccess();
     }
+  }
+
+  goProfile() {
+    this.togglePop();
+    this.route.navigate([`/profile`]);
   }
 
   togglePop() {
