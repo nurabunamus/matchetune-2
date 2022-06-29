@@ -41,8 +41,15 @@
     </div>
   </div>
   <div class="chat_not" *ngIf="!usersChat.length">
-    <span>You do not have any consult with a healer</span>
-    <button routerLink="/healers">Consult with healer</button>
+    <span *ngIf="myInfo.type === 'patient'"
+      >You do not have any consult with a healer</span
+    >
+    <span *ngIf="myInfo.type === 'healer'"
+      >You have not received any consults yet!</span
+    >
+    <button *ngIf="myInfo.type === 'patient'" routerLink="/healers">
+      Consult with healer
+    </button>
   </div>
 </div>
 
@@ -92,7 +99,14 @@
     </div>
   </div>
   <div class="chat_not" *ngIf="!usersChat.length">
-    <span>You do not have any consult with a healer</span>
-    <button routerLink="/healers">Consult with healer</button>
+    <span *ngIf="myInfo.type === 'patient'"
+      >You do not have any consult with a healer</span
+    >
+    <span *ngIf="myInfo.type === 'healer'"
+      >You have not received any consults yet!</span
+    >
+    <button *ngIf="myInfo.type === 'patient'" routerLink="/healers">
+      Consult with healer
+    </button>
   </div>
 </div>

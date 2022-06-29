@@ -46,7 +46,11 @@ export class UnitsService {
     this.auth.onAuthStateChanged(async (user: any) => {
       if (user) {
         let { email } = user;
-        let check = ['div.jo2022@gmail.com'].includes(email);
+        let check = [
+          'div.jo2022@gmail.com',
+          'noorin.sa.99@gmail.com',
+          'javier@matchetune.com',
+        ].includes(email);
         this.isAdmin.next(check);
       }
     });
@@ -63,9 +67,11 @@ export class UnitsService {
     const authGoogle = new firebase.auth.GoogleAuthProvider();
     this.auth.signInWithPopup(authGoogle).then((res) => {
       let email = res.user?.email || '';
-      let check = ['div.jo2022@gmail.com', 'noorin.sa.99@gmail.com'].includes(
-        email
-      );
+      let check = [
+        'div.jo2022@gmail.com',
+        'noorin.sa.99@gmail.com',
+        'javier@matchetune.com',
+      ].includes(email);
       this.isAdmin.next(check);
     });
   }

@@ -64,6 +64,8 @@
 </main>
 
 <div *ngIf="coverPop" class="pop_cover_imgs">
-  <img [src]="coverPop" alt="" />
+  <div class="">
+    <img [src]="coverPop" alt="" />
+  </div>
   <div class="layout" (click)="clearPop()"></div>
 </div>

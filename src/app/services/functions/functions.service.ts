@@ -222,7 +222,7 @@ export class FunctionsService {
             ],
           })
           .then(() => {
-            this.router.navigate(['/profile', id]).then(() => {
+            this.router.navigate(['/chat', id]).then(() => {
               location.reload();
             });
           });

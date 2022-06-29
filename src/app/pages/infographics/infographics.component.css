@@ -31,9 +31,6 @@ main {
     }
 }
 
-
-
-
 .loader {
     width: 90%;
     display: flex;
@@ -44,7 +41,6 @@ main {
     height: 500px;
     margin: 30px auto;
 }
-
 
 .loadMore {
     margin-top: 20px;

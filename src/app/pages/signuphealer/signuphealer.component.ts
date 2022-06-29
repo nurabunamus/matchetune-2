@@ -139,7 +139,7 @@ export class SignuphealerComponent implements OnInit {
 
     this.functions.addHealer(data).then(() => {
       this.isLoaderAdd = false;
-      this.route.navigate(['/profile']);
+      this.route.navigate(['/']);
     });
   }
 
