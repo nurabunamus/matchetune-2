@@ -46,6 +46,7 @@ export class NavComponent {
   }
 
   routerToggle() {
+    this.toggleMenu();
     if (this.data.type === 'healer') {
       this.route.navigate([`/chat`]);
     } else if (this.data.state === 'success' && this.data.type === 'patient') {

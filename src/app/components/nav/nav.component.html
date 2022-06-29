@@ -193,9 +193,9 @@
     </div>
     <div *ngIf="openPopUser" (click)="togglePop()" class="layout_pop"></div>
     <div *ngIf="openPopUser" class="pop_user">
-      <div class="logout" (click)="goProfile()">
+      <div *ngIf="false" class="logout" (click)="goProfile()">
         <i class="pi pi-user"></i>
-        <span>Profile</span>
+        <span>Massages</span>
       </div>
       <div class="logout" (click)="functions.logout()">
         <i class="pi pi-fw pi-power-off"></i>
@@ -566,7 +566,8 @@
         />
       </div>
       <br />
-      <span>Profile</span>
+      <span>Massages</span>
+      <p class="pi pi-comments"></p>
     </div>
 
     <div class="list_mode">

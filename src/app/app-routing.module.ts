@@ -73,10 +73,10 @@ const routes: Routes = [
     path: 'book/:id',
     component: BookComponent,
   },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-  },
+  // {
+  //   path: 'profile',
+  //   component: ProfileComponent,
+  // },
   {
     path: 'chat',
     component: ChatComponent,

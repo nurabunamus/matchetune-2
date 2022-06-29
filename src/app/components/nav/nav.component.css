@@ -98,11 +98,11 @@ nav.mode {
     cursor: pointer;
     box-shadow: var(--shad_2);
 }
-
+/* 
 .avatar_user.mode {
     min-width: 130px;
     height: 130px;
-}
+} */
 
 .btn_reg {
     height: 40px;
@@ -386,13 +386,20 @@ nav.mode {
 
 .profile_mode {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 5px;
     border-radius: 5px;
     width: 200px;
     align-items: center;
     margin-top: 30px;
     cursor: pointer;
+
+}
+
+
+.profile_mode p{
+    margin-left: 15px;
+    font-size: 1.5rem;
 
 }
 
