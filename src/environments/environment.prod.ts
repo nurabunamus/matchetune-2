@@ -7,7 +7,6 @@ export const environment = {
     authDomain: 'matchune.firebaseapp.com',
     messagingSenderId: '730438131439',
   },
-  production: true,
   firebaseConfig: {
     apiKey: 'AIzaSyBpGHwMSmTEU2Tp7kM_w9AUdOW2qqYZPRw',
     authDomain: 'matchune.firebaseapp.com',
@@ -16,4 +15,10 @@ export const environment = {
     messagingSenderId: '730438131439',
     appId: '1:730438131439:web:b95aa02cd364125a9a451a',
   },
+  production: true,
+
+  BaseUrl: 'https://us-central1-matchune.cloudfunctions.net/app',
+
+
+
 };

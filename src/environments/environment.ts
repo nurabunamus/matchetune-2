@@ -1,5 +1,3 @@
-import { getFirestore } from 'firebase/firestore';
-
 let firebaseConfig = {
   apiKey: 'AIzaSyBpGHwMSmTEU2Tp7kM_w9AUdOW2qqYZPRw',
   authDomain: 'matchune.firebaseapp.com',
@@ -19,8 +17,8 @@ export const environment = {
   },
   production: false,
   firebaseConfig,
-};
 
-// const store = getFirestore(firebaseConfig);
+  BaseUrl: 'http://localhost:5001/matchune/us-central1/app',
+};
 
 export { firebaseConfig };

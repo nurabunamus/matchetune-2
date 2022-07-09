@@ -1,22 +1,10 @@
-<main *ngIf="false">
-  <div class="list_analytics">
-    <div *ngFor="let item of listAnalytics" class="card">
-      <div
-        class="icon"
-        [ngStyle]="{
-          'background-color': item.color
-        }"
-      >
-        <i [class]="item.icon"></i>
-      </div>
-      <div class="content">
-        <div class="title_card">
-          <span>{{ item.title }}</span>
-        </div>
-        <div class="coun_card">
-          <span>{{ item.value }}</span>
-        </div>
-      </div>
+<div class="list_analytics">
+  <div *ngFor="let item of listAnalytics" class="card">
+    <div class="title_card">
+      <span>{{ item.title }}</span>
+    </div>
+    <div class="coun_card">
+      <span>{{ item.value }}</span>
     </div>
   </div>
-</main>
+</div>

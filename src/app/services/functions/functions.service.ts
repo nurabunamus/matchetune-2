@@ -12,10 +12,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FunctionsService {
-  URL: string = 'https://us-central1-matchune.cloudfunctions.net/app';
-  // URL: string = 'http://localhost:5001/matchune/us-central1/app';
+  // url api
+  private URL = environment.BaseUrl;
 
-  //
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
   store = getFirestore(initializeApp(environment.firebaseConfig));

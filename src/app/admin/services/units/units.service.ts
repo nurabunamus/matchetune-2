@@ -28,6 +28,7 @@ export class UnitsService {
   public isAdmin$ = this.isAdmin.asObservable();
 
   store = getFirestore(initializeApp(environment.firebaseConfig));
+
   constructor(private auth: AngularFireAuth, private router: Router) {
     this.getApproaches();
   }

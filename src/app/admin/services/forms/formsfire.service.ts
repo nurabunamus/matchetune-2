@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Storage } from '@angular/fire/storage';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FormsfireService {
-  constructor(private storage: Storage, private firebase: AngularFirestore) {}
+  constructor(private firebase: AngularFirestore, private http: HttpClient) {}
 
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
@@ -44,4 +44,6 @@ export class FormsfireService {
   addCategry(id: string, data: any) {
     return this.firebase.collection('approaches').doc(id).update(data);
   }
+
+  getAdminMain() {}
 }

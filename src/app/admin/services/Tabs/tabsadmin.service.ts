@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class TabsadminService {
+  // to check if the current tab is selected
   private isTabSellect = new BehaviorSubject<string>('home');
   public currentTab$ = this.isTabSellect.asObservable();
 
@@ -15,9 +16,9 @@ export class TabsadminService {
   private set Tab(val: string) {
     this.isTabSellect.next(val);
   }
+
+  // to set the current tab
   setCurrentTab(label: string) {
     this.Tab = label;
   }
-
-  constructor() {}
 }
