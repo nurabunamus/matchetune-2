@@ -25,6 +25,7 @@
 
 
 .title_card {
+    text-transform: capitalize;
     font-size: var(--fs-sub-text);
 }
 

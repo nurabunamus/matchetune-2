@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FormsfireService {
   constructor(private firebase: AngularFirestore, private http: HttpClient) {}
-
+  private BASEURL = environment.BASEURL;
   store = getFirestore(initializeApp(environment.firebaseConfig));
 
   addBook(data: any) {
@@ -45,5 +45,7 @@ export class FormsfireService {
     return this.firebase.collection('approaches').doc(id).update(data);
   }
 
-  getAdminMain() {}
+  getAdminMain() {
+    return this.http.get(`${this.BASEURL}/analytics`);
+  }
 }

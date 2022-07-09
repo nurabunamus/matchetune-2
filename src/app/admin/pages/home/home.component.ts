@@ -8,10 +8,13 @@ import { TabsadminService } from '../../services/Tabs/tabsadmin.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  listAnalytics: any = [];
+  listAnalytics: any = {};
   constructor(public tab: TabsadminService, private forms: FormsfireService) {
     this.tab.setCurrentTab('dashboard');
-    this.forms.getAdminMain();
+    this.forms.getAdminMain().subscribe((data) => {
+      this.listAnalytics = data;
+      console.log(data);
+    });
   }
   ngOnInit(): void {}
 }

@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FunctionsService {
-  // url api
+  // API url 
   private BASEURL = environment.BASEURL;
 
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
@@ -179,8 +179,6 @@ export class FunctionsService {
   }
 
   getFilters(type: string, data: any) {
-    console.log({ BASEURL: this.BASEURL });
-
     return this.http.post(`${this.BASEURL}/filters`, {
       type,
       options: data,

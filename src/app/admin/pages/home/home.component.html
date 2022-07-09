@@ -1,4 +1,4 @@
-<div class="list_analytics">
+<div class="list_analytics" *ngIf="listAnalytics.length">
   <div *ngFor="let item of listAnalytics" class="card">
     <div class="title_card">
       <span>{{ item.title }}</span>

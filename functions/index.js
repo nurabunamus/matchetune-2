@@ -4,13 +4,11 @@ const app = express();
 const cors = require("cors");
 const stripePaid = require("./routes/stripePaid");
 const filters = require("./routes/filters");
+const analytics = require("./routes/analytics");
 app.use(cors({ origin: true }));
 
 app.post("/stripe", stripePaid);
 app.post("/filters", filters);
-
-app.get("/", (req, res) => {
-  res.json({ msg: "its woek" });
-});
+app.get("/analytics", analytics);
 
 exports.app = functions.https.onRequest(app);
