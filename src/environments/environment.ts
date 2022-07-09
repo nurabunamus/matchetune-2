@@ -18,7 +18,7 @@ export const environment = {
   production: false,
   firebaseConfig,
 
-  BaseUrl: 'http://localhost:5001/matchune/us-central1/app',
+  BASEURL: 'http://localhost:5001/matchune/us-central1/app',
 };
 
 export { firebaseConfig };

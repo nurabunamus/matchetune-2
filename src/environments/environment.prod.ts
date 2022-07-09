@@ -17,8 +17,5 @@ export const environment = {
   },
   production: true,
 
-  BaseUrl: 'https://us-central1-matchune.cloudfunctions.net/app',
-
-
-
+  BASEURL: 'https://us-central1-matchune.cloudfunctions.net/app',
 };

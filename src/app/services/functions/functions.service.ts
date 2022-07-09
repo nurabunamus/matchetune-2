@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FunctionsService {
   // url api
-  private URL = environment.BaseUrl;
+  private BASEURL = environment.BASEURL;
 
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
   public isOpenPopSignup$ = this.isOpenPopSignup.asObservable();
@@ -179,14 +179,16 @@ export class FunctionsService {
   }
 
   getFilters(type: string, data: any) {
-    return this.http.post(`${this.URL}/filters`, {
+    console.log({ BASEURL: this.BASEURL });
+
+    return this.http.post(`${this.BASEURL}/filters`, {
       type,
       options: data,
     });
   }
 
   checkPaid(data: any) {
-    return this.http.post(`${this.URL}/stripe`, data);
+    return this.http.post(`${this.BASEURL}/stripe`, data);
   }
 
   async updateIsPaid(data: any) {
