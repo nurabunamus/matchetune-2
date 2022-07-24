@@ -33,7 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { MessageService } from 'primeng/api';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
@@ -52,7 +51,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     MaterialModule,
-    PdfViewerModule,
     NgxDocViewerModule,
 
     // for languges ------------

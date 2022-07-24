@@ -26,7 +26,6 @@
     "@stripe/stripe-js": "^1.32.0",
     "firebase": "^9.8.3",
     "firebase-functions": "^3.21.2",
-    "ng2-pdf-viewer": "^9.0.0",
     "ngx-doc-viewer": "^2.1.2",
     "primeicons": "^5.0.0",
     "primeng": "^13.3.2",
