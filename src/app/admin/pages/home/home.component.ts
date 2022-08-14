@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
     this.tab.setCurrentTab('dashboard');
     this.forms.getAdminMain().subscribe((data) => {
       this.listAnalytics = data;
-      console.log(data);
     });
   }
   ngOnInit(): void {}

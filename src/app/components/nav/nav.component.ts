@@ -34,9 +34,6 @@ export class NavComponent {
           ];
         }
       }
-      //  else {
-      // this.listMenu = this.listMenu.filter((e) => e.path !== 'healers');
-      // }
     });
     functions.isDataLogged$.subscribe((res) => {
       if (Object.keys(res).length) {
@@ -69,7 +66,6 @@ export class NavComponent {
   }
 
   routSIgnupMode() {
-    console.log('get');
     this.toggleMenu();
     this.functions.togglePopSignup();
   }

@@ -41,8 +41,8 @@ export class ChatComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  backChatMode(){
-    this.selectedUserID = ""
+  backChatMode() {
+    this.selectedUserID = '';
   }
 
   constructor(
@@ -113,8 +113,6 @@ export class ChatComponent implements OnInit {
         arr.push(doc);
       });
       this.usersChat = arr;
-      console.log(this.selectedUserID);
-      console.log(this.selectedUserID);
       if (!this.selectedUserID && this.innerWidth > 600) {
         this.selectedUserID = arr[0].id;
       }

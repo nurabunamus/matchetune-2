@@ -50,7 +50,6 @@ export class InfographicsComponent implements OnInit {
     this.fires
       .getFilters('infographics', { status, language, approach, category })
       .subscribe((res: any) => {
-        console.log(res);
         if (!res.length) {
           this.isEmpty = true;
         } else {

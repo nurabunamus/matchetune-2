@@ -43,9 +43,6 @@ export class DetailspatientComponent {
   ];
 
   saveSecondStep(form: any): any {
-    console.log(form.valid);
-    console.log(this.age && this.sex);
-
     if (!form.valid || !this.avatarEvent || !this.age || !this.sex) {
       return (this.isValid = true);
     } else {

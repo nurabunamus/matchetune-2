@@ -60,8 +60,6 @@ export class UsersComponent implements OnInit {
       } else {
         getData.forEach((book) => {
           let doc = { id: book.id, ...book.data() };
-          console.log(doc);
-
           this.healers.push(doc);
         });
       }

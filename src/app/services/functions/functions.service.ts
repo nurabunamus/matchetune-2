@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FunctionsService {
-  // API url 
+  // API url
   private BASEURL = environment.BASEURL;
 
   private isOpenPopSignup = new BehaviorSubject<boolean>(false);
@@ -121,8 +121,7 @@ export class FunctionsService {
     let { state, type } = this.dataLogged.getValue();
     if ((!state && type === 'patient') || (!state && !type)) {
       this.router.navigate(['/signup/patient']);
-    }
-    if (state === 'second_info') {
+    } else if (state === 'second_info') {
       this.router.navigate(['details']);
     } else if (state === 'checkout') {
       this.router.navigate(['checkout']);
